@@ -1,20 +1,20 @@
 package com.dev.filrouge.service;
 
 import com.dev.filrouge.model.Utilisateur;
-import com.dev.filrouge.repo.UserRepo;
+import com.dev.filrouge.repo.UtilisateurRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserService {
+public class UtilisateurService {
     @Autowired
-    UserRepo userRepo;
+    UtilisateurRepo utilisateurRepo;
 
     public void save(Utilisateur user){
-        userRepo.save(user);
+        utilisateurRepo.save(user);
     }
 
     public Utilisateur findByName(String name){
-        return userRepo.findByName(name);
+        return utilisateurRepo.findByName(name);
     }
 }
