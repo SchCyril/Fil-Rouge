@@ -10,7 +10,7 @@ import com.dev.filrouge.repo.ProduitRepo;
 public class ProduitService {
 	
 	@Autowired
-	ProduitRepo produitRepo;
+	public ProduitRepo produitRepo;
 	
 	public void save(Produit produit) {
 		produitRepo.save(produit);

@@ -29,17 +29,17 @@ public class LoginController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UtilisateurService userService;
+    private UtilisateurService utilisateurService;
 
     @PostMapping
     public void createUser(@RequestBody Map<String, String> action) {
-        userService.save(new Utilisateur(action.get("login"), passwordEncoder.encode(action.get("mdp")), action.get("name"), action.get("role")));
+        utilisateurService.save(new Utilisateur(action.get("login"), passwordEncoder.encode(action.get("mdp")), action.get("name"), action.get("role")));
     }
 
     @RequestMapping(value="user", method=RequestMethod.GET)
     public Utilisateur getConnectedUser(Principal principal) {
         if (principal != null) {
-            return userService.findByName(principal.getName());
+            return utilisateurService.findByName(principal.getName());
         }
         return null;
     }

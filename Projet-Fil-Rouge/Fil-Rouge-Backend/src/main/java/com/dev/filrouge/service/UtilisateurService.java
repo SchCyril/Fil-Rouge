@@ -8,14 +8,15 @@ import com.dev.filrouge.repo.UtilisateurRepo;
 
 @Service
 public class UtilisateurService {
+	
     @Autowired
-    UtilisateurRepo userRepo;
+    UtilisateurRepo utilisateurRepo;
 
     public void save(Utilisateur user){
-        userRepo.save(user);
+        utilisateurRepo.save(user);
     }
 
     public Utilisateur findByName(String name){
-        return userRepo.findByName(name);
+        return utilisateurRepo.findByName(name);
     }
 }
