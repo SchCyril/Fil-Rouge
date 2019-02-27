@@ -1,8 +1,11 @@
 package com.dev.filrouge.repo;
-import com.dev.filrouge.model.User;
+
+import com.dev.filrouge.model.Utilisateur;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserRepo extends JpaRepository<User, Long> {
+@Repository
+public interface UserRepo extends JpaRepository<Utilisateur, Long> {
 
-    public User findByName(String name);
+    public Utilisateur findByName(String name);
 }

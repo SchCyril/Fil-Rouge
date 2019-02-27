@@ -1,10 +1,9 @@
 package com.dev.filrouge.controller;
 
 import java.security.Principal;
-import java.util.List;
 import java.util.Map;
-import com.dev.filrouge.model.User;
-import com.dev.filrouge.repo.UserRepo;
+import com.dev.filrouge.model.Utilisateur;
+import com.dev.filrouge.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -28,17 +27,17 @@ public class LoginController {
     private PasswordEncoder passwordEncoder;
 
     @Autowired
-    private UserRepo ur;
+    private UserService userService;
 
     @PostMapping
     public void createUser(@RequestBody Map<String, String> action) {
-        ur.save(new User(action.get("login"), passwordEncoder.encode(action.get("mdp")), action.get("name"), action.get("role")));
+        userService.save(new Utilisateur(action.get("login"), passwordEncoder.encode(action.get("mdp")), action.get("name"), action.get("role")));
     }
 
     @RequestMapping(value="user", method=RequestMethod.GET)
-    public User getConnectedUser(Principal principal) {
+    public Utilisateur getConnectedUser(Principal principal) {
         if (principal != null) {
-            return ur.findByName(principal.getName());
+            return userService.findByName(principal.getName());
         }
         return null;
     }
