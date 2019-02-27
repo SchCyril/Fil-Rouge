@@ -36,9 +36,9 @@ public class LoginController {
     }
 
     @RequestMapping(value="user", method=RequestMethod.GET)
-    public String getConnectedUser(Principal principal) {
+    public User getConnectedUser(Principal principal) {
         if (principal != null) {
-            return principal.getName();
+            return ur.findByName(principal.getName());
         }
         return null;
     }
