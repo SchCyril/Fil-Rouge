@@ -1,17 +1,94 @@
+<!-- <div class="form justity-content-center">
+  <form>
+    <div class="row">
+      <div class="col">
+        Nom :<br>
+        <input type="text" name="nom" #champNom="ngModel" [(ngModel)]="produitNew.nom" /><br>
+      </div>
+
+      <div class="col">
+        Stock : <br>
+        <input type="number" name="stock" #champStock="ngModel" [(ngModel)]="produitNew.stock" /><br>
+      </div>
+
+      <div class="col">
+        Prix : <br>
+        <input type="number" name="prix" #champPrix="ngModel" [(ngModel)]="produitNew.prix" /><br>
+      </div>
+
+    </div>
+
+
+    <div class="row">
+      <div class="col">
+        Categorie : <br>
+        <input type="text" name="categorie" #champsCategorie="ngModel" [(ngModel)]="produitNew.categorie" /><br>
+      </div>
+
+      <div class="col">
+        Sous_categorie : <br>
+        <input type="text" name="sous_categorie" #champSous_categorie="ngModel"
+          [(ngModel)]="produitNew.sous_categorie" /><br>
+      </div>
+
+      <div class="col">
+        Image : <br>
+        <input type="text" name="image" #champImage="ngModel" [(ngModel)]="produitNew.image" /><br>
+      </div>
+    </div>
+    <div class="row">
+      Description : <br>
+      <input type="text" name="desc" #champDescription="ngModel" [(ngModel)]="produitNew.desc" /><br>
+    </div>
+    <button type="submit" (click)="creation()">Ajouter</button>
+  </form>
+</div>
+ -->
+
+
 <form>
-  Nom :<br>
-  <input type="text" name="nom" #champNom="ngModel" [(ngModel)]="produitNew.nom" /><br>
-  Description : <br>
-  <input type="text" name="desc" #champPseudo="ngModel" [(ngModel)]="produitNew.desc" /><br>
-  Prix : <br>
-  <input type="number" name="prix" #champUrl="ngModel" [(ngModel)]="produitNew.prix" /><br>
-  Categorie : <br>
-  <input type="text" name="categorie" #champsdsqm="ngModel" [(ngModel)]="produitNew.categorie" /><br>
-  Sous_categorie : <br>
-  <input type="text" name="sous_categorie" #champmqsldq="ngModel" [(ngModel)]="produitNew.sous_categorie" /><br>
-  Image : <br>
-  <input type="text" name="image" #champsqmdqsq="ngModel" [(ngModel)]="produitNew.image" /><br>
-  Stock : <br>
-  <input type="number" name="stock" #champMazpoza="ngModel" [(ngModel)]="produitNew.stock" /><br>
-  <button type="submit" (click)="creation()">Ajouter</button>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="nom">Nom du produit</label>
+      <input type="text" class="form-control" name="nom" #champNom="ngModel" [(ngModel)]="produitNew.nom" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="Quantité">Quantité reçue</label>
+      <input type="number" class="form-control" name="stock" #champStock="ngModel" [(ngModel)]="produitNew.stock" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="prix">Prix unitaire</label>
+      <input type="number" class="form-control" name="prix" #champPrix="ngModel" [(ngModel)]="produitNew.prix" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="text">Description du produit</label>
+    <input type="text" name="desc" class="form-control" #champDescription="ngModel" [(ngModel)]="produitNew.desc" />
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputState">Categorie</label>
+    <select id="inputState" class="form-control">
+      <option selected>A toi de jouer !</option>
+      <option>Livre</option>
+      <option>Jeux Videos</option>
+      <option>DVD</option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputState">Sous-Catégorie</label>
+    <select id="inputState" class="form-control">
+      <option selected>A toi de jouer !</option>
+      <option>Livre</option>
+      <option>Jeux Videos</option>
+      <option>DVD</option>
+    </select>
+  </div>
+
+  <div class="justity-content-center">
+    <button type="submit" class="btn btn-primary">Register</button>
+  </div>
 </form>
