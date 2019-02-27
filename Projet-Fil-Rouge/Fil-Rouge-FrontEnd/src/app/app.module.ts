@@ -5,17 +5,26 @@ import { AppComponent } from './app.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { AccueilAdminComponent } from './accueil-admin/accueil-admin.component';
+import { FormsModule }   from '@angular/forms';
+import { AppRoutingModule } from './app-routing.module';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { HttpClientModule } from '@angular/common/http';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuAdminComponent,
     DropdownComponent,
-    AccueilAdminComponent
+    AccueilAdminComponent,
+    LoginPageComponent
   ],
   imports: [
     BrowserModule,
-    NgbModule
+    NgbModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
