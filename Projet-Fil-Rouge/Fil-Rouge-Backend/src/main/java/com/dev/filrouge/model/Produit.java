@@ -12,34 +12,36 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "produit")
 @SequenceGenerator(name = "seq_produit_id")
-public class Produit{
+public class Produit {
 
-    private static final long serialVersionUID = 1L;
-    @Id
+	private static final long serialVersionUID = 1L;
+	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_produit_id")
-    Long id;
+	Long id;
 	@Column
-    String nom;
-    @Column
-    String description;
-    @Column
-    float prix;
-    @Column
-    String catégorie;
-    @Column
-    String sousCategorie;
-    @Column
-    String image;
-    @Column
-    int stock;
-    @ManyToOne
-    Commande commande;
-    
-    public Produit(){
-    }
-    
-    public Produit(String nom, String description, float prix, String catégorie, String sousCategorie, String image,
-			int stock, Commande commande) {
+	String nom;
+	@Column
+	String description;
+	@Column
+	float prix;
+	@Column
+	String catégorie;
+	@Column
+	String sousCategorie;
+	@Column
+	String image;
+	@Column
+	int stock;
+	@Column
+	boolean actif;
+	@ManyToOne
+	Commande commande;
+
+	public Produit() {
+	}
+
+	public Produit(String nom, String description, float prix, String catégorie, String sousCategorie, String image,
+			int stock, boolean actif, Commande commande) {
 		super();
 		this.nom = nom;
 		this.description = description;
@@ -48,11 +50,17 @@ public class Produit{
 		this.sousCategorie = sousCategorie;
 		this.image = image;
 		this.stock = stock;
+		this.actif = actif;
 		this.commande = commande;
 	}
 
+	public boolean isActif() {
+		return actif;
+	}
 
-
+	public void setActif(boolean actif) {
+		this.actif = actif;
+	}
 
 	public String getNom() {
 		return nom;
@@ -126,5 +134,4 @@ public class Produit{
 		return serialVersionUID;
 	}
 
-    
 }

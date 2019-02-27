@@ -23,8 +23,10 @@ public class ProduitController {
 	@PostMapping
 	public void create(@RequestBody Map<String,String> action) {
 		produitService.create(new Produit(action.get("nom"),action.get("desc"),Float.parseFloat(action.get("prix")),
-				action.get("categorie"),action.get("sous-categorie"),action.get("image"),
-				Integer.parseInt(action.get("stock")),null));
+				action.get("categorie"),action.get("sous_categorie"),action.get("image"),
+				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif")),null
+				));
+		System.out.println("etsté");
 	}
 	
 }
