@@ -1,4 +1,3 @@
-
 export interface Produit {
     nom: string;
     desc: string;

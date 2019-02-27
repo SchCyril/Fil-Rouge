@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbAlertModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { MenuComponent } from './menu/menu.component';
 import { AppComponent } from './app.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
@@ -10,7 +11,8 @@ import { RouterModule } from '@angular/router';
 import { CreerProduitAdminComponent } from './creer-produit-admin/creer-produit-admin.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,14 +20,17 @@ import { HttpClientModule } from '@angular/common/http';
     MenuAdminComponent,
     DropdownComponent,
     AccueilAdminComponent,
-    CreerProduitAdminComponent
+    CreerProduitAdminComponent,
+    LoginPageComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
