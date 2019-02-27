@@ -1,0 +1,15 @@
+#nav {
+    display: flex;
+    justify-content: space-between;
+}
+
+.recherche {
+    width: 50rem;
+    display: flex;
+}
+
+.search-drop {
+    display: flex;
+    flex-direction: row;
+}
+
