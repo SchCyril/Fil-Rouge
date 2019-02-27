@@ -10,7 +10,7 @@ import { NgbDropdown, NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
 export class MenuComponent implements OnInit {
 
   constructor(config: NgbDropdownConfig) {
-    config.placement = "bottom";
+    config.placement = "bottom-right";
     config.autoClose = true;
    }
 
