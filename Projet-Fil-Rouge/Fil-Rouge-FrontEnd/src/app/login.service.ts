@@ -16,7 +16,7 @@ export class LoginService {
 
   constructor(private _http: HttpClient) { }
 
-  connect(utilisateur: Utilisateur):Observable<any>{
+  connect(utilisateur: any): Observable<any> {
     let authHeader: string = btoa(utilisateur.login + ":" + utilisateur.password);
     httpOptions.headers = httpOptions.headers.set("Authorization", "Basic " + authHeader);
 

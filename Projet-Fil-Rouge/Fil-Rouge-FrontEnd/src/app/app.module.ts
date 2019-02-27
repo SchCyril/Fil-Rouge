@@ -6,10 +6,13 @@ import { AppComponent } from './app.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { AccueilAdminComponent } from './accueil-admin/accueil-admin.component';
+import { ROUTES } from "./app.routes"
+import { RouterModule } from '@angular/router';
+import { CreerProduitAdminComponent } from './creer-produit-admin/creer-produit-admin.component';
 import { FormsModule } from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { LoginPageComponent } from './login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -18,14 +21,17 @@ import { HttpClientModule } from '@angular/common/http';
     MenuComponent,
     DropdownComponent,
     AccueilAdminComponent,
-    LoginPageComponent
+    CreerProduitAdminComponent,
+    LoginPageComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]
