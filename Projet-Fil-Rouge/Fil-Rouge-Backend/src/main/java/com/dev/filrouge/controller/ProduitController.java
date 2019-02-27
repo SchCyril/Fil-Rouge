@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.filrouge.model.Produit;
+import com.dev.filrouge.repo.ProduitRepoImpl;
 import com.dev.filrouge.service.ProduitService;
 
 @RestController
@@ -25,8 +26,8 @@ public class ProduitController {
 	private ProduitService produitService;
 	
 	
-//	@Autowired
-//    ProduitRepoImpl produitRepoImpl;
+	@Autowired
+    ProduitRepoImpl produitRepoImpl;
 	
 	@PostMapping
 	public void create(@RequestBody Map<String,String> action) {
@@ -46,9 +47,9 @@ public class ProduitController {
     }
 
     //Liste paginée avec critères
-//    @PostMapping(value="critere")
-//    public List<Produit> postMethodName(@RequestBody Map<String, String> action) {
-//        return produitRepoImpl.search(Integer.parseInt(action.get("page")), action.get("name"), action.get("categorie"), action.get("sousCategorie"), action.get("prix"), true);
-//    }
+    @PostMapping(value="critere")
+    public List<Produit> postMethodName(@RequestBody Map<String, String> action) {
+        return produitRepoImpl.search(Integer.parseInt(action.get("page")), action.get("name"), action.get("categorie"), action.get("sousCategorie"), action.get("prix"), true);
+    }
 	
 }
