@@ -7,6 +7,7 @@ export interface Produit {
     image: string;
     stock: number;
     commande: Commande;
+    actif: boolean
 
 }
 

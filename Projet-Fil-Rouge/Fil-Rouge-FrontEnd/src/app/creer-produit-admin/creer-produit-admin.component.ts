@@ -17,7 +17,8 @@ export class CreerProduitAdminComponent implements OnInit {
     sous_categorie: '',
     image: '',
     stock: 0,
-    commande: null
+    commande: null,
+    actif: true
   }
   constructor(private _srv: ProduitService) {
   }
