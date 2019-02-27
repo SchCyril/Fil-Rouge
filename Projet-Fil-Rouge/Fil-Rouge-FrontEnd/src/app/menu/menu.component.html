@@ -1,0 +1,59 @@
+<nav class="navbar navbar-dark bg-dark" id="nav">
+
+  <img
+    src="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F02%2F22%2F04%2F24%2F31%2Fb7bd820a-ecc0-4170-8f4e-3db2e73b0f4a%2F550250_artsigma.png?auto=format&ch=Width%2CDPR&w=250&h=60">
+
+  <div class="recherche">
+    <div class="dropdown">
+      <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
+        <button class="btn btn-outline-primary" ngbDropdownToggle>Drop me</button>
+        <div class="dropdown-menu" ngbDropdownMenu>
+
+          <ul class="dropdown-menu"></ul>
+            <li class="dropdown-submenu">
+              <a tabindex="-1" href="#">Sous-section</a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Troisième niveau</a></li>
+                <li><a href="#">Troisième niveau</a></li>
+                <li class="dropdown-submenu">
+                  <a href="#">Sous-section</a>
+                  <ul class="dropdown-menu">
+                    <li><a href="#">Quatrième niveau</a></li>
+                    <li class="dropdown-submenu">
+                      <a href="#">Sous-section</a>
+                      <ul class="dropdown-menu">
+                        <li><a href="#">Cinquième niveau</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            
+         
+
+        </div>
+      </div>
+    </div>
+
+    <input type="text" id="search_text" name="search[search_text]" required="required" class="form-control border-0"
+      placeholder="Chercher un livre, un dvd, ..." data-placeholder="Chercher un livre, un dvd, ..."
+      data-mobile-placeholder="Rechercher" autocomplete="off">
+
+  </div>
+
+  <div class="icone">
+    <button style="background-color:#343a40; border:none"><img src="../../assets/img/icone-panier.png"
+        id="img"></button>
+    <div class="btn-group" ngbDropdown role="group">
+      <button ngbDropdownToggle style="background-color:#343a40; border:none"><img src="../../assets/img/icone_log.png"
+          id="img"></button>
+      <div class="dropdown-menu" ngbDropdownMenu>
+        <button class="dropdown-item">Mon profil</button>
+        <button class="dropdown-item">Mes commandes</button>
+        <button class="dropdown-item">Mon panier </button>
+        <button class="dropdown-item">Déconnexion</button>
+
+      </div>
+    </div>
+  </div>

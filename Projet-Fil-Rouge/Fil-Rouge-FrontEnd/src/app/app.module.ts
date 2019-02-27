@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {NgbPaginationModule, NgbAlertModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { MenuComponent } from './menu/menu.component';
 import { AppComponent } from './app.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
@@ -9,7 +10,6 @@ import { FormsModule }   from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { HttpClientModule } from '@angular/common/http';
-
 
 @NgModule({
   declarations: [
@@ -20,6 +20,7 @@ import { HttpClientModule } from '@angular/common/http';
     LoginPageComponent
   ],
   imports: [
+    MenuComponent,
     BrowserModule,
     NgbModule,
     AppRoutingModule,
