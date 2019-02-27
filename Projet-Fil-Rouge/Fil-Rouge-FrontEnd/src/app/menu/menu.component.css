@@ -17,5 +17,22 @@
     width: 3rem;
     height: 4vh;
 } 
-    
 
+.row {
+    width: 50%;
+    display: flex;
+}
+
+#search {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#catbar {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#bar-search {
+    margin-left: -25px;
+}
