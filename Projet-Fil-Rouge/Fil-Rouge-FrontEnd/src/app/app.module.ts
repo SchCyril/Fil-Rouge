@@ -1,18 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import {NgbPaginationModule, NgbAlertModule, NgbModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbPaginationModule, NgbAlertModule, NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MenuComponent } from './menu/menu.component';
 import { AppComponent } from './app.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { AccueilAdminComponent } from './accueil-admin/accueil-admin.component';
-import { FormsModule }   from '@angular/forms';
-import { AppRoutingModule } from './app-routing.module';
-import { LoginPageComponent } from './login-page/login-page.component';
+import { ROUTES } from "./app.routes"
+import { RouterModule } from '@angular/router';
+import { CreerProduitAdminComponent } from './creer-produit-admin/creer-produit-admin.component';
+import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { ProduitComponent } from './produit/produit.component';
 import { AccueilComponent } from './accueil/accueil.component';
+import { LoginPageComponent } from './login-page/login-page.component';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -22,17 +25,20 @@ import { AccueilComponent } from './accueil/accueil.component';
     ProduitComponent,
     AccueilComponent,
     MenuAdminComponent,
+    MenuComponent,
     DropdownComponent,
     AccueilAdminComponent,
-    LoginPageComponent
+    CreerProduitAdminComponent,
+    LoginPageComponent,
+    MenuComponent
   ],
   imports: [
-    MenuComponent,
     BrowserModule,
     NgbModule,
-    AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(ROUTES),
+    AppRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,0 +1,17 @@
+<form>
+  Nom :<br>
+  <input type="text" name="nom" #champNom="ngModel" [(ngModel)]="produitNew.nom" /><br>
+  Description : <br>
+  <input type="text" name="desc" #champPseudo="ngModel" [(ngModel)]="produitNew.desc" /><br>
+  Prix : <br>
+  <input type="number" name="prix" #champUrl="ngModel" [(ngModel)]="produitNew.prix" /><br>
+  Categorie : <br>
+  <input type="text" name="categorie" #champsdsqm="ngModel" [(ngModel)]="produitNew.categorie" /><br>
+  Sous_categorie : <br>
+  <input type="text" name="sous_categorie" #champmqsldq="ngModel" [(ngModel)]="produitNew.sous_categorie" /><br>
+  Image : <br>
+  <input type="text" name="image" #champsqmdqsq="ngModel" [(ngModel)]="produitNew.image" /><br>
+  Stock : <br>
+  <input type="number" name="stock" #champMazpoza="ngModel" [(ngModel)]="produitNew.stock" /><br>
+  <button type="submit" (click)="creation()">Ajouter</button>
+</form>
