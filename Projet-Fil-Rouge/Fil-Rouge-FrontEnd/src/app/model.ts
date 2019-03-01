@@ -1,4 +1,5 @@
 export interface Produit {
+    id: number,
     nom: string;
     desc: string;
     prix: number;
@@ -23,8 +24,6 @@ export interface Utilisateur {
     num_client: string;
     role: string;
     liste_commandes: Commande[];
-
-
 }
 
 export interface Commande {
