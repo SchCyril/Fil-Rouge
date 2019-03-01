@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Produit } from '../modele';
+import { Produit } from '../model';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -8,7 +8,7 @@ import { DataService } from '../service/data.service';
   styleUrls: ['./produit.component.css']
 })
 export class ProduitComponent implements OnInit {
-  
+
   @Input() produit: Produit;
 
   constructor(private _data: DataService) { }

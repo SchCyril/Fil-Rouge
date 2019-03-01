@@ -10,6 +10,7 @@ import { ROUTES } from "./app.routes"
 import { RouterModule } from '@angular/router';
 import { CreerProduitAdminComponent } from './creer-produit-admin/creer-produit-admin.component';
 import { FormsModule } from '@angular/forms';
+import { NgxPaginationModule } from 'ngx-pagination';
 import { HttpClientModule } from '@angular/common/http';
 import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { ProduitComponent } from './produit/produit.component';
@@ -18,6 +19,8 @@ import { LoginPageComponent } from './login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-commandes-admin.component';
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
+import { ListeProduitsAdminComponent } from './liste-produits-admin/liste-produits-admin.component';
+import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail-produit.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +36,16 @@ import { ModificationProduitAdminComponent } from './modification-produit-admin/
     LoginPageComponent,
     MenuComponent,
     ModificationProduitAdminComponent,
-    HistoCommandesAdminComponent
+    HistoCommandesAdminComponent,
+    ListeProduitsAdminComponent,
+    FicheDetailProduitComponent
   ],
   imports: [
     BrowserModule,
     NgbModule,
     FormsModule,
     HttpClientModule,
+    NgxPaginationModule,
     RouterModule.forRoot(ROUTES),
     AppRoutingModule
   ],

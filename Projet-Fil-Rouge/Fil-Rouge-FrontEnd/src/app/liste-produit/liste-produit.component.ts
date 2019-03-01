@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Produit } from '../../app/modele';
+import { Produit } from '../../app/model';
 import { DataService } from '../service/data.service';
 
 @Component({
@@ -9,16 +9,16 @@ import { DataService } from '../service/data.service';
 })
 export class ListeProduitComponent implements OnInit {
 
-  produits:Produit[];
+  produits: Produit[];
 
-  constructor(private _data:DataService) { }
+  constructor(private _data: DataService) { }
 
   ngOnInit() {
     this._data.lister().subscribe(value => {
-     this.produits = value;
-     console.log(value)
+      this.produits = value;
+      console.log(value)
     }
-     
+
     )
   }
 
