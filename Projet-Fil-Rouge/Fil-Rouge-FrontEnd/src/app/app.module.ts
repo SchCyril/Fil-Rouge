@@ -16,6 +16,7 @@ import { ProduitComponent } from './produit/produit.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { AppRoutingModule } from './app-routing.module';
     AccueilAdminComponent,
     CreerProduitAdminComponent,
     LoginPageComponent,
-    MenuComponent
+    MenuComponent,
+    ModificationProduitAdminComponent
   ],
   imports: [
     BrowserModule,

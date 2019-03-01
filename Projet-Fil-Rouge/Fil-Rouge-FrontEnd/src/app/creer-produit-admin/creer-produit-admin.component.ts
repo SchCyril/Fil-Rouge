@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produit } from '../model';
-import { ProduitService } from '../produit.service';
+import { ProduitService } from '../service/produit.service';
 
 @Component({
   selector: 'app-creer-produit-admin',
@@ -10,6 +10,7 @@ import { ProduitService } from '../produit.service';
 export class CreerProduitAdminComponent implements OnInit {
 
   produitNew: Produit = {
+    id: 0,
     nom: '',
     desc: '',
     prix: 0,
@@ -27,8 +28,8 @@ export class CreerProduitAdminComponent implements OnInit {
   }
 
   creation() {
-    console.log(this.produitNew)
-    this._srv.creation(this.produitNew).subscribe()
+    this._srv.creation(this.produitNew).subscribe(
+      value => console.log(value));
   }
 
 

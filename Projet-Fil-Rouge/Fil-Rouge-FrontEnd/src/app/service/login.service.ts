@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
-import { Utilisateur } from './model';
+import { Utilisateur } from '../model';
 import { Observable } from 'rxjs';
 
 let httpOptions = {
