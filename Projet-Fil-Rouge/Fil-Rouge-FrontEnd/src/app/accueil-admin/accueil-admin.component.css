@@ -1,0 +1,12 @@
+.produits{
+    width: 49%;
+    height: 100vh;
+    background-color: darkgray;
+    margin-right: 1px;
+}
+.commandes{
+    width: 49%;
+    height: 100vh;
+    background-color: darkgray;
+    margin-left: 1px;
+}

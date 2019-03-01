@@ -1,12 +1,14 @@
 package com.dev.filrouge.service;
 
-import com.dev.filrouge.model.Utilisateur;
-import com.dev.filrouge.repo.UtilisateurRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dev.filrouge.model.Utilisateur;
+import com.dev.filrouge.repo.UtilisateurRepo;
+
 @Service
 public class UtilisateurService {
+	
     @Autowired
     UtilisateurRepo utilisateurRepo;
 
