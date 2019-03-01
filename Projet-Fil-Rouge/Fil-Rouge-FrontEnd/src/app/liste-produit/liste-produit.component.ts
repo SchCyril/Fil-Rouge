@@ -15,8 +15,9 @@ export class ListeProduitComponent implements OnInit {
 
   ngOnInit() {
     this._data.lister().subscribe(value => {
-      this.produits = value;
       console.log(value)
+      this.produits = value;
+
     }
 
     )

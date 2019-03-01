@@ -1,36 +1,54 @@
 import { Injectable } from '@angular/core';
 import { Produit } from '../model';
 import { of, Observable } from 'rxjs';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+import { tap, map, catchError } from 'rxjs/operators';
 import { Command } from 'protractor';
+
+interface ProduitsFromServeur {
+    resultNb: number
+    pageCourante: number
+    produits: Array<Produit>
+}
+
+const httpOptions = {
+    headers: new HttpHeaders({
+        "Content-Type": "application/json"
+    })
+};
+
+
+const URL_BACKEND = environment.backendUrl;
+// const httpOptions = {
+//     headers: new HttpHeaders({
+//       "Content-Type": "application/json"
+//     })
+//   };
 
 @Injectable({
     providedIn: 'root'
 })
+
 export class DataService {
 
     private listeProduit: Produit[] = [
-        {
-            id: 0,
-            nom: "wow",
-            desc: "trop bien",
-            prix: 10,
-            categorie: "jeu",
-            sous_categorie: "mmo",
-            image: "https://dyw7ncnq1en5l.cloudfront.net/optim/produits/0/45243/blizzard-entertainment-world-of-warcraft-battle-for-azeroth_03e30e867170ce89__450_400.jpg",
-            stock: 50,
-            commande: null,
-            actif: true,
-        }
-
     ]
     constructor(private _httpClient: HttpClient) {
 
     }
-    lister(): Observable<Produit[]> {
-        if (this.listeProduit.length > 0) {
-            return of(this.listeProduit);
-        }
 
+    // RECHERCHE PRODUIT VISITEUR
+
+    usualSearch(pageActuelle: number, nom: string, categorie: string, sousCategorie: string): Observable<ProduitsFromServeur> {
+        console.log("pageActuelle" + pageActuelle + " nom : " + nom + " / categorie : " + categorie + " /sousCategorie : " + sousCategorie)
+        return this._httpClient.post<ProduitsFromServeur>("http://localhost:8080/CreerProduit/usualSearch", { "page": pageActuelle, "nom": nom, "categorie": categorie, "sousCategorie": sousCategorie }, httpOptions);
+    }
+    lister() {
+        return this._httpClient.get<Produit[]>(URL_BACKEND + "/ListeProduits")
+    }
+
+    listerByCat() {
+        //   return this._httpClient.get<Produit[]>(URL_BACKEND + "/ListeProduits/"+cequetuveux)
     }
 }

@@ -18,12 +18,16 @@ public class ListeProduits {
 
 	@Autowired
 	private ProduitService produitService;
-	
-	
+
 	@GetMapping
-	public List<Produit> getAllProduit(){
+	public List<Produit> getAllProduit() {
+		System.out.println(produitService.produitRepo.findAll());
 		return produitService.produitRepo.findAll();
 	}
-	
 
+	@GetMapping(value = "cat")
+	public List<Produit> getProduitByCat(String categorie) {
+		System.out.println(produitService.produitRepo.findByCategorie(categorie));
+		return produitService.produitRepo.findByCategorie("test");
+	}
 }

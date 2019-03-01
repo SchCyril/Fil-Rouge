@@ -17,6 +17,10 @@ import { ProduitComponent } from './produit/produit.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { SearchComponent } from './search/search.component';
+import { ListeLivresComponent } from './liste-livres/liste-livres.component';
+import { ListeDvdComponent } from './liste-dvd/liste-dvd.component';
+import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
 import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-commandes-admin.component';
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 import { ListeProduitsAdminComponent } from './liste-produits-admin/liste-produits-admin.component';
@@ -35,6 +39,10 @@ import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail
     CreerProduitAdminComponent,
     LoginPageComponent,
     MenuComponent,
+    SearchComponent,
+    ListeLivresComponent,
+    ListeDvdComponent,
+    ListeJeuxComponent,
     ModificationProduitAdminComponent,
     HistoCommandesAdminComponent,
     ListeProduitsAdminComponent,

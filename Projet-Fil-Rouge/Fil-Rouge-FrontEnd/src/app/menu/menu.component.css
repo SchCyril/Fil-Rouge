@@ -15,7 +15,7 @@
 
 #img {
     width: 3rem;
-    height: 4vh;
+    height: 33px;
 } 
 
 .row {
@@ -33,6 +33,6 @@
     justify-content: flex-end;
 }
 
-#bar-search {
+/* #bar-search {
     margin-left: -25px;
-}
+} */
