@@ -23,8 +23,6 @@ export interface Utilisateur {
     num_client: string;
     role: string;
     liste_commandes: Commande[];
-
-
 }
 
 export interface Commande {

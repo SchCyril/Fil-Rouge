@@ -25,7 +25,7 @@ public class Produit {
 	@Column
 	float prix;
 	@Column
-	String catégorie;
+	String categorie;
 	@Column
 	String sousCategorie;
 	@Column
@@ -40,13 +40,13 @@ public class Produit {
 	public Produit() {
 	}
 
-	public Produit(String nom, String description, float prix, String catégorie, String sousCategorie, String image,
+	public Produit(String nom, String description, float prix, String categorie, String sousCategorie, String image,
 			int stock, boolean actif, Commande commande) {
 		super();
 		this.nom = nom;
 		this.description = description;
 		this.prix = prix;
-		this.catégorie = catégorie;
+		this.categorie = categorie;
 		this.sousCategorie = sousCategorie;
 		this.image = image;
 		this.stock = stock;
@@ -86,12 +86,12 @@ public class Produit {
 		this.prix = prix;
 	}
 
-	public String getCatégorie() {
-		return catégorie;
+	public String getCategorie() {
+		return categorie;
 	}
 
-	public void setCatégorie(String catégorie) {
-		this.catégorie = catégorie;
+	public void setCategorie(String categorie) {
+		this.categorie = categorie;
 	}
 
 	public String getSousCategorie() {
