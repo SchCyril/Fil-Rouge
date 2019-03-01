@@ -20,8 +20,6 @@ export class ProduitService {
   constructor(private _http: HttpClient) {
   }
 
-
-
   creation(produit: Produit): Observable<Object> {
     return this._http.post("http://localhost:8080/CreerProduit", produit, httpOptions)
   }
