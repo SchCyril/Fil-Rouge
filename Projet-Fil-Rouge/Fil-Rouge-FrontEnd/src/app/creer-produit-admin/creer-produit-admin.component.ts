@@ -8,7 +8,7 @@ import { ProduitService } from '../service/produit.service';
   styleUrls: ['./creer-produit-admin.component.css']
 })
 export class CreerProduitAdminComponent implements OnInit {
-
+  msg: string = "";
   produitNew: Produit = {
     id: 0,
     nom: '',
@@ -19,7 +19,8 @@ export class CreerProduitAdminComponent implements OnInit {
     image: '',
     stock: 0,
     commande: null,
-    actif: true
+    actif: true,
+
   }
   constructor(private _srv: ProduitService) {
   }
@@ -28,9 +29,13 @@ export class CreerProduitAdminComponent implements OnInit {
   }
 
   creation() {
+<<<<<<< HEAD
     this._srv.creation(this.produitNew).subscribe(
       value => console.log(value));
+=======
+    console.log(this.produitNew)
+    this._srv.creation(this.produitNew).subscribe(value => { this.msg = 'Enregistrement réussi.' }, error => { this.msg = "Erreur lors de l'enregistrement." });
+>>>>>>> ee439a323e5a484ed672bf0062671def5268caa2
   }
-
 
 }

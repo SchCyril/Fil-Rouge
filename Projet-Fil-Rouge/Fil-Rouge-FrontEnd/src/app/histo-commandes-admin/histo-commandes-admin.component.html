@@ -1,3 +1,84 @@
-<p>
-  histo-commandes-admin works!
-</p>
+<div class="accordion" id="accordionExample" *ngFor="let obj of list_commande">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
+        <button class=" btn btn-link" type="button" data-toggle="collapse" aria-expanded="true"
+          aria-controls="collapseOne" [attr.data-target]="'#obj'+obj.id" id="boutonlargeur">
+
+          <div class="row">
+            <div class="col-sm-2">N°Client : {{obj.n_client}} </div>
+            <div class="col-sm-2">Reference : {{obj.reference}}</div>
+            <div class="col-sm-2">Etat : {{obj.etat}} </div>
+            <div class="col-sm-2">Date_Creation : {{obj.dateCommande}}</div>
+            <div class="col-sm-2">Date_Livraison : {{obj.dateLivraison}}</div>
+            <div class="col-sm-2">Prix_Total : {{obj.prixTotal}}</div>
+          </div>
+
+        </button>
+      </h5>
+    </div>
+    <div id="obj{{obj.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        {{obj.liste_produits}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <form class="formulaire">
+  <div class="form-group form-inline">
+    Rechercher un produit: <input class="form-control ml-2" type="text" name="searchTerm"
+      [(ngModel)]="list_commande.Commande" />
+    <span class="ml-3" *ngIf="service.loading$ | async">Loading...</span>
+  </div>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col" sortable="n_client" (sort)="onSort($event)">N° Client</th>
+        <th scope="col" sortable="reference" (sort)="onSort($event)">Ref Cmd</th>
+        <th scope="col" sortable="etat" (sort)="onSort($event)">Etat</th>
+        <th scope="col" sortable="date_creation" (sort)="onSort($event)">Date Création</th>
+        <th scope="col" sortable="date_validation" (sort)="onSort($event)">Date Validation</th>
+        <th scope="col" sortable="prix_total" (sort)="onSort($event)">Prix total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let country of countries$ | async">
+        <th scope="row">{{ country.id }}</th>
+        <td>
+          <img [src]="'https://upload.wikimedia.org/wikipedia/commons/' + country.flag" class="mr-2"
+            style="width: 20px">
+          <ngb-highlight [result]="list_commande.n_client" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="list_commande.ref" [term]="service.afficher"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="list_commande.etat" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="list_commande.date_creation" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="list_commande.date_validation" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+        <td>
+          <ngb-highlight [result]="list_commande.prix_total" [term]="service.searchTerm"></ngb-highlight>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="d-flex justify-content-between p-2">
+    <ngb-pagination [collectionSize]="total$ | async" [(page)]="service.page" [pageSize]="service.pageSize">
+    </ngb-pagination>
+
+    <select class="custom-select" style="width: auto" name="pageSize" [(ngModel)]="service.pageSize">
+      <option [ngValue]="5">5 items per page</option>
+      <option [ngValue]="10">10 items per page</option>
+      <option [ngValue]="20">20 items per page</option>
+    </select>
+  </div>
+
+</form> -->

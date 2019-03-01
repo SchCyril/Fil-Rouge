@@ -8,7 +8,7 @@ export interface Produit {
     image: string;
     stock: number;
     commande: Commande;
-    actif: boolean
+    actif: boolean;
 
 }
 
@@ -32,9 +32,10 @@ export interface Commande {
     id: number;
     liste_produits: Produit[];
     utilisateur: Utilisateur;
+    n_client: number;
     ref: string;
-    date_creation: Date;
-    date_validation: Date;
+    date_creation: string;
+    date_validation: string;
     prix_total: number;
     etat: string;
 }
