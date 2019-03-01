@@ -9,7 +9,7 @@ import { LoginService } from '../login.service';
 })
 export class LoginPageComponent implements OnInit {
 
-  utilisateur: Utilisateur = {
+  utilisateur = {
     login: '',
     password: ''
   }

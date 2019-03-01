@@ -2,9 +2,6 @@ package com.dev.filrouge.service;
 
 import java.util.List;
 
-import com.dev.filrouge.model.User;
-import com.dev.filrouge.repo.UserRepo;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
@@ -12,15 +9,18 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+
+import com.dev.filrouge.model.Utilisateur;
+import com.dev.filrouge.repo.UtilisateurRepo;
 @Component
 public class AuthentificationService implements UserDetailsService {
 
 	@Autowired
-	private UserRepo ur;
+	private UtilisateurRepo ur;
 
 	@Override
 	public UserDetails loadUserByUsername(final String username) {
-		User user = null;
+		Utilisateur user = null;
 		try {
 			user = ur.findByName(username);
 		} catch (Exception e) {
@@ -33,7 +33,7 @@ public class AuthentificationService implements UserDetailsService {
 		throw new UsernameNotFoundException("username.not.found");
 	}
 
-	public List<GrantedAuthority> getUserCredentials(User user){
+	public List<GrantedAuthority> getUserCredentials(Utilisateur user){
         return AuthorityUtils.createAuthorityList(user.getRole());    
     }
 }
