@@ -38,6 +38,7 @@ public class Produit {
 	Commande commande;
 
 	public Produit() {
+
 	}
 
 	public Produit(Long id,String nom, String description, float prix, String categorie, String sousCategorie, String image,

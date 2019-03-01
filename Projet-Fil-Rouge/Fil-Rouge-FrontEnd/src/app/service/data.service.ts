@@ -5,6 +5,19 @@ import { HttpClient, HttpHeaders } from'@angular/common/http';
 import { environment } from 'src/environments/environment';
 import { tap, map, catchError } from 'rxjs/operators';
 
+interface ProduitsFromServeur {
+    resultNb: number
+    pageCourante: number
+    produits: Array<Produit>
+}
+
+const httpOptions = {
+    headers: new HttpHeaders({
+        "Content-Type": "application/json"
+    })
+};
+
+
 const URL_BACKEND = environment.backendUrl;
 // const httpOptions = {
 //     headers: new HttpHeaders({
@@ -15,6 +28,7 @@ const URL_BACKEND = environment.backendUrl;
 @Injectable({
     providedIn: 'root'
 })
+
 export class DataService {
 
     private listeProduit: Produit[] = [
@@ -57,6 +71,13 @@ export class DataService {
     ]
     constructor(private _httpClient: HttpClient) {
 
+    }
+
+    // RECHERCHE PRODUIT VISITEUR
+
+    usualSearch(pageActuelle: number, nom: string, categorie: string, sousCategorie: string): Observable<ProduitsFromServeur> {
+        console.log("pageActuelle" + pageActuelle + " nom : " + nom + " / categorie : " + categorie + " /sousCategorie : " + sousCategorie)
+        return this._httpClient.post<ProduitsFromServeur>("http://localhost:8080/CreerProduit/usualSearch", { "page": pageActuelle, "nom": nom, "categorie": categorie, "sousCategorie": sousCategorie }, httpOptions);
     }
     lister() {
         // if (this.listeProduit.length > 0) {
