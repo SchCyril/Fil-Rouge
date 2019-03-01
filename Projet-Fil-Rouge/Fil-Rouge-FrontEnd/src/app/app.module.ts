@@ -19,6 +19,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { ListeLivresComponent } from './liste-livres/liste-livres.component';
 import { ListeDvdComponent } from './liste-dvd/liste-dvd.component';
 import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
+import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-commandes-admin.component';
+import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,6 @@ import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
     ProduitComponent,
     AccueilComponent,
     MenuAdminComponent,
-    MenuComponent,
     DropdownComponent,
     AccueilAdminComponent,
     CreerProduitAdminComponent,
@@ -37,6 +38,8 @@ import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
     ListeLivresComponent,
     ListeDvdComponent,
     ListeJeuxComponent
+    ModificationProduitAdminComponent,
+    HistoCommandesAdminComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,50 @@
+<form>
+  <div class="form-row">
+    <div class="form-group col-md-4">
+      <label for="nom">Nom du produit</label>
+      <input type="text" class="form-control" name="nom" #champNom="ngModel" [(ngModel)]="produitSave.nom"
+        value="produit.nom" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="Quantité">Quantité reçue</label>
+      <input type="number" class="form-control" name="stock" #champStock="ngModel" [(ngModel)]="produitSave.stock"
+        value="produit.stock" />
+    </div>
+    <div class="form-group col-md-4">
+      <label for="prix">Prix unitaire</label>
+      <input type="number" class="form-control" name="prix" #champPrix="ngModel" [(ngModel)]="produitSave.prix"
+        value="produit.prix" />
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="text">Description du produit</label>
+    <input type="text" name="desc" class="form-control" #champDescription="ngModel" [(ngModel)]="produitSave.desc"
+      value="produit.desc" />
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Address 2</label>
+    <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputState">Categorie</label>
+    <select id="inputState" class="form-control">
+      <option selected>A toi de jouer !</option>
+      <option>Livre</option>
+      <option>Jeux Videos</option>
+      <option>DVD</option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="inputState">Sous-Catégorie</label>
+    <select id="inputState" class="form-control">
+      <option selected>A toi de jouer !</option>
+      <option>Livre</option>
+      <option>Jeux Videos</option>
+      <option>DVD</option>
+    </select>
+  </div>
+
+  <div class="justity-content-center">
+    <button type="submit" class="btn btn-primary">Enregistrer</button>
+  </div>
+</form>

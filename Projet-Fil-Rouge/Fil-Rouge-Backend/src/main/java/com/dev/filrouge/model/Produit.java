@@ -40,6 +40,21 @@ public class Produit {
 	public Produit() {
 	}
 
+	public Produit(Long id,String nom, String description, float prix, String categorie, String sousCategorie, String image,
+			int stock, boolean actif, Commande commande) {
+		super();
+		this.id=id;
+		this.nom = nom;
+		this.description = description;
+		this.prix = prix;
+		this.categorie = catégorie;
+		this.sousCategorie = sousCategorie;
+		this.image = image;
+		this.stock = stock;
+		this.actif = actif;
+		this.commande = commande;
+	}
+	
 	public Produit(String nom, String description, float prix, String categorie, String sousCategorie, String image,
 			int stock, boolean actif, Commande commande) {
 		super();
@@ -89,7 +104,7 @@ public class Produit {
 	public String getCategorie() {
 		return categorie;
 	}
-
+                 
 	public void setCategorie(String categorie) {
 		this.categorie = categorie;
 	}
