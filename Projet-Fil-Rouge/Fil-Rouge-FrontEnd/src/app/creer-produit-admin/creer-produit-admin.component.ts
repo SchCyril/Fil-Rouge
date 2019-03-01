@@ -29,13 +29,9 @@ export class CreerProduitAdminComponent implements OnInit {
   }
 
   creation() {
-<<<<<<< HEAD
     this._srv.creation(this.produitNew).subscribe(
-      value => console.log(value));
-=======
-    console.log(this.produitNew)
-    this._srv.creation(this.produitNew).subscribe(value => { this.msg = 'Enregistrement réussi.' }, error => { this.msg = "Erreur lors de l'enregistrement." });
->>>>>>> ee439a323e5a484ed672bf0062671def5268caa2
+      value => { this.msg = 'Enregistrement réussi.' },
+      error => { this.msg = "Erreur lors de l'enregistrement." });
   }
 
 }
