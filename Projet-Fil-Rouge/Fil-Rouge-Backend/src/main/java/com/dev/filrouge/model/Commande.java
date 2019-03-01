@@ -1,7 +1,8 @@
 package com.dev.filrouge.model;
 
-import java.sql.Date;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -26,9 +27,11 @@ public class Commande {
     @Column
     String reference;
     @Column
-    Date dateCommande;
+    Integer n_client;
     @Column
-    Date dateLivraison;
+    LocalDate dateCommande;
+    @Column
+    LocalDate dateLivraison;
     @Column
     float prixTotal;
     @Column
@@ -42,8 +45,10 @@ public class Commande {
 
     }
 
-    public Commande(Date dateCommande, Date dateLivraison, float prixTotal, String etat, List<Produit> produit,
+    public Commande(String reference, Integer n_client, LocalDate dateCommande, LocalDate dateLivraison, float prixTotal, String etat, List<Produit> produit,
             Utilisateur utilisateur) {
+    	this.reference = reference;
+    	this.n_client = n_client;
         this.dateCommande = dateCommande;
         this.dateLivraison = dateLivraison;
         this.prixTotal = prixTotal;
@@ -52,7 +57,15 @@ public class Commande {
         this.utilisateur = utilisateur;
     }
 
-    public Long getId() {
+    public Integer getN_client() {
+		return n_client;
+	}
+
+	public void setN_client(Integer n_client) {
+		this.n_client = n_client;
+	}
+
+	public Long getId() {
         return this.id;
     }
 
@@ -68,19 +81,19 @@ public class Commande {
         this.reference = reference;
     }
 
-    public Date getDateCommande() {
+    public LocalDate getDateCommande() {
         return this.dateCommande;
     }
 
-    public void setDateCommande(Date dateCommande) {
+    public void setDateCommande(LocalDate dateCommande) {
         this.dateCommande = dateCommande;
     }
 
-    public Date getDateLivraison() {
+    public LocalDate getDateLivraison() {
         return this.dateLivraison;
     }
 
-    public void setDateLivraison(Date dateLivraison) {
+    public void setDateLivraison(LocalDate dateLivraison) {
         this.dateLivraison = dateLivraison;
     }
 
@@ -118,7 +131,7 @@ public class Commande {
 
     @Override
     public String toString() {
-        return "{" + " id='" + getId() + "'" + ", reference='" + getReference() + "'" + ", dateCommande='"
+        return "{" + " id='" + getId() + "'" + ", reference='" + getReference() + "'" +", n_client=" + getN_client() + ", dateCommande='"
                 + getDateCommande() + "'" + ", dateLivraison='" + getDateLivraison() + "'" + ", prixTotal='"
                 + getPrixTotal() + "'" + ", etat='" + getEtat() + "'" + ", produit='" + getProduit() + "'"
                 + ", utilisateur='" + getUtilisateur() + "'" + "}";
