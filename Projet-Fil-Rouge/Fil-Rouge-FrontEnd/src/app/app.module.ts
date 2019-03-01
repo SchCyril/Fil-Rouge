@@ -16,6 +16,7 @@ import { ProduitComponent } from './produit/produit.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { AppRoutingModule } from './app-routing.module';
+import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-commandes-admin.component';
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 
 @NgModule({
@@ -26,13 +27,13 @@ import { ModificationProduitAdminComponent } from './modification-produit-admin/
     ProduitComponent,
     AccueilComponent,
     MenuAdminComponent,
-    MenuComponent,
     DropdownComponent,
     AccueilAdminComponent,
     CreerProduitAdminComponent,
     LoginPageComponent,
     MenuComponent,
-    ModificationProduitAdminComponent
+    ModificationProduitAdminComponent,
+    HistoCommandesAdminComponent
   ],
   imports: [
     BrowserModule,

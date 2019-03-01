@@ -3,10 +3,12 @@ import { CreerProduitAdminComponent } from './creer-produit-admin/creer-produit-
 import { AccueilAdminComponent } from './accueil-admin/accueil-admin.component';
 import { MenuAdminComponent } from './menu-admin/menu-admin.component';
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
+import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-commandes-admin.component';
 
 export const ROUTES: Routes = [
-    { path: 'CreerProduit', component: CreerProduitAdminComponent },
     { path: 'Admin', component: AccueilAdminComponent },
     { path: 'ModificationProduit', component: ModificationProduitAdminComponent },
-    { path: '', component: MenuAdminComponent }
+    { path: '', component: MenuAdminComponent },
+    { path: 'CreerProduit', component: CreerProduitAdminComponent },
+    { path: 'Historique', component: HistoCommandesAdminComponent }
 ];
