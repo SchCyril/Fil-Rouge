@@ -6,6 +6,7 @@ import java.util.Map;
 import com.dev.filrouge.model.Produit;
 import com.dev.filrouge.repo.ProduitRepo;
 import com.dev.filrouge.repo.ProduitRepoImpl;
+import com.dev.filrouge.service.ProduitService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.PageRequest;
@@ -27,17 +28,29 @@ public class ProduitController{
 
     //Les 2 méthodes sont à tester
 
+    // @Autowired
+    // ProduitRepo produitRepo;
+
     @Autowired
-    ProduitRepo produitRepo;
+    ProduitService produitService;
 
     @Autowired
     ProduitRepoImpl produitRepoImpl;
+
+    @PostMapping
+	public void create(@RequestBody Map<String,String> action) {
+		produitService.create(new Produit(action.get("nom"),action.get("desc"),Float.parseFloat(action.get("prix")),
+				action.get("categorie"),action.get("sous_categorie"),action.get("image"),
+				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif")),null
+				));
+		System.out.println("etsté");
+	}
 
     //Liste paginée sans critère
     @GetMapping 
     public List<Produit> getMethodName(@RequestParam int pageNb) {
         Pageable page = (Pageable) PageRequest.of(pageNb, 10);
-        return produitRepo.findAll(page).getContent();
+        return produitService.findAll(page).getContent();
     }
 
     //Liste paginée avec critères
