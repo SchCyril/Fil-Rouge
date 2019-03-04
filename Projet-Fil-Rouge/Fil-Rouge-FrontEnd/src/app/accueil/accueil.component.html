@@ -3,20 +3,19 @@
     <div>
         <h1 style="display:flex; justify-content:center">NOS MEILLEURS JEUX</h1>
         <div>
-            <app-liste-produit></app-liste-produit>
+            <app-liste-produit [categorie]="'jeux'"></app-liste-produit>
         </div>
     </div>
     <div>
         <h1 style="display: flex; justify-content: center">NOS MEILLEURS DVD</h1>
         <div>
-            <app-liste-produit></app-liste-produit>
+            <app-liste-produit [categorie]="'film'"></app-liste-produit>
         </div>
     </div>
     <div>
             <h1 style="display: flex; justify-content: center">NOS MEILLEURS LIVRES</h1>
             <div>
-                <app-liste-produit></app-liste-produit>
-                
+                <app-liste-produit [categorie]="'livre'"></app-liste-produit>
             </div>
         </div>
 </div>

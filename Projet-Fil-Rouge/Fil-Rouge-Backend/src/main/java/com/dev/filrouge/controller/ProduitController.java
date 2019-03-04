@@ -43,8 +43,7 @@ public class ProduitController {
 	public Produit create(@RequestBody Map<String,String> action) {
 		Produit produitCreate = new Produit(action.get("nom"),action.get("desc"),Float.parseFloat(action.get("prix")),
 				action.get("categorie"),action.get("sous_categorie"),action.get("image"),
-				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif")),null
-				);
+				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif")),null);
 		produitService.create(produitCreate);
 		return produitCreate;
 	}
@@ -55,7 +54,8 @@ public class ProduitController {
             Integer.parseInt(action.get("page")),
             action.get("nom"),
             action.get("categorie"),
-            action.get("sousCategorie"));
+			action.get("sousCategorie"),
+			Integer.parseInt(action.get("maxResult")));
     }
 
 

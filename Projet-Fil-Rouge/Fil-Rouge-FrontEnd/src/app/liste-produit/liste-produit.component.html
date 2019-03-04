@@ -1,6 +1,12 @@
 <div class="row">
-    <div class="col-4" *ngFor="let obj of produits">
-
-      <p><app-produit [produit]="obj"></app-produit></p>
-    </div>
+  <div class="col-4" *ngFor="let obj of produits">
+    <p>
+      <app-produit [produit]="obj"></app-produit>
+    </p>
   </div>
+</div>
+<div *ngIf="resultTotal > 10 && maxResultPerPage > 3">
+  <span *ngFor="let item of counter(resultTotal); index as i">
+    <button (click)="search((i+1), categorie2)">{{i+1}}</button>
+  </span>
+</div>
