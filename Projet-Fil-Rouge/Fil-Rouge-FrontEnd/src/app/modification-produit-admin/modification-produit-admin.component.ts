@@ -9,14 +9,13 @@ import { ProduitService } from '../service/produit.service';
 })
 export class ModificationProduitAdminComponent implements OnInit {
 
-  @Input() produit: Produit
   produitSave: Produit = {
-    id: 302,
+    id: 0,
     nom: '',
-    desc: '',
+    description: '',
     prix: 0,
     categorie: '',
-    sous_categorie: '',
+    sousCategorie: '',
     image: '',
     stock: 0,
     commande: null,
@@ -26,6 +25,12 @@ export class ModificationProduitAdminComponent implements OnInit {
   constructor(private _produitService: ProduitService) { }
 
   ngOnInit() {
+    this._produitService.getIdModification().subscribe(
+      value => {
+        this.produitSave = value
+      }
+    )
+
   }
 
   modifictation() {

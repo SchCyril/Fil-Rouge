@@ -26,6 +26,8 @@ import { ModificationProduitAdminComponent } from './modification-produit-admin/
 import { ListeProduitsAdminComponent } from './liste-produits-admin/liste-produits-admin.component';
 import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail-produit.component';
 import { PanierComponent } from './panier/panier.component';
+import { SafePipe } from './safe.pipe';
+import { FicheDetailProduitPanierComponent } from './fiche-detail-produit-panier/fiche-detail-produit-panier.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +50,9 @@ import { PanierComponent } from './panier/panier.component';
     HistoCommandesAdminComponent,
     ListeProduitsAdminComponent,
     FicheDetailProduitComponent,
-    PanierComponent
+    PanierComponent,
+    SafePipe,
+    FicheDetailProduitPanierComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Produit, Commande } from '../model';
-import { DataService } from '../service/data.service';
+import { PanierService } from '../service/panier.service';
 
 @Component({
   selector: 'app-panier',
@@ -8,19 +8,24 @@ import { DataService } from '../service/data.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-  produits:Produit[];
+  produits:Produit[] = [];
   commande:Commande;
 
-  constructor(private _data:DataService) { }
+  constructor(private _data:PanierService) { }
 
   ngOnInit() {
+    this.produits=this._data.produits
+    //     if(this._data.produits.length===0)
+    //       this.setListe()
+  }
 
-    this._data.lister().subscribe(value => {
-      console.log(value);
-      this.produits = value;
-
-      
-    });
+  setListe(){
+    this.produits=this._data.produits
+  }
+  deleteProduit(index : number){
+    this._data.deleteProduitPanier(index).subscribe(value =>
+    this.produits=value)
+    
   }
 
 }

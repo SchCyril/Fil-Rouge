@@ -1,28 +1,27 @@
-<table class="table" *ngFor="let info of produits">
-  <tbody>
-    <tr>
-      <th scope="row"></th>
-      <td><img [src]="info.image" alt="product image"/></td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td>{{ info.nom }}</td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td>{{ info.desc }}</td>
-    </tr>
-    <tr>
-      <th scope="row"></th>
-      <td>{{ info.etat }}</td>
-    </tr>
-    <tr>
-        <th scope="row"></th>
-        <td>{{ info.prix }}</td>
-      </tr>
+<div class="accordion" id="accordionExample" *ngFor="let obj of produits; i as index">
+  <div class="card">
+    <div class="card-header" id="headingOne">
+      <h5 class="mb-0">
 
-      <div>
-          <button (click)="deleteProduitPanier(index)"> delete</button>
+        <div class="row">
+          <div class="col-4">
+            <button class="btn btn-link" type="button" data-toggle="collapse" aria-expanded="true"
+              aria-controls="collapseOne" [attr.data-target]="'#obj'+obj.id">
+              {{obj.image}}
+            </button>
+          </div>
+          <div class="col-3">Nom du produit : {{obj.nom}}</div>
+          <div class="col-3">Prix du produit : {{ obj.prix }}</div>
+          <div class="col-2">
+            <button type="button" class="btn btn-danger" (click)="deleteProduit(i)">Supprimer</button>
+          </div>
         </div>
-  </tbody>
-</table>
+      </h5>
+    </div>
+    <div id="obj{{obj.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+      <div class="card-body">
+        <app-fiche-detail-produit-panier [produit]="obj"></app-fiche-detail-produit-panier>
+      </div>
+    </div>
+  </div>
+</div>

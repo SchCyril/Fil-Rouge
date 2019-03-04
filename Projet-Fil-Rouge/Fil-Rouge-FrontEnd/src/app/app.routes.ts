@@ -15,14 +15,15 @@ import { PanierComponent } from './panier/panier.component';
 export const ROUTES: Routes = [
     { path: 'Admin', component: AccueilAdminComponent },
     { path: '', component: MenuComponent },
-    { path: 'Accueil', component: AccueilComponent},
-    { path: 'Livre', component:ListeLivresComponent},
-    { path: 'Dvd', component:ListeDvdComponent},
-    { path: 'Jeux-videos', component: ListeJeuxComponent},
-    { path: 'Lister/:cat', component: ListeLivresComponent},
-    { path: 'ModificationProduit', component: ModificationProduitAdminComponent },
+    { path: 'Accueil', component: AccueilComponent },
+    { path: 'Livre', component: ListeLivresComponent },
+    { path: 'Dvd', component: ListeDvdComponent },
+    { path: 'Jeux-videos', component: ListeJeuxComponent },
+    { path: 'Lister/:cat', component: ListeLivresComponent },
+    { path: 'Produit/:id', component: ModificationProduitAdminComponent },
     { path: 'CreerProduit', component: CreerProduitAdminComponent },
     { path: 'Historique', component: HistoCommandesAdminComponent },
-    { path: 'ListeProduitsAdmin', component: ListeProduitsAdminComponent }, 
-    { path: 'Panier', component: PanierComponent }
+    { path: 'Panier', component: PanierComponent },
+    { path: 'ListeProduitsAdmin', component: ListeProduitsAdminComponent },
+    { path: 'ListeProduitsAdmin/:id', component: ListeProduitsAdminComponent }
 ];

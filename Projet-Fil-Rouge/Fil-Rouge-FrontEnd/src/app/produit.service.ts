@@ -17,10 +17,21 @@ const httpOptions = {
 })
 export class ProduitService {
 
+  idModif: number
+
   constructor(private _http: HttpClient) {
   }
 
   creation(produit: Produit): Observable<Object> {
     return this._http.post("http://localhost:8080/CreerProduit", produit, httpOptions)
+  }
+
+  setIdModification(id: number) {
+    this.idModif = id
+  }
+
+
+  getIdModification(): Observable<Produit> {
+    return this._http.get<Produit>("http://localhost:8080/ModificationProduit/" + this.idModif)
   }
 }
