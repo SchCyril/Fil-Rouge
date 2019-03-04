@@ -35,7 +35,7 @@
     <div class="form-group col-md-4">
       <label for="inputState">Sous-Catégorie</label>
       <select id="inputState" name="sous_categorie" class="form-control" #champStock="ngModel"
-        value="produit.sous_categorie" [(ngModel)]="produitSave.sous_categorie">
+        value="produit.sous_categorie" [(ngModel)]="produitSave.sousCategorie">
         <option selected disabled>----Livres------</option>
         <option>Roman</option>
         <option>BD</option>
@@ -55,7 +55,7 @@
   <div class="form-group">
     <label for="text">Description du produit</label>
     <input type="text" name="desc" class="form-control" #champDescription="ngModel" [(ngModel)]="produitSave.desc"
-      value="produit.desc" />
+      value="produit.description" />
   </div>
   <div class="justity-content-center">
     <button type="submit" (click)="creation()" class="btn btn-primary">Enregistrer</button>

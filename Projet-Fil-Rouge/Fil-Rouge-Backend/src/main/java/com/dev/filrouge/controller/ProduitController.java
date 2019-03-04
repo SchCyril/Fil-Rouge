@@ -49,26 +49,26 @@ public class ProduitController {
 		return produitCreate;
 	}
   
-    @PostMapping(value = "usualSearch")
-    public ProduitPage searchProduitActif(@RequestBody Map<String, String> action) {
-        return produitRepoImpl.searchNotAdmin(
-            Integer.parseInt(action.get("page")),
-            action.get("nom"),
-            action.get("categorie"),
-            action.get("sousCategorie"));
-    }
-
-
-
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping(value = "adminSearch")
-    public ProduitPage searchAllProduit(@RequestBody Map<String, String> action) {
-        return produitRepoImpl.searchAdmin(
-            Integer.parseInt(action.get("page")),
-            action.get("name"),
-            action.get("categorie"),
-            action.get("sousCategorie"));
-    }
+//    @PostMapping(value = "usualSearch")
+//    public ProduitPage searchProduitActif(@RequestBody Map<String, String> action) {
+//        return produitRepoImpl.searchNotAdmin(
+//            Integer.parseInt(action.get("page")),
+//            action.get("nom"),
+//            action.get("categorie"),
+//            action.get("sousCategorie"));
+//    }
+//
+//
+//
+//    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PostMapping(value = "adminSearch")
+//    public ProduitPage searchAllProduit(@RequestBody Map<String, String> action) {
+//        return produitRepoImpl.searchAdmin(
+//            Integer.parseInt(action.get("page")),
+//            action.get("name"),
+//            action.get("categorie"),
+//            action.get("sousCategorie"));
+//    }
     
     @PutMapping
     public Produit updateProduit(@RequestBody Map<String,String> action) {
@@ -85,13 +85,13 @@ public class ProduitController {
     	boolean estPresent=false;
     	List<Commande> commandes = commandeService.commandeRepository.findAll();
     	FIN:for(Commande commande : commandes) {
-    		List<Produit> produits = commande.getProduit();
-    		for(Produit produit : produits) {
-    			if(produit.getId().equals(id)) {
-    				estPresent=true;
-    				break FIN;
-    			}
-    		}
+//    		List<Produit> produits = commande.getProduit();
+//    		for(Produit produit : produits) {
+//    			if(produit.getId().equals(id)) {
+//    				estPresent=true;
+//    				break FIN;
+//    			}
+//    		}
     	}
     	if(!estPresent) {
 			produitService.produitRepo.delete(produitService.produitRepo.findById(id).get());

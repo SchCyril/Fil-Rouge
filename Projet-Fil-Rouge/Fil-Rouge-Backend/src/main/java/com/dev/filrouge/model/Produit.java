@@ -5,7 +5,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
@@ -34,8 +33,6 @@ public class Produit {
 	int stock;
 	@Column
 	boolean actif;
-	@ManyToOne
-	Commande commande;
 
 	public Produit() {
 
@@ -53,23 +50,8 @@ public class Produit {
 		this.image = image;
 		this.stock = stock;
 		this.actif = actif;
-		this.commande = commande;
 	}
 	
-	public Produit(String nom, String description, float prix, String categorie, String sousCategorie, String image,
-			int stock, boolean actif, Commande commande) {
-		super();
-		this.nom = nom;
-		this.description = description;
-		this.prix = prix;
-		this.categorie = categorie;
-		this.sousCategorie = sousCategorie;
-		this.image = image;
-		this.stock = stock;
-		this.actif = actif;
-		this.commande = commande;
-	}
-
 	public boolean isActif() {
 		return actif;
 	}
@@ -132,14 +114,6 @@ public class Produit {
 
 	public void setStock(int stock) {
 		this.stock = stock;
-	}
-
-	public Commande getCommande() {
-		return commande;
-	}
-
-	public void setCommande(Commande commande) {
-		this.commande = commande;
 	}
 
 	public Long getId() {

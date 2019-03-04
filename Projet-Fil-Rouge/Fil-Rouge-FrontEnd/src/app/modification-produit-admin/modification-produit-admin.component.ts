@@ -13,10 +13,10 @@ export class ModificationProduitAdminComponent implements OnInit {
   produitSave: Produit = {
     id: 302,
     nom: '',
-    desc: '',
+    description: '',
     prix: 0,
     categorie: '',
-    sous_categorie: '',
+    sousCategorie: '',
     image: '',
     stock: 0,
     commande: null,

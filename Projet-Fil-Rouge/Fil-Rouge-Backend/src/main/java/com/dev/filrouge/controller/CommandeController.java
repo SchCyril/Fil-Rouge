@@ -1,10 +1,6 @@
 package com.dev.filrouge.controller;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -15,8 +11,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.filrouge.model.Commande;
-import com.dev.filrouge.model.Produit;
-import com.dev.filrouge.model.Utilisateur;
 import com.dev.filrouge.service.CommandeService;
 
 @RestController
@@ -28,15 +22,13 @@ public class CommandeController {
 
 
 	@PostMapping
-	public void create(@RequestBody Map<String, String> action) {
-		List<Produit> produit = new ArrayList<>();
-		Utilisateur users = new Utilisateur();
-		commandeService.commandeRepository.save(new Commande(action.get("ref"), Integer.parseInt(action.get("n_client")), LocalDate.parse(action.get("date_creation")), LocalDate.parse(action.get("date_validation")), Float.parseFloat(action.get("prix_total")),action.get("etat"),null , null));
+	public void create(@RequestBody Commande commande) {
+		commandeService.save(commande);
 	}
 
 	@GetMapping
 	public List<Commande> getCommande() {
-		return commandeService.commandeRepository.findAll();
+		return commandeService.findAll();
 	}
 
 }

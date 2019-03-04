@@ -14,19 +14,23 @@
             <div class="col-sm-2">Date_Livraison : {{obj.dateLivraison}}</div>
             <div class="col-sm-2">Prix_Total : {{obj.prixTotal}}</div>
           </div>
-
         </button>
       </h5>
-    </div>
-    <div id="obj{{obj.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-      <div class="card-body">
-        {{obj.liste_produits}}
+
+      <div id="obj{{obj.id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+        <div class="card-body">
+          <div class="row" *ngFor="let obj2 of obj.produitCommandes">
+            <div class="col-sm-2">{{obj2.image}} </div>
+            <div class="col-sm-2">{{obj2.description}}</div>
+            <div class="col-sm-2">{{obj2.etat}} </div>
+            <div class="col-sm-2">{{obj2.prix}}</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<!-- <form class="formulaire">
+  <!-- <form class="formulaire">
   <div class="form-group form-inline">
     Rechercher un produit: <input class="form-control ml-2" type="text" name="searchTerm"
       [(ngModel)]="list_commande.Commande" />

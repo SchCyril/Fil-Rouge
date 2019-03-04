@@ -12,10 +12,10 @@ export class CreerProduitAdminComponent implements OnInit {
   produitNew: Produit = {
     id: 0,
     nom: '',
-    desc: '',
+    description: '',
     prix: 0,
     categorie: '',
-    sous_categorie: '',
+    sousCategorie: '',
     image: '',
     stock: 0,
     commande: null,
