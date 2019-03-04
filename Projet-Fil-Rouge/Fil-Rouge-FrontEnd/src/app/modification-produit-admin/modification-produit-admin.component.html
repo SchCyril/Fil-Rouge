@@ -54,6 +54,12 @@
     <input type="text" name="desc" class="form-control" #champDescription="ngModel"
       [(ngModel)]="produitSave.description" />
   </div>
+  <div class="form-check">
+    <input type="checkbox" class="form-check-input" name="actif" #champActif="ngModel" [(ngModel)]="produitSave.actif"
+      id="cb" checked>
+    <label for="cb" class="form-check-label">Actif</label>
+  </div>
+  <br>
   <div class="justity-content-center">
     <button type="submit" class="btn btn-primary" (click)="modifictation()">Enregistrer</button>
   </div>
