@@ -25,22 +25,22 @@ public class ListeProduitsAdmin {
 	@Autowired
 	CommandeService commandeService;
 	
-	@DeleteMapping(value="/{id}")
-    public void deleteProduit(@PathVariable Long id) {
-    	boolean estPresent=false;
-    	List<Commande> commandes = commandeService.commandeRepository.findAll();
-    	FIN:for(Commande commande : commandes) {
-    		List<Produit> produits = commande.getProduit();
-    		for(Produit produit : produits) {
-    			if(produit.getId().equals(id)) {
-    				estPresent=true;
-    				break FIN;
-    			}
-    		}
-    	}
-    	System.out.println(estPresent);
-    	if(!estPresent) {
-			produitService.produitRepo.delete(produitService.produitRepo.findById(id).get());
-    	}
-    }
+//	@DeleteMapping(value="/{id}")
+//    public void deleteProduit(@PathVariable Long id) {
+//    	boolean estPresent=false;
+//    	List<Commande> commandes = commandeService.commandeRepository.findAll();
+//    	FIN:for(Commande commande : commandes) {
+//    		List<Produit> produits = commande.getProduit();
+//    		for(Produit produit : produits) {
+//    			if(produit.getId().equals(id)) {
+//    				estPresent=true;
+//    				break FIN;
+//    			}
+//    		}
+//    	}
+//    	System.out.println(estPresent);
+//    	if(!estPresent) {
+//			produitService.produitRepo.delete(produitService.produitRepo.findById(id).get());
+//    	}
+//    }
 }

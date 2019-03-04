@@ -28,12 +28,12 @@ export interface Utilisateur {
 
 export interface Commande {
     id: number;
-    liste_produits: Produit[];
+    produitCommandes: Produit[];
     utilisateur: Utilisateur;
     n_client: number;
     ref: string;
     date_creation: string;
     date_validation: string;
-    prix_total: number;
+    prixTotal: number;
     etat: string;
 }

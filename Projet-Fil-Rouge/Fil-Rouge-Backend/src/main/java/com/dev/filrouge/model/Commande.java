@@ -1,15 +1,15 @@
 package com.dev.filrouge.model;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -19,8 +19,6 @@ import javax.persistence.Table;
 @Table(name = "commande")
 @SequenceGenerator(name = "seq_commande_id")
 public class Commande {
-
-    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_commande_id")
     Long id;
@@ -36,8 +34,9 @@ public class Commande {
     float prixTotal;
     @Column
     String etat;
-    @OneToMany
-    List<Produit> produit = new ArrayList<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "commande_id")
+    List<ProduitCommande> produitCommandes;
     @ManyToOne
     Utilisateur utilisateur;
 
@@ -45,7 +44,7 @@ public class Commande {
 
     }
 
-    public Commande(String reference, Integer n_client, LocalDate dateCommande, LocalDate dateLivraison, float prixTotal, String etat, List<Produit> produit,
+    public Commande(String reference, Integer n_client, LocalDate dateCommande, LocalDate dateLivraison, float prixTotal, String etat, List<ProduitCommande> produitCommandes,
             Utilisateur utilisateur) {
     	this.reference = reference;
     	this.n_client = n_client;
@@ -53,7 +52,7 @@ public class Commande {
         this.dateLivraison = dateLivraison;
         this.prixTotal = prixTotal;
         this.etat = etat;
-        this.produit = produit;
+        this.produitCommandes = produitCommandes;
         this.utilisateur = utilisateur;
     }
 
@@ -113,12 +112,12 @@ public class Commande {
         this.etat = etat;
     }
 
-    public List<Produit> getProduit() {
-        return this.produit;
+    public List<ProduitCommande> getProduitCommandes() {
+        return this.produitCommandes;
     }
 
-    public void setProduit(List<Produit> produit) {
-        this.produit = produit;
+    public void setProduitCommandes(List<ProduitCommande> produitCommandes) {
+        this.produitCommandes = produitCommandes;
     }
 
     public Utilisateur getUtilisateur() {
@@ -133,7 +132,10 @@ public class Commande {
     public String toString() {
         return "{" + " id='" + getId() + "'" + ", reference='" + getReference() + "'" +", n_client=" + getN_client() + ", dateCommande='"
                 + getDateCommande() + "'" + ", dateLivraison='" + getDateLivraison() + "'" + ", prixTotal='"
-                + getPrixTotal() + "'" + ", etat='" + getEtat() + "'" + ", produit='" + getProduit() + "'"
+                + getPrixTotal() + "'" + ", etat='" + getEtat() + "'" + ", produit='" + getProduitCommandes() + "'"
                 + ", utilisateur='" + getUtilisateur() + "'" + "}";
     }
 }
+    
+    
+	

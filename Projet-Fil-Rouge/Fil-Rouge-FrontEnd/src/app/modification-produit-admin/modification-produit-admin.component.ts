@@ -33,7 +33,7 @@ export class ModificationProduitAdminComponent implements OnInit {
 
   }
 
-  modifictation() {
+  modification() {
     this._produitService.modification(this.produitSave).subscribe()
   }
 

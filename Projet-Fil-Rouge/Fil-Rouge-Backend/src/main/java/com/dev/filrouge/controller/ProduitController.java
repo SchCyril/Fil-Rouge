@@ -43,45 +43,47 @@ public class ProduitController {
 	public Produit create(@RequestBody Map<String,String> action) {
 		Produit produitCreate = new Produit(action.get("nom"),action.get("description"),Float.parseFloat(action.get("prix")),
 				action.get("categorie"),action.get("sousCategorie"),action.get("image"),
-				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif")),null
+				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif"))
 				);
 		produitService.create(produitCreate);
 		return produitCreate;
 	}
   
-    @PostMapping(value = "usualSearch")
-    public ProduitPage searchProduitActif(@RequestBody Map<String, String> action) {
-        return produitRepoImpl.searchNotAdmin(
-            Integer.parseInt(action.get("page")),
-            action.get("nom"),
-            action.get("categorie"),
-            action.get("sousCategorie"));
-    }
-
-
-
-    @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping(value = "adminSearch")
-    public ProduitPage searchAllProduit(@RequestBody Map<String, String> action) {
-        return produitRepoImpl.searchAdmin(
-            Integer.parseInt(action.get("page")),
-            action.get("name"),
-            action.get("categorie"),
-            action.get("sousCategorie"));
-    }
+//    @PostMapping(value = "usualSearch")
+//    public ProduitPage searchProduitActif(@RequestBody Map<String, String> action) {
+//        return produitRepoImpl.searchNotAdmin(
+//            Integer.parseInt(action.get("page")),
+//            action.get("nom"),
+//            action.get("categorie"),
+//            action.get("sousCategorie"));
+//    }
+//
+//
+//
+//    @PreAuthorize("hasAuthority('ADMIN')")
+//    @PostMapping(value = "adminSearch")
+//    public ProduitPage searchAllProduit(@RequestBody Map<String, String> action) {
+//        return produitRepoImpl.searchAdmin(
+//            Integer.parseInt(action.get("page")),
+//            action.get("name"),
+//            action.get("categorie"),
+//            action.get("sousCategorie"));
+//    }
     
     @PutMapping
     public Produit updateProduit(@RequestBody Produit produit) {
     	Produit produitUpdate = new Produit(produit.getId(),produit.getNom(),produit.getDescription(),
     			produit.getPrix(),produit.getCategorie(),produit.getSousCategorie(),produit.getImage(),produit.getStock(),
-    			produit.isActif(),produit.getCommande());
+    			produit.isActif());
     	 produitService.produitRepo.saveAndFlush(produitUpdate);
     	 return produitUpdate;
     } 
     
+
     @GetMapping(value ="/{id}")
     public Produit getById(@PathVariable Long id) {
     	return produitService.produitRepo.findById(id).get();
+
     }
     
     

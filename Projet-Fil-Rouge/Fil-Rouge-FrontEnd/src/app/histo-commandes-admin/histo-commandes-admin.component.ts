@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommandeService } from '../commande.service';
-import { Commande, Utilisateur } from '../model';
+import { Commande, Utilisateur, Produit } from '../model';
 
 @Component({
   selector: 'app-histo-commandes-admin',
@@ -9,7 +9,6 @@ import { Commande, Utilisateur } from '../model';
 })
 export class HistoCommandesAdminComponent implements OnInit {
   msg: string = "";
-
   list_commande: Commande[] = []
   constructor(private _srv: CommandeService) { }
 
