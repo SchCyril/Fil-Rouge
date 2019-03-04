@@ -3,29 +3,26 @@
   <div class="form-row">
     <div class="form-group col-md-4">
       <label for="nom">Nom du produit</label>
-      <input type="text" class="form-control" name="nom" #champNom="ngModel" value="produit.nom"
-        [(ngModel)]="produitSave.nom" />
+      <input type="text" class="form-control" name="nom" #champNom="ngModel" [(ngModel)]="produitSave.nom" />
     </div>
     <div class="form-group col-md-4">
       <label for="Quantité">Quantité reçue</label>
-      <input type="number" class="form-control" name="stock" #champStock="ngModel" value="produit.stock"
-        [(ngModel)]="produitSave.stock" />
+      <input type="number" class="form-control" name="stock" #champStock="ngModel" [(ngModel)]="produitSave.stock" />
     </div>
     <div class="form-group col-md-4">
       <label for="prix">Prix unitaire</label>
-      <input type="number" class="form-control" name="prix" #champPrix="ngModel" value="produit.prix"
-        [(ngModel)]="produitSave.prix" />
+      <input type="number" class="form-control" name="prix" #champPrix="ngModel" [(ngModel)]="produitSave.prix" />
     </div>
   </div>
 
   <div class="form-row">
     <div class="form-group col-md-4">
-      <input type="file" name="image" accept="image/png, image/jpeg" #champImage="ngModel" value="produit.image"
+      <input type="file" name="image" accept="image/png, image/jpeg" #champImage="ngModel"
         [(ngModel)]="produitSave.image" />
     </div>
     <div class="form-group col-md-4">
       <label for="inputState">Categorie</label>
-      <select id="inputState" name="categorie" class="form-control" #champStock="ngModel" value="produit.categorie"
+      <select id="inputState" name="categorie" class="form-control" #champStock="ngModel"
         [(ngModel)]="produitSave.categorie">
         <option selected>Livre</option>
         <option>Jeux Videos</option>
@@ -35,7 +32,7 @@
     <div class="form-group col-md-4">
       <label for="inputState">Sous-Catégorie</label>
       <select id="inputState" name="sous_categorie" class="form-control" #champStock="ngModel"
-        value="produit.sous_categorie" [(ngModel)]="produitSave.sous_categorie">
+        [(ngModel)]="produitSave.sousCategorie">
         <option selected disabled>----Livres------</option>
         <option>Roman</option>
         <option>BD</option>
@@ -54,10 +51,10 @@
   </div>
   <div class="form-group">
     <label for="text">Description du produit</label>
-    <input type="text" name="desc" class="form-control" #champDescription="ngModel" [(ngModel)]="produitSave.desc"
-      value="produit.desc" />
+    <input type="text" name="desc" class="form-control" #champDescription="ngModel"
+      [(ngModel)]="produitSave.description" />
   </div>
   <div class="justity-content-center">
-    <button type="submit" (click)="creation()" class="btn btn-primary">Enregistrer</button>
+    <button type="submit" class="btn btn-primary" (click)="modifictation()">Enregistrer</button>
   </div>
 </form>

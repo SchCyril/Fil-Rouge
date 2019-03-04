@@ -1,10 +1,10 @@
 export interface Produit {
     id: number,
     nom: string;
-    desc: string;
+    description: string;
     prix: number;
     categorie: string;
-    sous_categorie: string;
+    sousCategorie: string;
     image: string;
     stock: number;
     commande: Commande;

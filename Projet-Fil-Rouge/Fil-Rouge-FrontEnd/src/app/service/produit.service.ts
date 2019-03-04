@@ -19,6 +19,7 @@ const httpOptions = {
 })
 export class ProduitService {
 
+  idModif: number
 
   constructor(private _http: HttpClient) {
   }
@@ -33,6 +34,19 @@ export class ProduitService {
 
   getAll(): Observable<Produit[]> {
     return this._http.get<Produit[]>("http://localhost:8080/ListeProduits")
+  }
 
+
+  setIdModification(id: number) {
+    this.idModif = id
+  }
+
+
+  getIdModification(): Observable<Produit> {
+    return this._http.get<Produit>("http://localhost:8080/Produit/" + this.idModif)
+  }
+
+  deleteProduit(): Observable<Object> {
+    return this._http.delete("http://localhost:8080/ListeProduitsAdmin/" + this.idModif)
   }
 }
