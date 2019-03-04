@@ -1,0 +1,28 @@
+<table class="table" *ngFor="let info of produits">
+  <tbody>
+    <tr>
+      <th scope="row"></th>
+      <td><img [src]="info.image" alt="product image"/></td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>{{ info.nom }}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>{{ info.desc }}</td>
+    </tr>
+    <tr>
+      <th scope="row"></th>
+      <td>{{ info.etat }}</td>
+    </tr>
+    <tr>
+        <th scope="row"></th>
+        <td>{{ info.prix }}</td>
+      </tr>
+
+      <div>
+          <button (click)="deleteProduitPanier(index)"> delete</button>
+        </div>
+  </tbody>
+</table>

@@ -25,6 +25,7 @@ import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-comm
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 import { ListeProduitsAdminComponent } from './liste-produits-admin/liste-produits-admin.component';
 import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail-produit.component';
+import { PanierComponent } from './panier/panier.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail
     ModificationProduitAdminComponent,
     HistoCommandesAdminComponent,
     ListeProduitsAdminComponent,
-    FicheDetailProduitComponent
+    FicheDetailProduitComponent,
+    PanierComponent
   ],
   imports: [
     BrowserModule,

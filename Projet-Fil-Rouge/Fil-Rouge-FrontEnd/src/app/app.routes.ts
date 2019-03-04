@@ -10,6 +10,7 @@ import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-commandes-admin.component';
 import { ListeProduitsAdminComponent } from './liste-produits-admin/liste-produits-admin.component';
+import { PanierComponent } from './panier/panier.component';
 
 export const ROUTES: Routes = [
     { path: 'Admin', component: AccueilAdminComponent },
@@ -22,5 +23,6 @@ export const ROUTES: Routes = [
     { path: 'ModificationProduit', component: ModificationProduitAdminComponent },
     { path: 'CreerProduit', component: CreerProduitAdminComponent },
     { path: 'Historique', component: HistoCommandesAdminComponent },
-    { path: 'ListeProduitsAdmin', component: ListeProduitsAdminComponent }
+    { path: 'ListeProduitsAdmin', component: ListeProduitsAdminComponent }, 
+    { path: 'Panier', component: PanierComponent }
 ];
