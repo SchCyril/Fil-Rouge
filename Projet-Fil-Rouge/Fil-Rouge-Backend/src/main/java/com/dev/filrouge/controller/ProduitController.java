@@ -48,27 +48,30 @@ public class ProduitController {
 		produitService.create(produitCreate);
 		return produitCreate;
 	}
-  
-//    @PostMapping(value = "usualSearch")
-//    public ProduitPage searchProduitActif(@RequestBody Map<String, String> action) {
-//        return produitRepoImpl.searchNotAdmin(
-//            Integer.parseInt(action.get("page")),
-//            action.get("nom"),
-//            action.get("categorie"),
-//            action.get("sousCategorie"));
-//    }
-//
-//
-//
-//    @PreAuthorize("hasAuthority('ADMIN')")
-//    @PostMapping(value = "adminSearch")
-//    public ProduitPage searchAllProduit(@RequestBody Map<String, String> action) {
-//        return produitRepoImpl.searchAdmin(
-//            Integer.parseInt(action.get("page")),
-//            action.get("name"),
-//            action.get("categorie"),
-//            action.get("sousCategorie"));
-//    }
+
+
+    @PostMapping(value = "usualSearch")
+    public ProduitPage searchProduitActif(@RequestBody Map<String, String> action) {
+        return produitRepoImpl.searchNotAdmin(
+            Integer.parseInt(action.get("page")),
+            action.get("nom"),
+            action.get("categorie"),
+			action.get("sousCategorie"),
+			Integer.parseInt(action.get("maxResult")));
+    }
+
+
+
+    @PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping(value = "adminSearch")
+    public ProduitPage searchAllProduit(@RequestBody Map<String, String> action) {
+        return produitRepoImpl.searchAdmin(
+            Integer.parseInt(action.get("page")),
+            action.get("name"),
+            action.get("categorie"),
+            action.get("sousCategorie"));
+    }
+
     
     @PutMapping
     public Produit updateProduit(@RequestBody Produit produit) {

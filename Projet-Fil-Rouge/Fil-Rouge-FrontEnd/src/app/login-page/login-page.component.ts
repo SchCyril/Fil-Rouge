@@ -9,9 +9,24 @@ import { LoginService } from '../service/login.service';
 })
 export class LoginPageComponent implements OnInit {
 
+  // utilisateur = {
+  //   nom: '',
+  //   password: '',
+  //   mail:''
+  // }
+
   utilisateur = {
-    login: '',
-    password: ''
+    id: null,
+    nom: '',
+    prenom: '',
+    adresse: '',
+    num_tel:null,
+    mail: '',
+    date_naissance: null,
+    password: '',
+    num_client: '',
+    role: '',
+    liste_commandes:null
   }
 
 
@@ -22,7 +37,11 @@ export class LoginPageComponent implements OnInit {
   }
 
   connexion() {
-    this._login.connect(this.utilisateur).subscribe(value => console.log(value));
-
+     this._login.connect(this.utilisateur).subscribe(
+       value => {
+        console.log(value)
+       },
+       err => console.log("no user found")
+       )
   }
 }

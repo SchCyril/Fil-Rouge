@@ -6,7 +6,8 @@ import { Observable } from 'rxjs';
 let httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json"
-  })
+  }),
+  withCredentials: true
 };
 
 @Injectable({
@@ -16,10 +17,13 @@ export class LoginService {
 
   constructor(private _http: HttpClient) { }
 
-  connect(utilisateur: any): Observable<any> {
-    let authHeader: string = btoa(utilisateur.login + ":" + utilisateur.password);
+  connect(utilisateur: Utilisateur): Observable<Utilisateur> {
+    let authHeader: string = btoa(utilisateur.mail + ":" + utilisateur.password);
     httpOptions.headers = httpOptions.headers.set("Authorization", "Basic " + authHeader);
+    return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions);
+  }
 
-    return this._http.get('http://localhost:8080/login/user', httpOptions);
+  loggedInUser(): Observable<Utilisateur> {
+    return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions);
   }
 }

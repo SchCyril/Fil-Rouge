@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DataService } from '../service/data.service';
+import { ProduitService } from '../service/produit.service';
 
 @Component({
   selector: 'app-search',
@@ -13,7 +14,7 @@ export class SearchComponent implements OnInit {
   sousCategorie: string = ""
   resultTotal: number = 0
 
-  constructor(private _data: DataService) { }
+  constructor(private _produitService:ProduitService) { }
 
   ngOnInit() {
   }
@@ -23,7 +24,7 @@ export class SearchComponent implements OnInit {
   }
 
   search(pageActuelle:number) {
-    this._data.usualSearch(pageActuelle, this.nom, this.categorie, this.sousCategorie).subscribe(
+    this._produitService.usualSearch(pageActuelle, this.nom, this.categorie, this.sousCategorie, 10).subscribe(
       value => {
         console.log(value);
         this.resultTotal = value.resultNb;

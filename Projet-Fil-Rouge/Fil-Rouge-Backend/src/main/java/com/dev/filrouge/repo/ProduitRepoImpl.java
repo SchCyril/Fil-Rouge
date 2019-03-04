@@ -25,7 +25,7 @@ public class ProduitRepoImpl {
         this.em = jpaContext.getEntityManagerByManagedType(Produit.class);
     }
 
-    public ProduitPage searchNotAdmin(int page, String name, String categorie, String sousCategorie) {
+    public ProduitPage searchNotAdmin(int page, String name, String categorie, String sousCategorie, int maxResult) {
 
         CriteriaBuilder builder = em.getCriteriaBuilder();
         CriteriaQuery<Produit> query = builder.createQuery(Produit.class);
@@ -39,7 +39,7 @@ public class ProduitRepoImpl {
             namePredicate = builder.like(builder.upper(root.get("nom")), "%" + name.toUpperCase() + "%");
         }
         if (!StringUtils.isEmpty(categorie)) {
-            categoriePredicate = builder.like(builder.upper(root.get("catégorie")),
+            categoriePredicate = builder.like(builder.upper(root.get("categorie")),
                     "%" + categorie.toUpperCase() + "%");
         }
         if (!StringUtils.isEmpty(sousCategorie)) {
@@ -52,8 +52,8 @@ public class ProduitRepoImpl {
 
         TypedQuery<Produit> produitQuery = em.createQuery(query);
         int resultNb = produitQuery.getResultList().size();
-        produitQuery.setFirstResult((page - 1) * 10);
-        produitQuery.setMaxResults(10);
+        produitQuery.setFirstResult((page - 1) * maxResult);
+        produitQuery.setMaxResults(maxResult);
         List<Produit> produits = new ArrayList<>();
         produits = produitQuery.getResultList();
         ProduitPage produitPage = new ProduitPage(resultNb, page, produits);
@@ -74,7 +74,7 @@ public class ProduitRepoImpl {
             namePredicate = builder.like(builder.upper(root.get("nom")), "%" + name.toUpperCase() + "%");
         }
         if (!StringUtils.isEmpty(categorie)) {
-            categoriePredicate = builder.like(builder.upper(root.get("catégorie")),
+            categoriePredicate = builder.like(builder.upper(root.get("categorie")),
                     "%" + categorie.toUpperCase() + "%");
         }
         if (!StringUtils.isEmpty(sousCategorie)) {

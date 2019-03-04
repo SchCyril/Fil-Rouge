@@ -25,8 +25,8 @@ public class ListeProduitsAdmin {
 	@Autowired
 	CommandeService commandeService;
 	
-//	@DeleteMapping(value="/{id}")
-//    public void deleteProduit(@PathVariable Long id) {
+	@DeleteMapping(value="/{id}")
+    public void deleteProduit(@PathVariable Long id) {
 //    	boolean estPresent=false;
 //    	List<Commande> commandes = commandeService.commandeRepository.findAll();
 //    	FIN:for(Commande commande : commandes) {
@@ -40,7 +40,7 @@ public class ListeProduitsAdmin {
 //    	}
 //    	System.out.println(estPresent);
 //    	if(!estPresent) {
-//			produitService.produitRepo.delete(produitService.produitRepo.findById(id).get());
-//    	}
-//    }
+			produitService.produitRepo.delete(produitService.produitRepo.findById(id).get());
+    	//}
+    }
 }
