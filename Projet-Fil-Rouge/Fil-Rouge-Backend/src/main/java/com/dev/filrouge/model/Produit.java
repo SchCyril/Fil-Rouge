@@ -39,9 +39,22 @@ public class Produit {
 	}
 
 	public Produit(Long id,String nom, String description, float prix, String categorie, String sousCategorie, String image,
-			int stock, boolean actif, Commande commande) {
+			int stock, boolean actif) {
 		super();
 		this.id=id;
+		this.nom = nom;
+		this.description = description;
+		this.prix = prix;
+		this.categorie = categorie;
+		this.sousCategorie = sousCategorie;
+		this.image = image;
+		this.stock = stock;
+		this.actif = actif;
+	}
+	
+	public Produit(String nom, String description, float prix, String categorie, String sousCategorie, String image,
+			int stock, boolean actif) {
+		super();
 		this.nom = nom;
 		this.description = description;
 		this.prix = prix;

@@ -30,8 +30,10 @@
       <div class="col-sm-6">Quantite : {{produit.stock}}</div>
     </div>
     <div class="row">
-      <div class="col-sm-6"><button type="button" class="btn btn-primary">Modifier</button></div>
-      <div class="col-sm-6"><button type="button" class="btn btn-danger">Supprimer</button></div>
+      <div class="col-sm-6"><a class="nav-link" routerLink="/Produit/{{produit.id}}"><button type="button"
+            class="btn btn-primary" (click)="setId(produit.id)">Modifier</button></a></div>
+      <div class="col-sm-6"><a class="nav-link" routerLink="/ListeProduitsAdmin/{{produit.id}}"> <button type="button"
+            class="btn btn-danger" (click)="delete(produit.id)">Supprimer</button></a></div>
     </div>
   </div>
 </div>

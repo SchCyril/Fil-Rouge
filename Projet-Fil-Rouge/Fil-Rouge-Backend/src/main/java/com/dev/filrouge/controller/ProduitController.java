@@ -41,9 +41,9 @@ public class ProduitController {
 	
 	@PostMapping
 	public Produit create(@RequestBody Map<String,String> action) {
-		Produit produitCreate = new Produit(action.get("nom"),action.get("desc"),Float.parseFloat(action.get("prix")),
-				action.get("categorie"),action.get("sous_categorie"),action.get("image"),
-				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif")),null
+		Produit produitCreate = new Produit(action.get("nom"),action.get("description"),Float.parseFloat(action.get("prix")),
+				action.get("categorie"),action.get("sousCategorie"),action.get("image"),
+				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif"))
 				);
 		produitService.create(produitCreate);
 		return produitCreate;
@@ -71,31 +71,21 @@ public class ProduitController {
 //    }
     
     @PutMapping
-    public Produit updateProduit(@RequestBody Map<String,String> action) {
-    	Produit produitUpdate = new Produit(Long.parseLong(action.get("id")),action.get("nom"),action.get("desc"),Float.parseFloat(action.get("prix")),
-				action.get("categorie"),action.get("sous_categorie"),action.get("image"),
-				Integer.parseInt(action.get("stock")),Boolean.parseBoolean(action.get("actif")),null
-				);
-    	 produitService.produitRepo.save(produitUpdate);
+    public Produit updateProduit(@RequestBody Produit produit) {
+    	Produit produitUpdate = new Produit(produit.getId(),produit.getNom(),produit.getDescription(),
+    			produit.getPrix(),produit.getCategorie(),produit.getSousCategorie(),produit.getImage(),produit.getStock(),
+    			produit.isActif());
+    	 produitService.produitRepo.saveAndFlush(produitUpdate);
     	 return produitUpdate;
     } 
     
-    @DeleteMapping(value="id")
-    public void deleteProduit(@PathVariable Long id) {
-    	boolean estPresent=false;
-    	List<Commande> commandes = commandeService.commandeRepository.findAll();
-    	FIN:for(Commande commande : commandes) {
-//    		List<Produit> produits = commande.getProduit();
-//    		for(Produit produit : produits) {
-//    			if(produit.getId().equals(id)) {
-//    				estPresent=true;
-//    				break FIN;
-//    			}
-//    		}
-    	}
-    	if(!estPresent) {
-			produitService.produitRepo.delete(produitService.produitRepo.findById(id).get());
-    	}
+
+    @GetMapping(value ="/{id}")
+    public Produit getById(@PathVariable Long id) {
+    	return produitService.produitRepo.findById(id).get();
+
     }
+    
+    
 	
 }
