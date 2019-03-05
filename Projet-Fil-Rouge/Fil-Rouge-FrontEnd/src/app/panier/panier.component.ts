@@ -22,10 +22,13 @@ export class PanierComponent implements OnInit {
   setListe(){
     this.produits=this._data.produits
   }
-  deleteProduit(index : number){
-    this._data.deleteProduitPanier(index).subscribe(value =>
-    this.produits=value)
+  // deleteProduit(index : number){
+  //   this._data.deleteProduitPanier(index).subscribe(value =>
+  //   this.produits=value)
     
+  // }
+  deleteProduit(index:number) {
+    this.produits.splice(index, 1);
   }
 
 }

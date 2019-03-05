@@ -41,7 +41,20 @@ export class PanierService {
         stock: 20,
         commande: null,
         actif: true
-    }]
+    },
+    {
+        id: 9,
+        nom: 'Hearthstone',
+        description: 'cartes',
+        prix: 0,
+        categorie: 'Jeux',
+        sousCategorie: 'stratégie',
+        image: 'ferfg',
+        stock: 20,
+        commande: null,
+        actif: true
+    }
+]
 
     constructor(private _http: HttpClient) {
     }
@@ -55,9 +68,16 @@ export class PanierService {
     }
 
 
-    deleteProduitPanier(index: number): Observable<Produit[]> {
+    deleteProduitPanier(index: number) {
         console.log(index);
         this.produits.splice(index, 1);
         return of(this.produits)
+       
     }
+
+    removeElement(index:number) {
+        
+        //document.getElementById("accordionExample").remove();
+        
+        this.produits.splice(index, 1); }
 }

@@ -1,4 +1,4 @@
-<div class="accordion" id="accordionExample" *ngFor="let obj of produits; i as index">
+<div class="accordion" id="accordionExample" *ngFor="let obj of produits; index as index">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
@@ -13,15 +13,16 @@
           <div class="col-3">Nom du produit : {{obj.nom}}</div>
           <div class="col-3">Prix du produit : {{ obj.prix }}</div>
           <div class="col-2">
-            <button type="button" class="btn btn-danger" (click)="deleteProduit(i)">Supprimer</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProduit(index)">Supprimer</button>
           </div>
         </div>
+      
       </h5>
     </div>
     <div id="obj{{obj.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <app-fiche-detail-produit-panier [produit]="obj"></app-fiche-detail-produit-panier>
+        <app-fiche-detail-produit-panier [produit]="obj" [index]="index"></app-fiche-detail-produit-panier>
       </div>
     </div>
-  </div>
+  </div> 
 </div>

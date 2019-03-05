@@ -33,9 +33,8 @@ export class MenuComponent implements OnInit {
       }
     );
   }
-
-
   search(pageActuelle:number) {
+    
     this._produitService.usualSearch(pageActuelle, this.nom, "", "", 10);
   }
 
