@@ -2,42 +2,48 @@ package com.dev.filrouge.model;
 
 import java.io.Serializable;
 
-import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Embeddable
 public class ProduitCommandeId implements Serializable {
 	
 	private static final long serialVersionUID = -574779333497044141L;
 	
-	@Column(name = "produit_id")
-	private Long produitId;
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "commande_id")
+	private Commande commande;
 
-	@Column(name = "commande_id")
-	private Long commandeId;
-
-	public Long getProduitId() {
-		return produitId;
+	@ManyToOne
+	@JoinColumn(name = "produit_id")
+	private Produit produit;
+	
+	public Commande getCommande() {
+		return commande;
 	}
 
-	public void setProduitId(Long produitId) {
-		this.produitId = produitId;
+	public void setCommande(Commande commande) {
+		this.commande = commande;
 	}
 
-	public Long getCommandeId() {
-		return commandeId;
+	public Produit getProduit() {
+		return produit;
 	}
 
-	public void setCommandeId(Long commandeId) {
-		this.commandeId = commandeId;
+	public void setProduit(Produit produit) {
+		this.produit = produit;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((commandeId == null) ? 0 : commandeId.hashCode());
-		result = prime * result + ((produitId == null) ? 0 : produitId.hashCode());
+		result = prime * result + ((commande == null) ? 0 : commande.hashCode());
+		result = prime * result + ((produit == null) ? 0 : produit.hashCode());
 		return result;
 	}
 
@@ -50,18 +56,17 @@ public class ProduitCommandeId implements Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		ProduitCommandeId other = (ProduitCommandeId) obj;
-		if (commandeId == null) {
-			if (other.commandeId != null)
+		if (commande == null) {
+			if (other.commande != null)
 				return false;
-		} else if (!commandeId.equals(other.commandeId))
+		} else if (!commande.equals(other.commande))
 			return false;
-		if (produitId == null) {
-			if (other.produitId != null)
+		if (produit == null) {
+			if (other.produit != null)
 				return false;
-		} else if (!produitId.equals(other.produitId))
+		} else if (!produit.equals(other.produit))
 			return false;
 		return true;
-	} 
-	
+	}	
 	
 }

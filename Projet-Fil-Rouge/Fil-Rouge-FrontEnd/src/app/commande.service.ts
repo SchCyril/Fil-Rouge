@@ -16,9 +16,19 @@ const httpOptions = {
 export class CommandeService {
 
   constructor(private _http: HttpClient) { }
-
+  idModif: number
 
   afficher(): Observable<Commande[]> {
     return this._http.get<Commande[]>("http://localhost:8080/Historique")
+  }
+  setIdModification(id: number) {
+    this.idModif = id
+  }
+  getIdModification(): Observable<Commande> {
+    return this._http.get<Commande>("http://localhost:8080/Historique/" + this.idModif)
+  }
+  deleteCommande(): Observable<Object> {
+    console.log(this.idModif)
+    return this._http.delete("http://localhost:8080/Historique/" + this.idModif)
   }
 }

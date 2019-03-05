@@ -17,8 +17,17 @@ export class HistoCommandesAdminComponent implements OnInit {
       value => {
         this.list_commande = value
         console.log(value)
+        console.log(value[0].produitCommandes)
       }
     )
-  }
 
+
+  }
+  delete(id: number) {
+    this.setId(id)
+    this._srv.deleteCommande().subscribe(value => { location.reload(); });
+  }
+  setId(id: number) {
+    this._srv.setIdModification(id)
+  }
 }
