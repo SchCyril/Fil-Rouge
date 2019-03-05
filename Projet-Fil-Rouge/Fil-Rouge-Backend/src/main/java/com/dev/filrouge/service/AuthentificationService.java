@@ -22,13 +22,13 @@ public class AuthentificationService implements UserDetailsService {
 	public UserDetails loadUserByUsername(final String username) {
 		Utilisateur user = null;
 		try {
-			user = ur.findByName(username);
+			user = ur.findByEmail(username);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		if (user != null) {
 			List<GrantedAuthority> rules = this.getUserCredentials(user);
-			return new org.springframework.security.core.userdetails.User(user.getLogin(), user.getPassword(), rules);
+			return new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), rules);
 		}
 		throw new UsernameNotFoundException("username.not.found");
 	}

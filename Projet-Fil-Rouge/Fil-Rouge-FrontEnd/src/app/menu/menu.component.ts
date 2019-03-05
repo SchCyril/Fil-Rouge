@@ -11,35 +11,43 @@ import { Router } from '@angular/router';
   selector: 'app-menu',
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css'],
-  providers:[NgbDropdownConfig]
+  providers: [NgbDropdownConfig]
 })
 export class MenuComponent implements OnInit {
 
   nom: string = ""
-  isConnected:boolean
+  isConnected: boolean
 
-  constructor(config: NgbDropdownConfig, private _produitService : ProduitService, private _loginService: LoginService, private router: Router) {
+  constructor(config: NgbDropdownConfig, private _produitService: ProduitService, private _loginService: LoginService, private router: Router) {
     config.placement = "bottom-right";
     config.autoClose = true;
-   }
+  }
 
   ngOnInit() {
 
     this._loginService.loggedInUser().subscribe(
-      value =>{
-       // console.log("Utilisateur connecté : " + isNullOrUndefined(value) ? null : value.mail);
-       console.log("***")
+      value => {
         isNullOrUndefined(value) ? this.isConnected = false : this.isConnected = true
+        console.log(this.isConnected)
       }
     );
   }
-  search(pageActuelle:number) {
-    
+
+  search(pageActuelle: number) {
+
     this._produitService.usualSearch(pageActuelle, this.nom, "", "", 10);
   }
 
-  goToLoginPage(){
+  goToLoginPage() {
     this.router.navigate(['/Login'])
+  }
+
+  deconnect() {
+    this.isConnected = false;
+    //this._loginService.deconnect();
+    this._loginService.deconnect().subscribe(
+      value => console.log("LOGOUT")
+    );
   }
 
 }

@@ -31,6 +31,7 @@ import { FicheDetailProduitPanierComponent } from './fiche-detail-produit-panier
 import { ListeProduitsUtilisateurComponent } from './liste-produits-utilisateur/liste-produits-utilisateur.component';
 import { FicheProduitUtilisateurComponent } from './fiche-produit-utilisateur/fiche-produit-utilisateur.component';
 import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
     FicheDetailProduitPanierComponent,
     ListeProduitsUtilisateurComponent,
     FicheProduitUtilisateurComponent,
-    FicheProduitComponent
+    FicheProduitComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
