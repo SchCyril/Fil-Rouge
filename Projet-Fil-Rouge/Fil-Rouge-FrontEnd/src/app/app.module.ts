@@ -28,6 +28,7 @@ import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail
 import { PanierComponent } from './panier/panier.component';
 import { SafePipe } from './safe.pipe';
 import { FicheDetailProduitPanierComponent } from './fiche-detail-produit-panier/fiche-detail-produit-panier.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import { FicheDetailProduitPanierComponent } from './fiche-detail-produit-panier
     FicheDetailProduitComponent,
     PanierComponent,
     SafePipe,
-    FicheDetailProduitPanierComponent
+    FicheDetailProduitPanierComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

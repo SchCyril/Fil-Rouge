@@ -25,8 +25,6 @@ public class Utilisateur {
 	@Column
 	String numClient;
 	@Column
-	String login;
-	@Column
 	String password;
 	@Column
 	String role;
@@ -56,17 +54,15 @@ public class Utilisateur {
 	// this.name = name;
 	// }
 
-	public Utilisateur(String login, String password, String name, String role) {
-		super();
-		this.login = login;
-		this.password = password;
-		this.name = name;
-		this.role = role;
-	}
+	// public Utilisateur(String password, String name, String role) {
+	// super();
+	// this.password = password;
+	// this.name = name;
+	// this.role = role;
+	// }
 
-	public Utilisateur(String login, String password, String role, String name, String prenom, String adresse,
-			String telephone, String email, Date datenaissance) {
-		this.login = login;
+	public Utilisateur(String password, String role, String name, String prenom, String adresse, String telephone,
+			String email, Date datenaissance) {
 		this.password = password;
 		this.role = role;
 		this.name = name;
@@ -79,14 +75,6 @@ public class Utilisateur {
 
 	public String getRole() {
 		return role;
-	}
-
-	public String getLogin() {
-		return login;
-	}
-
-	public void setLogin(String login) {
-		this.login = login;
 	}
 
 	public String getPassword() {
@@ -179,11 +167,11 @@ public class Utilisateur {
 
 	@Override
 	public String toString() {
-		return "{" + " id='" + getId() + "'" + ", numClient='" + getNumClient() + "'" + ", login='" + getLogin() + "'"
-				+ ", password='" + getPassword() + "'" + ", role='" + getRole() + "'" + ", name='" + getName() + "'"
-				+ ", prenom='" + getPrenom() + "'" + ", adresse='" + getAdresse() + "'" + ", telephone='"
-				+ getTelephone() + "'" + ", email='" + getEmail() + "'" + ", datenaissance='" + getDatenaissance() + "'"
-				+ ", commandes='" + getCommandes() + "'" + "}";
+		return "{" + " id='" + getId() + "'" + ", numClient='" + getNumClient() + "'" + ", login='" + ", password='"
+				+ getPassword() + "'" + ", role='" + getRole() + "'" + ", name='" + getName() + "'" + ", prenom='"
+				+ getPrenom() + "'" + ", adresse='" + getAdresse() + "'" + ", telephone='" + getTelephone() + "'"
+				+ ", email='" + getEmail() + "'" + ", datenaissance='" + getDatenaissance() + "'" + ", commandes='"
+				+ getCommandes() + "'" + "}";
 	}
 
 }

@@ -14,15 +14,17 @@ import { PanierComponent } from './panier/panier.component';
 import { ProduitComponent } from './produit/produit.component';
 import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { LoginPageComponent } from './login-page/login-page.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
 
 export const ROUTES: Routes = [
     { path: 'Admin', component: AccueilAdminComponent },
-    { path: '', component: MenuComponent },
+    { path: '', component: AccueilComponent },
     { path: 'Produit/:id', component: ModificationProduitAdminComponent },
     { path: 'Accueil', component: AccueilComponent },
     { path: 'Categorie/:cat', component: ListeProduitComponent },
     { path: 'Nom/:nom', component: ListeProduitComponent },
     { path: 'Login', component: LoginPageComponent },
+    { path: 'SignUp', component: SignUpComponent },
     { path: 'ModificationProduit', component: ModificationProduitAdminComponent },
     { path: 'CreerProduit', component: CreerProduitAdminComponent },
     { path: 'Historique', component: HistoCommandesAdminComponent },

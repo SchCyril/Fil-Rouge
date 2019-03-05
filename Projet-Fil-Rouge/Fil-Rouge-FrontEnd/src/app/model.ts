@@ -14,12 +14,12 @@ export interface Produit {
 
 export interface Utilisateur {
     id: number;
-    nom: string;
+    name: string;
     prenom: string;
     adresse: string;
-    num_tel: number;
-    mail: string;
-    date_naissance: Date;
+    telephone: number;
+    email: string;
+    datenaissance: Date;
     password: string;
     num_client: string;
     role: string;
