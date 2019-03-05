@@ -59,4 +59,5 @@ export class ProduitService {
     console.log("pageActuelle" + pageActuelle + " /nom : " + nom + " /categorie : " + categorie + " /sousCategorie : " + sousCategorie + " /maxResult : " + maxResult)
     return this._http.post<ProduitsFromServeur>("http://localhost:8080/Produit/usualSearch", { "page": pageActuelle, "nom": nom, "categorie": categorie, "sousCategorie": sousCategorie, "maxResult": maxResult }, httpOptions);
   }
+
 }

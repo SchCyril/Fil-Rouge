@@ -18,46 +18,30 @@ const httpOptions = {
 })
 export class PanierService {
 
-    produits: Produit[] = [{
-        id: 5,
-        nom: 'test',
-        description: 'etstetst',
-        prix: 10,
-        categorie: 'Jeux',
-        sousCategorie: 'RPG',
-        image: 'ert',
-        stock: 20,
-        commande: null,
-        actif: true
-    },
-    {
-        id: 6,
-        nom: 'teerst',
-        description: 'eertstetst',
-        prix: 10,
-        categorie: 'Jeux',
-        sousCategorie: 'Aventure',
-        image: 'ert',
-        stock: 20,
-        commande: null,
-        actif: true
-    }]
+    produits: Produit[]
 
     constructor(private _http: HttpClient) {
     }
 
 
     ngOnInit() {
+    }
 
+    lister(): Produit[] {
+        this.produits = JSON.parse(localStorage.getItem('listePanier'))
+        return this.produits
     }
     ajoutproduitPanier(produit: Produit) {
+        if (this.produits === undefined)
+            this.produits = []
         this.produits.push(produit);
+        localStorage.setItem('listePanier', JSON.stringify(this.produits))
     }
 
 
-    deleteProduitPanier(index: number): Observable<Produit[]> {
-        console.log(index);
+    deleteProduitPanier(index: number) {
+        console.log(this.produits)
         this.produits.splice(index, 1);
-        return of(this.produits)
+        localStorage.setItem('listePanier', JSON.stringify(this.produits))
     }
 }

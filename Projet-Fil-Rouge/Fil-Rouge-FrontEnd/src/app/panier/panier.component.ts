@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
-import { Produit, Commande } from '../model';
+import { Component, OnInit, Input } from '@angular/core';
+import { Produit, Commande, PanierItems } from '../model';
 import { PanierService } from '../service/panier.service';
+import { map } from 'rxjs/operators';
 
 @Component({
   selector: 'app-panier',
@@ -8,24 +9,54 @@ import { PanierService } from '../service/panier.service';
   styleUrls: ['./panier.component.css']
 })
 export class PanierComponent implements OnInit {
-  produits:Produit[] = [];
-  commande:Commande;
+  produits: Produit[]
+  commande: Commande;
+  prixTotal: number = 0;
+  listePanier: PanierItems[] = []
 
-  constructor(private _data:PanierService) { }
+  constructor(private _panierService: PanierService) { }
 
   ngOnInit() {
-    this.produits=this._data.produits
-    //     if(this._data.produits.length===0)
-    //       this.setListe()
+    this.produits = this._panierService.lister()
+    this.prixTotal = this.calcul();
+    this.remplissageMap()
   }
 
-  setListe(){
-    this.produits=this._data.produits
+  setListe() {
+    this.produits = this._panierService.lister()
   }
-  deleteProduit(index : number){
-    this._data.deleteProduitPanier(index).subscribe(value =>
-    this.produits=value)
-    
+  deleteProduit(index: number) {
+    this._panierService.deleteProduitPanier(index)
+    this.setListe()
+    this.prixTotal = this.calcul();
+    this.remplissageMap();
   }
 
+  calcul(): number {
+    let aux: number = 0;
+    for (let prix of this.produits) {
+      aux += prix.prix
+    }
+    return aux;
+  }
+
+  remplissageMap() {
+    this.listePanier = []
+    for (let obj of this.produits) {
+      let present: boolean = false
+      for (let produits of this.listePanier) {
+        if (produits.produitPanier.id === obj.id) {
+          produits.quantite += 1;
+          present = true;
+        }
+      }
+      if (!present) {
+        let produit: PanierItems = {
+          "produitPanier": obj,
+          "quantite": 1
+        }
+        this.listePanier.push(produit)
+      }
+    }
+  }
 }

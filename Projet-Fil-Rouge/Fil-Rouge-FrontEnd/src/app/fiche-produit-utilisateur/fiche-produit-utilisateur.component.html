@@ -1,0 +1,10 @@
+<div class="row" id="Prix">
+  <h3><b>Prix : {{produit.prix}}€</b></h3> <br />
+</div>
+
+<div class="row">
+  <div class="col-sm-6"><a class="nav-link"><button type="button" class="btn btn-success"
+        (click)="ajouterPanier()">Ajouter au panier</button></a></div>
+  <div class="col-sm-6"><a class="nav-link" routerLink="/FicheProduit/{{produit.id}}"> <button type="button"
+        class="btn btn-secondary" (click)="setId(produit.id)">Plus de détails</button></a></div>
+</div>

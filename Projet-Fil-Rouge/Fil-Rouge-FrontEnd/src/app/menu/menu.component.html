@@ -31,8 +31,8 @@
 
 
   <div class="icone">
-    <button style="background-color:#343a40; border:none"><img src="../../assets/img/icone-panier.png" id="img"
-        alt=""></button>
+    <a routerLink="/Panier"><button style="background-color:#343a40; border:none"><img
+          src="../../assets/img/icone-panier.png" id="img" alt=""></button></a>
     <div class="btn-group" ngbDropdown role="group">
       <div *ngIf="!isConnected; else elseBlock">
         <button style="background-color:#343a40; border:none" (click)="goToLoginPage()">

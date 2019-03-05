@@ -1,4 +1,14 @@
-<div class="accordion" id="accordionExample" *ngFor="let obj of produits; i as index">
+<br>
+<div class="row">
+  <div class="col-sm-6">
+    <h2><b>Prix total du panier : {{prixTotal}}€</b></h2>
+  </div>
+  <br>
+  <div class="col-sm-6"><button type="button" class="btn btn-success">Valider la commande</button>
+  </div>
+</div>
+<br>
+<div class="accordion" id="accordionExample" *ngFor="let obj of listePanier; index as index">
   <div class="card">
     <div class="card-header" id="headingOne">
       <h5 class="mb-0">
@@ -6,21 +16,23 @@
         <div class="row">
           <div class="col-4">
             <button class="btn btn-link" type="button" data-toggle="collapse" aria-expanded="true"
-              aria-controls="collapseOne" [attr.data-target]="'#obj'+obj.id">
-              {{obj.image}}
+              aria-controls="collapseOne" [attr.data-target]="'#obj'+obj.produitPanier.id">
+              <img src={{obj.produitPanier.image}} id="Image" />
             </button>
           </div>
-          <div class="col-3">Nom du produit : {{obj.nom}}</div>
-          <div class="col-3">Prix du produit : {{ obj.prix }}</div>
+          <div class="col-2">Nom du produit : {{obj.produitPanier.nom}}</div>
+          <div class="col-2">Prix du produit : {{ obj.produitPanier.prix }}</div>
+          <div class="col-2">Quantite : {{ obj.quantite }}</div>
           <div class="col-2">
-            <button type="button" class="btn btn-danger" (click)="deleteProduit(i)">Supprimer</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProduit(index)">Supprimer + {{index}}</button>
           </div>
         </div>
       </h5>
     </div>
-    <div id="obj{{obj.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="obj{{obj.produitPanier.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <app-fiche-detail-produit-panier [produit]="obj"></app-fiche-detail-produit-panier>
+        <app-fiche-detail-produit-panier [produit]="obj.produitPanier" [quantite]="obj.quantite" [index]="index">
+        </app-fiche-detail-produit-panier>
       </div>
     </div>
   </div>

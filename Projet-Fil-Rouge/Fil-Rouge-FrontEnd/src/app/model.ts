@@ -37,3 +37,8 @@ export interface Commande {
     prixTotal: number;
     etat: string;
 }
+
+export interface PanierItems {
+    produitPanier: Produit,
+    quantite: number
+}

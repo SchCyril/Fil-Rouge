@@ -11,15 +11,16 @@ import { PanierService } from '../service/panier.service';
 export class FicheDetailProduitPanierComponent implements OnInit {
 
   @Input() produit: Produit
+  @Input() quantite: number
+  @Input() index: number
 
   constructor(private _panierService: PanierService) { }
 
   ngOnInit() {
-    
   }
 
-  delete(id: number) {
-    this._panierService.deleteProduitPanier(id)
-   
+  delete() {
+    this._panierService.deleteProduitPanier(this.index)
+
   }
 }

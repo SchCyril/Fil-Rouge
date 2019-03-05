@@ -28,6 +28,9 @@ import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail
 import { PanierComponent } from './panier/panier.component';
 import { SafePipe } from './safe.pipe';
 import { FicheDetailProduitPanierComponent } from './fiche-detail-produit-panier/fiche-detail-produit-panier.component';
+import { ListeProduitsUtilisateurComponent } from './liste-produits-utilisateur/liste-produits-utilisateur.component';
+import { FicheProduitUtilisateurComponent } from './fiche-produit-utilisateur/fiche-produit-utilisateur.component';
+import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +55,10 @@ import { FicheDetailProduitPanierComponent } from './fiche-detail-produit-panier
     FicheDetailProduitComponent,
     PanierComponent,
     SafePipe,
-    FicheDetailProduitPanierComponent
+    FicheDetailProduitPanierComponent,
+    ListeProduitsUtilisateurComponent,
+    FicheProduitUtilisateurComponent,
+    FicheProduitComponent
   ],
   imports: [
     BrowserModule,
