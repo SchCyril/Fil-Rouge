@@ -9,7 +9,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
@@ -34,8 +33,7 @@ public class Commande {
     float prixTotal;
     @Column
     String etat;
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "commande_id")
+    @OneToMany(mappedBy = "id.commande", cascade = { CascadeType.ALL, CascadeType.PERSIST, CascadeType.MERGE }, orphanRemoval = true)
     List<ProduitCommande> produitCommandes;
     @ManyToOne
     Utilisateur utilisateur;
@@ -135,6 +133,76 @@ public class Commande {
                 + getPrixTotal() + "'" + ", etat='" + getEtat() + "'" + ", produit='" + getProduitCommandes() + "'"
                 + ", utilisateur='" + getUtilisateur() + "'" + "}";
     }
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((dateCommande == null) ? 0 : dateCommande.hashCode());
+		result = prime * result + ((dateLivraison == null) ? 0 : dateLivraison.hashCode());
+		result = prime * result + ((etat == null) ? 0 : etat.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((n_client == null) ? 0 : n_client.hashCode());
+		result = prime * result + Float.floatToIntBits(prixTotal);
+		result = prime * result + ((produitCommandes == null) ? 0 : produitCommandes.hashCode());
+		result = prime * result + ((reference == null) ? 0 : reference.hashCode());
+		result = prime * result + ((utilisateur == null) ? 0 : utilisateur.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Commande other = (Commande) obj;
+		if (dateCommande == null) {
+			if (other.dateCommande != null)
+				return false;
+		} else if (!dateCommande.equals(other.dateCommande))
+			return false;
+		if (dateLivraison == null) {
+			if (other.dateLivraison != null)
+				return false;
+		} else if (!dateLivraison.equals(other.dateLivraison))
+			return false;
+		if (etat == null) {
+			if (other.etat != null)
+				return false;
+		} else if (!etat.equals(other.etat))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (n_client == null) {
+			if (other.n_client != null)
+				return false;
+		} else if (!n_client.equals(other.n_client))
+			return false;
+		if (Float.floatToIntBits(prixTotal) != Float.floatToIntBits(other.prixTotal))
+			return false;
+		if (produitCommandes == null) {
+			if (other.produitCommandes != null)
+				return false;
+		} else if (!produitCommandes.equals(other.produitCommandes))
+			return false;
+		if (reference == null) {
+			if (other.reference != null)
+				return false;
+		} else if (!reference.equals(other.reference))
+			return false;
+		if (utilisateur == null) {
+			if (other.utilisateur != null)
+				return false;
+		} else if (!utilisateur.equals(other.utilisateur))
+			return false;
+		return true;
+	}
 }
     
     

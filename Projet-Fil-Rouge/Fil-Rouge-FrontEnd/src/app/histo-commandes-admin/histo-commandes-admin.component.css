@@ -5,3 +5,9 @@
     width: 8rem;
     height: 8rem;
 }
+.border-top{
+    width: 100%;
+}
+.mb-0{
+    background-color: lightgray;
+}
