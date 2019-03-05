@@ -24,9 +24,11 @@
           <div class="col-2">Prix du produit : {{ obj.produitPanier.prix }}</div>
           <div class="col-2">Quantite : {{ obj.quantite }}</div>
           <div class="col-2">
-            <button type="button" class="btn btn-danger" (click)="deleteProduit(index)">Supprimer + {{index}}</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProduit(index)">Supprimer +
+              {{index}}</button>
           </div>
         </div>
+
       </h5>
     </div>
     <div id="obj{{obj.produitPanier.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">

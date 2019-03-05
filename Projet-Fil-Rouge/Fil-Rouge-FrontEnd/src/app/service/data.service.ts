@@ -14,8 +14,6 @@ const httpOptions = {
     }),
     withCredentials: true
 };
-
-
 const URL_BACKEND = environment.backendUrl;
 
 @Injectable({

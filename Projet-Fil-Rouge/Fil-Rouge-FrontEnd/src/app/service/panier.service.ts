@@ -44,4 +44,11 @@ export class PanierService {
         this.produits.splice(index, 1);
         localStorage.setItem('listePanier', JSON.stringify(this.produits))
     }
+
+    removeElement(index: number) {
+
+        //document.getElementById("accordionExample").remove();
+
+        this.produits.splice(index, 1);
+    }
 }

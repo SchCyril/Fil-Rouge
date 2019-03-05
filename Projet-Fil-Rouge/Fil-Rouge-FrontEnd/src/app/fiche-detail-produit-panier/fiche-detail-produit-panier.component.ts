@@ -10,6 +10,8 @@ import { PanierService } from '../service/panier.service';
 })
 export class FicheDetailProduitPanierComponent implements OnInit {
 
+  produits: Produit[] = [];
+
   @Input() produit: Produit
   @Input() quantite: number
   @Input() index: number
@@ -18,9 +20,8 @@ export class FicheDetailProduitPanierComponent implements OnInit {
 
   ngOnInit() {
   }
-
   delete() {
     this._panierService.deleteProduitPanier(this.index)
-
   }
+
 }
