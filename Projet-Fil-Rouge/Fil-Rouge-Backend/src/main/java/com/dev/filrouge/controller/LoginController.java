@@ -42,10 +42,21 @@ public class LoginController {
 
     @PostMapping
     public Utilisateur createUser(@RequestBody Utilisateur utilisateur) {
-        utilisateurService.save(new Utilisateur(passwordEncoder.encode(utilisateur.getPassword()),
+        Utilisateur newUtilisateur = new Utilisateur(passwordEncoder.encode(utilisateur.getPassword()),
                 utilisateur.getRole(), utilisateur.getName(), utilisateur.getPrenom(), utilisateur.getAdresse(),
-                utilisateur.getTelephone(), utilisateur.getEmail(), utilisateur.getDatenaissance()));
-        return utilisateur;
+                utilisateur.getTelephone(), utilisateur.getEmail(), utilisateur.getDatenaissance());
+        utilisateurService.save(newUtilisateur);
+
+        StringBuilder numClient = new StringBuilder();
+        numClient.append(String.valueOf(newUtilisateur.getId()));
+        int numClientLength = numClient.length();
+        for (int i = 0; i < (5 - numClientLength); i++) {
+            numClient.insert(0, "0");
+        }
+        newUtilisateur.setNumClient(numClient.toString());
+        utilisateurService.save(newUtilisateur);
+
+        return newUtilisateur;
     }
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
@@ -69,13 +80,15 @@ public class LoginController {
         if (request.isRequestedSessionIdValid() && session != null) {
             session.invalidate();
         }
-    
+
         Cookie[] cookies = request.getCookies();
-        for (Cookie cookie : cookies) {
-            cookie.setMaxAge(0);
-            cookie.setValue(null);
-            cookie.setPath("/");
-            response.addCookie(cookie);
+        if (cookies != null) {
+            for (Cookie cookie : cookies) {
+                cookie.setMaxAge(0);
+                cookie.setValue(null);
+                cookie.setPath("/");
+                response.addCookie(cookie);
+            }
         }
     }
 

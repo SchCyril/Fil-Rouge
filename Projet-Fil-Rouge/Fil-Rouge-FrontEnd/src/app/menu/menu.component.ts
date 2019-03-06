@@ -25,6 +25,8 @@ export class MenuComponent implements OnInit {
 
   ngOnInit() {
 
+    this._loginService.isConnected.subscribe(isConnected => this.isConnected = isConnected);
+
     this._loginService.loggedInUser().subscribe(
       value => {
         isNullOrUndefined(value) ? this.isConnected = false : this.isConnected = true
@@ -33,9 +35,13 @@ export class MenuComponent implements OnInit {
     );
   }
 
-  search(pageActuelle: number) {
 
+  search(pageActuelle: number) {
     this._produitService.usualSearch(pageActuelle, this.nom, "", "", 10);
+  }
+
+  goToPanier() {
+    this.router.navigate(['/Panier'])
   }
 
   goToLoginPage() {
@@ -44,9 +50,8 @@ export class MenuComponent implements OnInit {
 
   deconnect() {
     this.isConnected = false;
-    //this._loginService.deconnect();
     this._loginService.deconnect().subscribe(
-      value => console.log("LOGOUT")
+      value => this.router.navigate(['/Accueil'])
     );
   }
 

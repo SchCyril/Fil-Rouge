@@ -32,7 +32,7 @@ export class PanierService {
         return this.produits
     }
     ajoutproduitPanier(produit: Produit) {
-        if (this.produits === undefined)
+        if (this.produits === undefined || this.produits === null)
             this.produits = []
         this.produits.push(produit);
         localStorage.setItem('listePanier', JSON.stringify(this.produits))
@@ -46,9 +46,7 @@ export class PanierService {
     }
 
     removeElement(index: number) {
-
         //document.getElementById("accordionExample").remove();
-
         this.produits.splice(index, 1);
     }
 }
