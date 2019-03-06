@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Commande } from './model'
+import { Commande } from '../model'
 import { Observable } from 'rxjs';
 
 
@@ -30,5 +30,9 @@ export class CommandeService {
   deleteCommande(): Observable<Object> {
     console.log(this.idModif)
     return this._http.delete("http://localhost:8080/Historique/" + this.idModif)
+  }
+
+  ajouterCommande(commande: Commande) {
+    this._http.post("http://localhost:8080/Historique", commande, httpOptions).subscribe();
   }
 }

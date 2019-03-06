@@ -5,6 +5,7 @@ import java.util.List;
 
 import com.dev.filrouge.model.Commande;
 import com.dev.filrouge.model.ProduitCommande;
+import com.dev.filrouge.model.Utilisateur;
 
 public class CommandeDto {
 	private Long id;
@@ -80,9 +81,10 @@ public class CommandeDto {
 		commande.setPrixTotal(dto.getPrixTotal());
 		commande.setEtat(dto.getEtat());
 		commande.setProduitCommandes(dto.getProduits());
-		commande.setN_client(dto.getNumeroClient());
+		Utilisateur utilisateur = new Utilisateur();
+		utilisateur.setId(Long.valueOf(dto.getNumeroClient()));
+		commande.setUtilisateur(utilisateur);
 		commande.setReference(dto.getReference());
-		commande.setUtilisateur(null);
 		
 		
 		return commande;

@@ -4,8 +4,10 @@
     <h2><b>Prix total du panier : {{prixTotal}}€</b></h2>
   </div>
   <br>
-  <div class="col-sm-6"><button type="button" class="btn btn-success">Valider la commande</button>
+  <div class="col-sm-6"><button type="button" class="btn btn-success" (click)="ValiderCommande()">Valider la
+      commande</button>
   </div>
+  {{message}}
 </div>
 <br>
 <div class="accordion" id="accordionExample" *ngFor="let obj of listePanier; index as index">
@@ -24,8 +26,8 @@
           <div class="col-2">Prix du produit : {{ obj.produitPanier.prix }}</div>
           <div class="col-2">Quantite : {{ obj.quantite }}</div>
           <div class="col-2">
-            <button type="button" class="btn btn-danger" (click)="deleteProduit(index)">Supprimer +
-              {{index}}</button>
+            <button type="button" class="btn btn-danger"
+              (click)="deleteProduit(obj.produitPanier.id)">Supprimer</button>
           </div>
         </div>
 

@@ -39,9 +39,15 @@ export class PanierService {
     }
 
 
-    deleteProduitPanier(index: number) {
+    deleteProduitPanier(id: number) {
         console.log(this.produits)
-        this.produits.splice(index, 1);
+        let trouve: boolean = false
+        for (let i = 0; i < this.produits.length; i++) {
+            if (this.produits[i].id === id && !trouve) {
+                this.produits.splice(i, 1);
+                trouve = true;
+            }
+        }
         localStorage.setItem('listePanier', JSON.stringify(this.produits))
     }
 

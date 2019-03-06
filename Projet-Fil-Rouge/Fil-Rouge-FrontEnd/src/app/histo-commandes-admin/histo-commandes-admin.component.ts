@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CommandeService } from '../commande.service';
+import { CommandeService } from '../service/commande.service';
 import { Commande, Utilisateur, Produit } from '../model';
 
 @Component({

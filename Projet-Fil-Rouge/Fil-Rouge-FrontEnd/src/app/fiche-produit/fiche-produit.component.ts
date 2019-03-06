@@ -17,8 +17,11 @@ export class FicheProduitComponent implements OnInit {
   ngOnInit() {
 
     this._produitService.getIdModification().subscribe(
-      value => this.produit = value
+      value => {
+        this.produit = value
+      }
     );
+
   }
 
 

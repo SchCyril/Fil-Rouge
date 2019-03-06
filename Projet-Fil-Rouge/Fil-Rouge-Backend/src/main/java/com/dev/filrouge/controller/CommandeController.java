@@ -25,7 +25,10 @@ public class CommandeController {
 
 	@PostMapping
 	public void create(@RequestBody Commande commande) {
-		commandeService.save(commande);
+		Commande commandeNew = new Commande(commande.getReference(),commande.getUtilisateur(),commande.getDateCommande(),
+				commande.getDateLivraison(),commande.getPrixTotal(),commande.getEtat(),
+				commande.getProduitCommandes());
+		commandeService.save(commandeNew);
 	}
 
 	@GetMapping

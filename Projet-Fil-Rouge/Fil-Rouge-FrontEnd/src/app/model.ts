@@ -28,9 +28,8 @@ export interface Utilisateur {
 
 export interface Commande {
     id: number;
-    produitCommandes: Produit[];
+    produitCommandes: PanierItems[];
     utilisateur: Utilisateur;
-    n_client: number;
     ref: string;
     date_creation: string;
     date_validation: string;

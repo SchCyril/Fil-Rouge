@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Produit, Commande, PanierItems } from '../model';
+import { Produit, PanierItems, Commande, Utilisateur } from '../model';
 import { PanierService } from '../service/panier.service';
 import { map } from 'rxjs/operators';
+import { CommandeService } from '../service/commande.service';
+import { LoginService } from '../service/login.service';
 
 @Component({
   selector: 'app-panier',
@@ -10,11 +12,10 @@ import { map } from 'rxjs/operators';
 })
 export class PanierComponent implements OnInit {
   produits: Produit[]
-  commande: Commande;
   prixTotal: number = 0;
   listePanier: PanierItems[] = []
 
-  constructor(private _panierService: PanierService) { }
+  constructor(private _panierService: PanierService, private _commandeService: CommandeService, private _loginService: LoginService) { }
 
   ngOnInit() {
     this.produits = this._panierService.lister()
@@ -22,12 +23,13 @@ export class PanierComponent implements OnInit {
     this.remplissageMap()
   }
 
-  setListe() {
+  refreshListe() {
     this.produits = this._panierService.lister()
   }
-  deleteProduit(index: number) {
-    this._panierService.deleteProduitPanier(index)
-    this.setListe()
+
+  deleteProduit(id: number) {
+    this._panierService.deleteProduitPanier(id)
+    this.refreshListe()
     this.prixTotal = this.calcul();
     this.remplissageMap();
   }
@@ -58,5 +60,26 @@ export class PanierComponent implements OnInit {
         this.listePanier.push(produit)
       }
     }
+  }
+
+  ValiderCommande() {
+
+    let user: Utilisateur = null;
+    this._loginService.loggedInUser().subscribe(
+      value => user = value
+    )
+
+
+    let commande: Commande = {
+      id: 0,
+      produitCommandes: this.listePanier,
+      utilisateur: user,
+      ref: "COM" + 0,
+      date_creation: "2019/03/06",
+      date_validation: "2019/04/06",
+      prixTotal: this.prixTotal,
+      etat: "en cours"
+    }
+    this._commandeService.ajouterCommande(commande);
   }
 }

@@ -1,6 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Produit } from '../model';
-import { ProduitService } from '../service/produit.service';
 import { PanierService } from '../service/panier.service';
 
 @Component({
@@ -10,7 +9,6 @@ import { PanierService } from '../service/panier.service';
 })
 export class FicheDetailProduitPanierComponent implements OnInit {
 
-  produits: Produit[] = [];
 
   @Input() produit: Produit
   @Input() quantite: number
@@ -19,9 +17,6 @@ export class FicheDetailProduitPanierComponent implements OnInit {
   constructor(private _panierService: PanierService) { }
 
   ngOnInit() {
-  }
-  delete() {
-    this._panierService.deleteProduitPanier(this.index)
   }
 
 }
