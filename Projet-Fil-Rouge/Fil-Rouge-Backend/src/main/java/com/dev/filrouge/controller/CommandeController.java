@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.filrouge.model.Commande;
-import com.dev.filrouge.model.Produit;
 import com.dev.filrouge.service.CommandeService;
 
 @RestController
@@ -33,6 +32,11 @@ public class CommandeController {
 	@GetMapping
 	public List<Commande> getCommande() {
 		return commandeService.findAll();
+	}
+	
+	@GetMapping("/{id}")
+	public Commande getCommandeUnique(@PathVariable Long id) {
+		return commandeService.findById(id);
 	}
 	
 	@DeleteMapping(value="/{id}")

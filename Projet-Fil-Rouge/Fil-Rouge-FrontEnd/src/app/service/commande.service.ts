@@ -24,8 +24,12 @@ export class CommandeService {
 
   afficher(): Observable<Commande[]> {
     return this._http.get<Commande[]>("http://localhost:8080/Historique")
-
   }
+
+  getCommande(id: number): Observable<Commande> {
+    return this._http.get<Commande>("http://localhost:8080/Historique/" + id);
+  }
+
   setIdModification(id: number) {
     this.idModif = id
   }

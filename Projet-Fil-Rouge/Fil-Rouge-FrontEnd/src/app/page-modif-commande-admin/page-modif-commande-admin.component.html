@@ -3,33 +3,36 @@
     <div class="form-group col-md-6">
       <label for="inputState">{{obj.reference}}</label>
       <input type="text" id="inputState" name="reference" placeholder="blabla" class="form-control"
-        #champStock="ngModel" [(ngModel)]="modifCommande.utilisateur">
+        #champStock="ngModel" [(ngModel)]="commande.utilisateur">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Référence</label>
       <input type="text" id="inputState" name="reference" placeholder="blabla" class="form-control"
-        #champStock="ngModel" [(ngModel)]="modifCommande.reference">
+        #champStock="ngModel" [(ngModel)]="commande.reference">
     </div>
 
     <div class="form-group col-md-6">
       <label for="inputState">Prix Total</label>
       <input type="number" id="inputState" name="prixTotal" placeholder="blabla" class="form-control"
-        #champStock="ngModel" [(ngModel)]="modifCommande.prixTotal">
+        #champStock="ngModel" [(ngModel)]="commande.prixTotal">
     </div>
 
   </div>
 
-  <h1>Produit de cette commande</h1>
-  <div class="form-row">
-    <div class="form-group col-md-6">
+  <h1>Produits de cette commande</h1>
+  <div *ngFor="let produitCommande of commande.produitCommandes" class="form-row">
+    <div class="form-group col-md-4">
+      {{produitCommande.id.produit.nom}}
+    </div>
+    <div class="form-group col-md-4">
       <label for="Quantité">Quantité</label>
       <input type="number" placeholder="blabla" class="form-control" name="quantite" #champStock="ngModel"
-        [(ngModel)]="modifCommande.quantite" />
+        [(ngModel)]="produitCommande.quantite" />
     </div>
-    <div class="form-group col-md-6">
+    <div class="form-group col-md-4">
       <label for="prix">Prix unitaire</label>
       <input type="number" placeholder="blabla" class="form-control" name="prix" #champPrix="ngModel"
-        [(ngModel)]="modifCommande.prix" />
+        [(ngModel)]="produitCommande.id.produit.prix" />
     </div>
   </div>
   <div class="justity-content-center">

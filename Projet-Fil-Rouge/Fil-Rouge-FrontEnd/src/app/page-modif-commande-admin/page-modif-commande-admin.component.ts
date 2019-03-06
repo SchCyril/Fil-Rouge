@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Commande, Produit } from '../model';
 import { CommandeService } from '../service/commande.service';
 import { reference } from '@angular/core/src/render3';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-page-modif-commande-admin',
@@ -9,15 +10,19 @@ import { reference } from '@angular/core/src/render3';
   styleUrls: ['./page-modif-commande-admin.component.css']
 })
 export class PageModifCommandeAdminComponent implements OnInit {
-  @Input() commande: Commande
-  constructor(private _srv: CommandeService) { }
+
+  commande: Commande;
+  commandeId: number;
+
+  constructor(private _srv: CommandeService, private route: ActivatedRoute) {
+    this.commandeId = Number(route.snapshot.paramMap.get("id"));
+  }
 
   commandeModifiee: Commande[] = []
   ngOnInit() {
-    this._srv.afficher().subscribe(
+    this._srv.getCommande(this.commandeId).subscribe(
       value => {
-        this.commandeModifiee = value
-
+        this.commande = value
       })
   }
   // modifCommande(id: number) {

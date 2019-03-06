@@ -17,7 +17,8 @@
           <div class="col-sm">Livré le : {{obj.dateLivraison}}</div>
           <div class="col-sm">Prix_Commande : {{obj.prixTotal}}</div>
           <div class="col-sm"><button type="button" class="btn btn-danger" (click)="delete(obj.id)">Supprimer</button>
-            <div class="col-sm"><a routerLink="/ModificationCommande"><button type="button" class="btn btn-success">
+            <div class="col-sm"><a routerLink="/ModificationCommande/{{ obj.id }}"><button type="button"
+                  class="btn btn-success">
                   Modifier</button></a></div>
           </div>
         </div>
