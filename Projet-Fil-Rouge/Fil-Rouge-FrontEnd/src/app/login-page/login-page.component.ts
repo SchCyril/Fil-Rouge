@@ -33,18 +33,17 @@ export class LoginPageComponent implements OnInit {
   }
 
   connexion() {
-    this._login.connect(this.utilisateur).subscribe(
-      value => {
-        if (value.role == "ADMIN") {
-          this.router.navigate(["/Admin"])
-          location.reload()
-        } else {
-          this.router.navigate(["/Accueil"])
-          location.reload()
-        }
-      },
-      err => console.log(err + " : no user found")
-    )
+    // this._login.connect(this.utilisateur).subscribe(
+    //   value => {
+    //     if (value.role == "ADMIN") {
+    //       this.router.navigate(["/Admin"])
+    //     } else {
+    //       this.router.navigate(["/Accueil"])
+    //     }
+    //   },
+    //   err => console.log(err + " : no user found")
+    // )
+    this._login.connect(this.utilisateur)
   }
 
   goToSignUpPage(){

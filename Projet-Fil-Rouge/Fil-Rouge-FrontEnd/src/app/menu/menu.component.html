@@ -44,7 +44,7 @@
           <img src="../../assets/img/icone_log.png" id="img" alt="">
         </button>
         <div class="dropdown-menu" ngbDropdownMenu>
-          <button class="dropdown-item">Mon profil</button>
+          <button class="dropdown-item" (click)="goToProfil()">Mon profil</button>
           <button class="dropdown-item">Mes commandes</button>
           <button class="dropdown-item" (click)="goToPanier()">Mon panier </button>
           <button class="dropdown-item" (click)="deconnect()">Déconnexion</button>
@@ -53,3 +53,5 @@
     </div>
   </div>
 </nav>
+
+{{isConnected}}
