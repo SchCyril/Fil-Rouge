@@ -1,5 +1,5 @@
 <nav class="navbar navbar-dark bg-dark" id="nav">
-  
+
   <button routerLink="/Accueil"><img
       src="https://99designs-start-attachments.imgix.net/alchemy-pictures/2016%2F02%2F22%2F04%2F24%2F31%2Fb7bd820a-ecc0-4170-8f4e-3db2e73b0f4a%2F550250_artsigma.png?auto=format&ch=Width%2CDPR&w=250&h=60"
       alt=""></button>
@@ -45,7 +45,7 @@
           <img src="../../assets/img/icone_log.png" id="img" alt="">
         </button>
         <div class="dropdown-menu" ngbDropdownMenu>
-          <button class="dropdown-item">Mon profil</button>
+          <button class="dropdown-item" (click)="goToProfil()">Mon profil</button>
           <button class="dropdown-item">Mes commandes</button>
           <button class="dropdown-item" (click)="goToPanier()">Mon panier </button>
           <button class="dropdown-item" (click)="deconnect()">Déconnexion</button>
@@ -54,4 +54,3 @@
     </div>
   </div>
 </nav>
-

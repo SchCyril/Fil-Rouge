@@ -33,7 +33,7 @@ import { FicheProduitUtilisateurComponent } from './fiche-produit-utilisateur/fi
 import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FooterComponent } from './footer/footer.component';
-
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +64,7 @@ import { FooterComponent } from './footer/footer.component';
     FicheProduitComponent,
     SignUpComponent,
     FooterComponent,
-   
+    ProfilComponent
   ],
   imports: [
     BrowserModule,

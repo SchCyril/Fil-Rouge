@@ -52,6 +52,13 @@ public class LoginController {
         return newUtilisateur;
     }
 
+    @PostMapping(value="update")
+    public Utilisateur updateUser(@RequestBody Utilisateur utilisateur) {
+        utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
+        utilisateurService.save(utilisateur);
+        return utilisateur;
+    }
+
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public Utilisateur getConnectedUser(Principal principal) {
         if (principal != null) {
@@ -61,7 +68,7 @@ public class LoginController {
     }
    
 
-    @PreAuthorize("hasAuthority('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public ResponseEntity<?> getMethodName() {
         System.out.println("AUTORITY");

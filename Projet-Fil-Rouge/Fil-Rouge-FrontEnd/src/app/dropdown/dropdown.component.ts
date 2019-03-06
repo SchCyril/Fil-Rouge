@@ -21,8 +21,9 @@ export class DropdownComponent implements OnInit {
 
 
   deconnect() {
-    this._loginService.deconnect().subscribe(
-      value => this.router.navigate(['/Accueil'])
-    );
+    this._loginService.deconnect()
+    // this._loginService.deconnect().subscribe(
+    //   value => this.router.navigate(['/Accueil'])
+    // );
   }
 }

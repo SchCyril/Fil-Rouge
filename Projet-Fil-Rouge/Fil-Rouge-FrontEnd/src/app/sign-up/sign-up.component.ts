@@ -33,18 +33,8 @@ export class SignUpComponent implements OnInit {
     console.log(this.utilisateur);
     if (this.utilisateur.password == this.pswdConfirmed) {
       this._loginService.createUser(this.utilisateur).subscribe(
-        value => this._loginService.connect(this.utilisateur).subscribe(
-          value => {
-            if (value.role == "ADMIN") {
-              this.router.navigate(["/Admin"])
-              location.reload()
-            } else {
-              this.router.navigate(["/Accueil"])
-              location.reload()
-            }
-          },
-          err => console.log(err + " : no user found")
-        ))
+        value => this._loginService.connect(this.utilisateur)
+      )
     }
   }
 

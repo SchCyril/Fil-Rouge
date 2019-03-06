@@ -1,10 +1,8 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnChanges } from '@angular/core';
 import { NgbDropdown, NgbDropdownConfig } from '@ng-bootstrap/ng-bootstrap';
-import { DataService } from '../service/data.service';
 import { ProduitService } from '../service/produit.service';
 import { LoginService } from '../service/login.service';
 import { isNullOrUndefined } from 'util';
-import { isContentQueryHost } from '@angular/core/src/render3/util';
 import { Router } from '@angular/router';
 
 @Component({
@@ -35,7 +33,6 @@ export class MenuComponent implements OnInit {
     );
   }
 
-
   search(pageActuelle: number) {
     this._produitService.usualSearch(pageActuelle, this.nom, "", "", 10);
   }
@@ -48,11 +45,16 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/Login'])
   }
 
+  goToProfil(){
+    this.router.navigate(['/Profil'])
+  }
+
   deconnect() {
-    this.isConnected = false;
-    this._loginService.deconnect().subscribe(
-      value => this.router.navigate(['/Accueil'])
-    );
+    //this.isConnected = false;
+    // this._loginService.deconnect().subscribe(
+    //   value => this.router.navigate(['/Accueil'])
+    // );
+    this._loginService.deconnect()
   }
 
 }

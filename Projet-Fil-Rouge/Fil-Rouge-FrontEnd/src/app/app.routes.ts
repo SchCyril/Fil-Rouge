@@ -10,6 +10,7 @@ import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { LoginPageComponent } from './login-page/login-page.component';
 import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
+import { ProfilComponent } from './profil/profil.component';
 
 export const ROUTES: Routes = [
     { path: 'Admin', component: AccueilAdminComponent },
@@ -20,6 +21,7 @@ export const ROUTES: Routes = [
     { path: 'Nom/:nom', component: ListeProduitComponent },
     { path: 'Login', component: LoginPageComponent },
     { path: 'SignUp', component: SignUpComponent },
+    { path: 'Profil', component: ProfilComponent },
     { path: 'ModificationProduit', component: ModificationProduitAdminComponent },
     { path: 'CreerProduit', component: CreerProduitAdminComponent },
     { path: 'Historique', component: HistoCommandesAdminComponent },
