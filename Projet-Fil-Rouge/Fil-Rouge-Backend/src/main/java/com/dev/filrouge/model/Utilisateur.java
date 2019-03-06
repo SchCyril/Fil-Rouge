@@ -46,20 +46,20 @@ public class Utilisateur {
 	public Utilisateur() {
 
 	}
+//
+//	 public Utilisateur(String login, String password, String name) {
+//	 super();
+//	 this.login = login;
+//	 this.password = password;
+//	 this.name = name;
+//	 }
 
-	// public Utilisateur(String login, String password, String name) {
-	// super();
-	// this.login = login;
-	// this.password = password;
-	// this.name = name;
-	// }
-
-	// public Utilisateur(String password, String name, String role) {
-	// super();
-	// this.password = password;
-	// this.name = name;
-	// this.role = role;
-	// }
+//	 public Utilisateur(String password, String name, String role) {
+//	 super();
+//	 this.password = password;
+//	 this.name = name;
+//	 this.role = role;
+//	 }
 
 	public Utilisateur(String password, String role, String name, String prenom, String adresse, String telephone,
 			String email, Date datenaissance) {
@@ -183,7 +183,7 @@ public class Utilisateur {
 		result = prime * result + ((datenaissance == null) ? 0 : datenaissance.hashCode());
 		result = prime * result + ((email == null) ? 0 : email.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((login == null) ? 0 : login.hashCode());
+//		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		result = prime * result + ((numClient == null) ? 0 : numClient.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
@@ -227,11 +227,11 @@ public class Utilisateur {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (login == null) {
-			if (other.login != null)
-				return false;
-		} else if (!login.equals(other.login))
-			return false;
+//		if (login == null) {
+//			if (other.login != null)
+//				return false;
+//		} else if (!login.equals(other.login))
+//			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;

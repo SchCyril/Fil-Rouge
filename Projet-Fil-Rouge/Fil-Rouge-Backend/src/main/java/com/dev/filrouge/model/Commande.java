@@ -19,12 +19,12 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "seq_commande_id")
 public class Commande {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_commande_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_commande_id") 
     Long id;
     @Column
     String reference;
-    @Column
-    Integer n_client;
+    @ManyToOne
+    Utilisateur utilisateur;
     @Column
     LocalDate dateCommande;
     @Column
@@ -35,31 +35,29 @@ public class Commande {
     String etat;
     @OneToMany(mappedBy = "id.commande", cascade = { CascadeType.ALL, CascadeType.PERSIST, CascadeType.MERGE }, orphanRemoval = true)
     List<ProduitCommande> produitCommandes;
-    @ManyToOne
-    Utilisateur utilisateur;
+
 
     public Commande() {
 
     }
 
-    public Commande(String reference, Integer n_client, LocalDate dateCommande, LocalDate dateLivraison, float prixTotal, String etat, List<ProduitCommande> produitCommandes,
-            Utilisateur utilisateur) {
+    public Commande(String reference, Utilisateur utilisateur, LocalDate dateCommande, LocalDate dateLivraison, float prixTotal, String etat, List<ProduitCommande> produitCommandes) {
     	this.reference = reference;
-    	this.n_client = n_client;
+    	this.utilisateur = utilisateur;
         this.dateCommande = dateCommande;
         this.dateLivraison = dateLivraison;
         this.prixTotal = prixTotal;
         this.etat = etat;
         this.produitCommandes = produitCommandes;
-        this.utilisateur = utilisateur;
+
     }
 
-    public Integer getN_client() {
-		return n_client;
+    public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
 
-	public void setN_client(Integer n_client) {
-		this.n_client = n_client;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 
 	public Long getId() {
@@ -118,20 +116,13 @@ public class Commande {
         this.produitCommandes = produitCommandes;
     }
 
-    public Utilisateur getUtilisateur() {
-        return this.utilisateur;
-    }
-
-    public void setUtilisateur(Utilisateur utilisateur) {
-        this.utilisateur = utilisateur;
-    }
 
     @Override
     public String toString() {
-        return "{" + " id='" + getId() + "'" + ", reference='" + getReference() + "'" +", n_client=" + getN_client() + ", dateCommande='"
+        return "{" + " id='" + getId() + "'" + ", reference='" + getReference() + "'" +", n_client=" + getUtilisateur() + ", dateCommande='"
                 + getDateCommande() + "'" + ", dateLivraison='" + getDateLivraison() + "'" + ", prixTotal='"
                 + getPrixTotal() + "'" + ", etat='" + getEtat() + "'" + ", produit='" + getProduitCommandes() + "'"
-                + ", utilisateur='" + getUtilisateur() + "'" + "}";
+                + "'" + "}";
     }
 
 	@Override
@@ -142,11 +133,10 @@ public class Commande {
 		result = prime * result + ((dateLivraison == null) ? 0 : dateLivraison.hashCode());
 		result = prime * result + ((etat == null) ? 0 : etat.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((n_client == null) ? 0 : n_client.hashCode());
+		result = prime * result + ((utilisateur == null) ? 0 : utilisateur.hashCode());
 		result = prime * result + Float.floatToIntBits(prixTotal);
 		result = prime * result + ((produitCommandes == null) ? 0 : produitCommandes.hashCode());
 		result = prime * result + ((reference == null) ? 0 : reference.hashCode());
-		result = prime * result + ((utilisateur == null) ? 0 : utilisateur.hashCode());
 		return result;
 	}
 
@@ -179,10 +169,10 @@ public class Commande {
 				return false;
 		} else if (!id.equals(other.id))
 			return false;
-		if (n_client == null) {
-			if (other.n_client != null)
+		if (utilisateur == null) {
+			if (other.utilisateur != null)
 				return false;
-		} else if (!n_client.equals(other.n_client))
+		} else if (!utilisateur.equals(other.utilisateur))
 			return false;
 		if (Float.floatToIntBits(prixTotal) != Float.floatToIntBits(other.prixTotal))
 			return false;
@@ -195,11 +185,6 @@ public class Commande {
 			if (other.reference != null)
 				return false;
 		} else if (!reference.equals(other.reference))
-			return false;
-		if (utilisateur == null) {
-			if (other.utilisateur != null)
-				return false;
-		} else if (!utilisateur.equals(other.utilisateur))
 			return false;
 		return true;
 	}

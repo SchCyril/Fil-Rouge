@@ -1,0 +1,39 @@
+<form class="FormCommandeProduit">
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="inputState">{{obj.reference}}</label>
+      <input type="text" id="inputState" name="reference" placeholder="blabla" class="form-control"
+        #champStock="ngModel" [(ngModel)]="modifCommande.utilisateur">
+    </div>
+    <div class="form-group col-md-6">
+      <label for="inputState">Référence</label>
+      <input type="text" id="inputState" name="reference" placeholder="blabla" class="form-control"
+        #champStock="ngModel" [(ngModel)]="modifCommande.reference">
+    </div>
+
+    <div class="form-group col-md-6">
+      <label for="inputState">Prix Total</label>
+      <input type="number" id="inputState" name="prixTotal" placeholder="blabla" class="form-control"
+        #champStock="ngModel" [(ngModel)]="modifCommande.prixTotal">
+    </div>
+
+  </div>
+
+  <h1>Produit de cette commande</h1>
+  <div class="form-row">
+    <div class="form-group col-md-6">
+      <label for="Quantité">Quantité</label>
+      <input type="number" placeholder="blabla" class="form-control" name="quantite" #champStock="ngModel"
+        [(ngModel)]="modifCommande.quantite" />
+    </div>
+    <div class="form-group col-md-6">
+      <label for="prix">Prix unitaire</label>
+      <input type="number" placeholder="blabla" class="form-control" name="prix" #champPrix="ngModel"
+        [(ngModel)]="modifCommande.prix" />
+    </div>
+  </div>
+  <div class="justity-content-center">
+    <button type="submit" (click)="modifCommande()" class="btn btn-primary">Enregistrer</button>
+    {{msg}}
+  </div>
+</form>

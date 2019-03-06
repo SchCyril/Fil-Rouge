@@ -10,13 +10,15 @@
           </span>
         </button>
         <div class="row">
-          <div class="col-sm">N°Client : {{obj.n_client}}</div>
+          <div class="col-sm">N°Client : {{obj.utilisateur}}</div>
           <div class="col-sm">{{obj.reference}}</div>
           <div class="col-sm">{{obj.etat}} </div>
           <div class="col-sm">Commandé le : {{obj.dateCommande}}</div>
           <div class="col-sm">Livré le : {{obj.dateLivraison}}</div>
           <div class="col-sm">Prix_Commande : {{obj.prixTotal}}</div>
           <div class="col-sm"><button type="button" class="btn btn-danger" (click)="delete(obj.id)">Supprimer</button>
+            <div class="col-sm"><a routerLink="/ModificationCommande"><button type="button" class="btn btn-success">
+                  Modifier</button></a></div>
           </div>
         </div>
       </h5>
@@ -25,16 +27,7 @@
         <div class="card-body">
           <div class="row" *ngFor="let obj2 of obj.produitCommandes">
             <span class="border-top">
-              <div class="row d-sm-flex justify-content-between">
-                <div>{{obj2.id.produit.nom}}</div>
-                <div>Prix : {{obj2.id.produit.prix}}€</div>
-                <div>Quantité : {{obj2.quantite}}</div>
-                <div>Stock : {{obj2.id.produit.stock}}</div>
-              </div>
-              <div class="row d-sm-flex" style="margin-top: 20px">
-                <div class="col-sm-1"><img src={{obj2.id.produit.image}} class="logo" alt="Responsive image"></div>
-                <div class="col-sm-11">{{obj2.id.produit.description}}</div>
-              </div>
+              <app-liste-produit-commande-admin [produit]=obj2></app-liste-produit-commande-admin>
             </span>
           </div>
         </div>
