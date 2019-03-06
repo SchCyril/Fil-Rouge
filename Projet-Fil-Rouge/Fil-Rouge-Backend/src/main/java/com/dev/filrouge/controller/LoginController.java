@@ -33,13 +33,6 @@ public class LoginController {
     @Autowired
     private UtilisateurService utilisateurService;
 
-    // @PostMapping
-    // public void createUser(@RequestBody Map<String, String> action) {
-    // utilisateurService.save(new Utilisateur(action.get("login"),
-    // passwordEncoder.encode(action.get("mdp")), action.get("name"),
-    // action.get("role")));
-    // }
-
     @PostMapping
     public Utilisateur createUser(@RequestBody Utilisateur utilisateur) {
         Utilisateur newUtilisateur = new Utilisateur(passwordEncoder.encode(utilisateur.getPassword()),
@@ -66,6 +59,7 @@ public class LoginController {
         }
         return null;
     }
+   
 
     @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping

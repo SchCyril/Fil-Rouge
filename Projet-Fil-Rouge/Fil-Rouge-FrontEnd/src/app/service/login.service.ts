@@ -15,6 +15,8 @@ let httpOptions = {
 })
 export class LoginService {
 
+  utilisateur: Utilisateur;
+
   private isConnectedSub = new Subject<boolean>();
   isConnected: Observable<boolean> = this.isConnectedSub.asObservable();
 

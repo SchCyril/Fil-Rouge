@@ -18,24 +18,23 @@
         <div class="row">
           <div class="col-4">
             <button class="btn btn-link" type="button" data-toggle="collapse" aria-expanded="true"
-              aria-controls="collapseOne" [attr.data-target]="'#obj'+obj.produitPanier.id">
-              <img src={{obj.produitPanier.image}} id="Image" />
+              aria-controls="collapseOne" [attr.data-target]="'#obj'+obj.produit.id">
+              <img src={{obj.produit.image}} id="Image" />
             </button>
           </div>
-          <div class="col-2">Nom du produit : {{obj.produitPanier.nom}}</div>
-          <div class="col-2">Prix du produit : {{ obj.produitPanier.prix }}</div>
+          <div class="col-2">Nom du produit : {{obj.produit.nom}}</div>
+          <div class="col-2">Prix du produit : {{ obj.produit.prix }}</div>
           <div class="col-2">Quantite : {{ obj.quantite }}</div>
           <div class="col-2">
-            <button type="button" class="btn btn-danger"
-              (click)="deleteProduit(obj.produitPanier.id)">Supprimer</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProduit(obj.produit.id)">Supprimer</button>
           </div>
         </div>
 
       </h5>
     </div>
-    <div id="obj{{obj.produitPanier.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+    <div id="obj{{obj.produit.id}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
       <div class="card-body">
-        <app-fiche-detail-produit-panier [produit]="obj.produitPanier" [quantite]="obj.quantite" [index]="index">
+        <app-fiche-detail-produit-panier [produit]="obj.produit" [quantite]="obj.quantite" [index]="index">
         </app-fiche-detail-produit-panier>
       </div>
     </div>

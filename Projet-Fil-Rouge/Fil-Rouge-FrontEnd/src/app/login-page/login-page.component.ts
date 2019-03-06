@@ -37,17 +37,18 @@ export class LoginPageComponent implements OnInit {
       value => {
         if (value.role == "ADMIN") {
           this.router.navigate(["/Admin"])
-          location.reload()
+          // location.reload()
         } else {
+          console.log("testttttttst")
           this.router.navigate(["/Accueil"])
-          location.reload()
+          //    location.reload()
         }
       },
       err => console.log(err + " : no user found")
     )
   }
 
-  goToSignUpPage(){
+  goToSignUpPage() {
     this.router.navigate(["/SignUp"])
   }
 }

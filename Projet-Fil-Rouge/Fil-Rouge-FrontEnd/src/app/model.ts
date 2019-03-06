@@ -30,14 +30,31 @@ export interface Commande {
     id: number;
     produitCommandes: PanierItems[];
     utilisateur: Utilisateur;
-    ref: string;
-    date_creation: string;
-    date_validation: string;
+    reference: string;
+    dateCommande: string;
+    dateLivraison: string;
     prixTotal: number;
     etat: string;
 }
 
 export interface PanierItems {
-    produitPanier: Produit,
+    produit: Produit,
+    quantite: number
+}
+
+export interface CommandeDto {
+    id: number,
+    reference: string,
+    dateCommande: string,
+    dateLivraison: string,
+    prixTotal: number,
+    etat: string,
+    numeroClient: number,
+    utilisateurId: number,
+    commandeProduits: CommandeProduitDto[]
+}
+
+export interface CommandeProduitDto {
+    produitId: number,
     quantite: number
 }

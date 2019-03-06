@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Commande } from '../model'
+import { Commande, CommandeDto } from '../model'
 import { Observable } from 'rxjs';
 
 
@@ -33,6 +33,10 @@ export class CommandeService {
   }
 
   ajouterCommande(commande: Commande) {
+    this._http.post("http://localhost:8080/Historique", commande, httpOptions).subscribe();
+  }
+
+  ajouterCommandeDto(commande: CommandeDto) {
     this._http.post("http://localhost:8080/Historique", commande, httpOptions).subscribe();
   }
 }

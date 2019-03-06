@@ -38,6 +38,10 @@ public class Produit {
 
 	}
 
+	public Produit(Long id) {
+		this.id = id;
+	}
+
 	public Produit(Long id,String nom, String description, float prix, String categorie, String sousCategorie, String image,
 			int stock, boolean actif) {
 		super();

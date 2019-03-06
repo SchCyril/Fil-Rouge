@@ -9,10 +9,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.dev.filrouge.model.Utilisateur;
 import com.dev.filrouge.repo.UtilisateurRepo;
 @Component
+@Service
 public class AuthentificationService implements UserDetailsService {
 
 	@Autowired

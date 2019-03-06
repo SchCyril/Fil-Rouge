@@ -48,19 +48,6 @@ public class Utilisateur {
 
 	}
 
-	// public Utilisateur(String login, String password, String name) {
-	// super();
-	// this.login = login;
-	// this.password = password;
-	// this.name = name;
-	// }
-
-	// public Utilisateur(String password, String name, String role) {
-	// super();
-	// this.password = password;
-	// this.name = name;
-	// this.role = role;
-	// }
 
 	public Utilisateur(String password, String role, String name, String prenom, String adresse, String telephone,
 			String email, Date datenaissance) {

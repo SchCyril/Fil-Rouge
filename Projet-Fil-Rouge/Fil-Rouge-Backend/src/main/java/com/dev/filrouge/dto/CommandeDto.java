@@ -1,6 +1,7 @@
 package com.dev.filrouge.dto;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.dev.filrouge.model.Commande;
@@ -15,8 +16,8 @@ public class CommandeDto {
 	private LocalDate dateLivraison;
 	private float prixTotal;
 	private String etat;
-	private List<ProduitCommande> produits;
-	private Long utilisateurId;
+	private List<CommandeProduitDto> commandeProduits;
+	private Integer utilisateurId;
 	
 	public Long getId() {
 		return id;
@@ -60,27 +61,30 @@ public class CommandeDto {
 	public void setEtat(String etat) {
 		this.etat = etat;
 	}
-	public Long getUtilisateurId() {
+	public Integer getUtilisateurId() {
 		return utilisateurId;
 	}
-	public void setUtilisateurId(Long utilisateurId) {
+	public void setUtilisateurId(Integer utilisateurId) {
 		this.utilisateurId = utilisateurId;
+	}	
+	public List<CommandeProduitDto> getCommandeProduits() {
+		return commandeProduits;
 	}
-	public List<ProduitCommande> getProduits() {
-		return produits;
+	public void setCommandeProduits(List<CommandeProduitDto> commandeProduits) {
+		this.commandeProduits = commandeProduits;
 	}
-	public void setProduits(List<ProduitCommande> produits) {
-		this.produits = produits;
-	}
-	
-	public Commande toCommande(CommandeDto dto) {
+	public static Commande toCommande(CommandeDto dto) {
 		Commande commande = new Commande();
 		commande.setId(dto.getId());
 		commande.setDateCommande(dto.getDateCommande());
 		commande.setDateLivraison(dto.getDateLivraison());
 		commande.setPrixTotal(dto.getPrixTotal());
 		commande.setEtat(dto.getEtat());
-		commande.setProduitCommandes(dto.getProduits());
+		
+		List<ProduitCommande> produitCommandes = new ArrayList<>();
+		dto.getCommandeProduits().forEach(pc -> produitCommandes.add(CommandeProduitDto.toModel(pc)));
+		commande.setProduitCommandes(produitCommandes);
+				
 		Utilisateur utilisateur = new Utilisateur();
 		utilisateur.setId(Long.valueOf(dto.getNumeroClient()));
 		commande.setUtilisateur(utilisateur);
@@ -88,5 +92,23 @@ public class CommandeDto {
 		
 		
 		return commande;
+	}
+	
+	public static CommandeDto toDto(Commande commande) {
+		CommandeDto dto = new CommandeDto();
+		
+		dto.setDateCommande(commande.getDateCommande());
+		dto.setDateLivraison(commande.getDateLivraison());
+		dto.setEtat(commande.getEtat());
+		dto.setId(commande.getId());
+		dto.setNumeroClient(commande.getUtilisateur().getId().intValue());
+		dto.setPrixTotal(commande.getPrixTotal());
+		dto.setReference(commande.getReference());
+		dto.setUtilisateurId(commande.getUtilisateur().getId().intValue());
+		List<CommandeProduitDto> commandeProduitDtos = new ArrayList<>();
+		commande.getProduitCommandes().forEach(cpd -> commandeProduitDtos.add(CommandeProduitDto.toDto(cpd)));
+		dto.setCommandeProduits(commandeProduitDtos);
+		
+		return dto;
 	}
 }
