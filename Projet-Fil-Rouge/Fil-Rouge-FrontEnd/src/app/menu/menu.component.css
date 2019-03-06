@@ -1,6 +1,14 @@
 #nav {
     display: flex;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    white-space: nowrap;
     justify-content: space-between;
+    
+    background-color: black;
+    z-index: 100;
+    
 }
 
 .recherche {
@@ -36,3 +44,4 @@
 /* #bar-search {
     margin-left: -25px;
 } */
+

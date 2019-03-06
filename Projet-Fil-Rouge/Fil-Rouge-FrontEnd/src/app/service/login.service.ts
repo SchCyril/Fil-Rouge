@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http'
 import { Utilisateur } from '../model';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 
 let httpOptions = {
   headers: new HttpHeaders({
@@ -28,6 +28,12 @@ export class LoginService {
   connect(utilisateur: Utilisateur): Observable<Utilisateur> {
     let authHeader: string = btoa(utilisateur.email + ":" + utilisateur.password);
     httpOptions.headers = httpOptions.headers.set("Authorization", "Basic " + authHeader);
+    this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions).subscribe(
+      connectedUser => {
+        sessionStorage.setItem('ROLE', connectedUser.role);
+        return of(connectedUser);
+      }
+    );
     return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions);
   }
 

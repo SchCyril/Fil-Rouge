@@ -1,7 +1,7 @@
 <header>
 </header>
 <nav>
-  <app-menu></app-menu>
+
 </nav>
 <main>
   <!--   <app-search></app-search> -->
@@ -13,7 +13,15 @@
   <app-login-page></app-login-page> -->
   <!-- <app-menu></app-menu>  -->
 
+  <div *ngIf="role === 'ADMIN'; else guest">
+      <app-menu-admin></app-menu-admin>
+  </div>
+  <ng-template #guest>
+      <app-menu></app-menu>
+  </ng-template>
   <router-outlet></router-outlet>
+  
 </main>
 <footer>
+    <app-footer></app-footer>
 </footer>
