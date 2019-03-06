@@ -1,0 +1,10 @@
+<div class="row d-sm-flex justify-content-between">
+  <div>{{produit.id.produit.nom}}</div>
+  <div>Prix : {{produit.id.produit.prix}}€</div>
+  <div>Quantité : {{produit.quantite}}</div>
+  <div>Stock : {{produit.id.produit.stock}}</div>
+</div>
+<div class="row d-sm-flex" style="margin-top: 20px">
+  <div class="col-sm-2"><img src={{produit.id.produit.image}} class="logo" alt="Responsive image"></div>
+  <div class="col-sm-10">{{produit.id.produit.description}}</div>
+</div>

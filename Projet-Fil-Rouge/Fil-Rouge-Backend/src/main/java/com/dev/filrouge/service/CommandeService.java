@@ -28,7 +28,12 @@ public class CommandeService {
 	
 	public List<Commande> findAll() {
 		return commandeRepository.findAll();
-	}	
+	}
+	
+	public Commande findById(Long id) {
+		return commandeRepository.findById(id).get();
+	}
+	
 	public void delete(Long id) {
 		commandeRepository.deleteById(id);
 	}

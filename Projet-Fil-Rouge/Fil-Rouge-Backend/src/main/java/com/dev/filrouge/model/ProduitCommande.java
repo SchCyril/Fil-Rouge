@@ -1,4 +1,4 @@
-package com.dev.filrouge.model;
+ package com.dev.filrouge.model;
 
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;

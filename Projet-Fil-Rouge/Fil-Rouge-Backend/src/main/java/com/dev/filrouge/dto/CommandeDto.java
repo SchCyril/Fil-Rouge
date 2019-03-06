@@ -11,7 +11,7 @@ import com.dev.filrouge.model.Utilisateur;
 public class CommandeDto {
 	private Long id;
 	private String reference;
-	private Integer numeroClient;
+	private Utilisateur utilisateur;
 	private LocalDate dateCommande;
 	private LocalDate dateLivraison;
 	private float prixTotal;
@@ -31,11 +31,11 @@ public class CommandeDto {
 	public void setReference(String reference) {
 		this.reference = reference;
 	}
-	public Integer getNumeroClient() {
-		return numeroClient;
+	public Utilisateur getUtilisateur() {
+		return utilisateur;
 	}
-	public void setNumeroClient(Integer numeroClient) {
-		this.numeroClient = numeroClient;
+	public void setUtilisateur(Utilisateur utilisateur) {
+		this.utilisateur = utilisateur;
 	}
 	public LocalDate getDateCommande() {
 		return dateCommande;
@@ -86,10 +86,9 @@ public class CommandeDto {
 		commande.setProduitCommandes(produitCommandes);
 				
 		Utilisateur utilisateur = new Utilisateur();
-		utilisateur.setId(Long.valueOf(dto.getNumeroClient()));
+		utilisateur.setId(Long.valueOf(dto.getUtilisateurId()));
 		commande.setUtilisateur(utilisateur);
 		commande.setReference(dto.getReference());
-		
 		
 		return commande;
 	}
@@ -101,7 +100,7 @@ public class CommandeDto {
 		dto.setDateLivraison(commande.getDateLivraison());
 		dto.setEtat(commande.getEtat());
 		dto.setId(commande.getId());
-		dto.setNumeroClient(commande.getUtilisateur().getId().intValue());
+		dto.setUtilisateurId(commande.getUtilisateur().getId().intValue());
 		dto.setPrixTotal(commande.getPrixTotal());
 		dto.setReference(commande.getReference());
 		dto.setUtilisateurId(commande.getUtilisateur().getId().intValue());

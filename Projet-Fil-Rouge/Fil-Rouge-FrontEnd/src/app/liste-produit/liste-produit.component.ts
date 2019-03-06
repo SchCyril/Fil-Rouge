@@ -35,11 +35,11 @@ export class ListeProduitComponent implements OnInit {
       if (this.categorie2 == null && this.nom == null) {
         this.maxResultPerPage = 3
         this.categorie2 = this.categorie
-      }else{
+      } else {
         this.maxResultPerPage = 10
       }
 
-      
+
 
       this._produitService.usualSearch(1, this.nom, this.categorie2, "", this.maxResultPerPage).subscribe(
         value => {
@@ -51,7 +51,7 @@ export class ListeProduitComponent implements OnInit {
   }
 
   counter(i: number) {
-    return new Array(Math.ceil(i/10))
+    return new Array(Math.ceil(i / 10))
   }
 
   search(pageActuelle: number, categorie: string) {

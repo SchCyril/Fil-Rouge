@@ -19,7 +19,7 @@ import javax.persistence.Table;
 @SequenceGenerator(name = "seq_commande_id")
 public class Commande {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_commande_id")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "seq_commande_id") 
     Long id;
     @Column
     String reference;

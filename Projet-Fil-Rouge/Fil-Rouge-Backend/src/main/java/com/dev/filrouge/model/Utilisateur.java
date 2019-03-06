@@ -48,7 +48,6 @@ public class Utilisateur {
 
 	}
 
-
 	public Utilisateur(String password, String role, String name, String prenom, String adresse, String telephone,
 			String email, Date datenaissance) {
 		this.password = password;

@@ -22,7 +22,6 @@ import { ListeLivresComponent } from './liste-livres/liste-livres.component';
 import { ListeDvdComponent } from './liste-dvd/liste-dvd.component';
 import { ListeJeuxComponent } from './liste-jeux/liste-jeux.component';
 import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-commandes-admin.component';
-import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 import { ListeProduitsAdminComponent } from './liste-produits-admin/liste-produits-admin.component';
 import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail-produit.component';
 import { PanierComponent } from './panier/panier.component';
@@ -34,6 +33,9 @@ import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { FooterComponent } from './footer/footer.component';
 import { ProfilComponent } from './profil/profil.component';
+import { ListeProduitCommandeAdminComponent } from './liste-produit-commande-admin/liste-produit-commande-admin.component';
+import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
+import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/page-modif-commande-admin.component';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,9 @@ import { ProfilComponent } from './profil/profil.component';
     FicheProduitComponent,
     SignUpComponent,
     FooterComponent,
-    ProfilComponent
+    ProfilComponent,
+    ListeProduitCommandeAdminComponent,
+    PageModifCommandeAdminComponent
   ],
   imports: [
     BrowserModule,
