@@ -7,7 +7,8 @@ import { Observable } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({
     "Content-Type": "application/json"
-  })
+  }),
+  withCredentials: true
 };
 
 @Injectable({
@@ -23,15 +24,15 @@ export class CommandeService {
 
 
   afficher(): Observable<Commande[]> {
-    return this._http.get<Commande[]>("http://localhost:8080/Historique")
+    return this._http.get<Commande[]>("http://localhost:8080/Historique", httpOptions)
   }
 
   getListeCommandeUser(id: number): Observable<Commande[]> {
-    return this._http.get<Commande[]>("http://localhost:8080/Historique/user/" + id)
+    return this._http.get<Commande[]>("http://localhost:8080/Historique/user/" + id, httpOptions)
   }
 
   getCommande(id: number): Observable<Commande> {
-    return this._http.get<Commande>("http://localhost:8080/Historique/" + id);
+    return this._http.get<Commande>("http://localhost:8080/Historique/" + id, httpOptions);
   }
 
   setIdModification(id: number) {
@@ -44,12 +45,12 @@ export class CommandeService {
   //   this.prixTotalModif = prixTotal
   // }
   getIdModification(): Observable<Commande> {
-    return this._http.get<Commande>("http://localhost:8080/Historique/" + this.idModif)
+    return this._http.get<Commande>("http://localhost:8080/Historique/" + this.idModif, httpOptions)
   }
 
   deleteCommande(): Observable<Object> {
     console.log(this.idModif)
-    return this._http.delete("http://localhost:8080/Historique/" + this.idModif)
+    return this._http.delete("http://localhost:8080/Historique/" + this.idModif, httpOptions)
   }
 
   ajouterCommande(commande: Commande) {
@@ -69,7 +70,7 @@ export class CommandeService {
       nom = "default"
     if (prenom === "")
       prenom = "default"
-    return this._http.get<Commande[]>("http://localhost:8080/Historique/" + nom + "/" + prenom + "/" + prix)
+    return this._http.get<Commande[]>("http://localhost:8080/Historique/" + nom + "/" + prenom + "/" + prix, httpOptions)
   }
 }
 

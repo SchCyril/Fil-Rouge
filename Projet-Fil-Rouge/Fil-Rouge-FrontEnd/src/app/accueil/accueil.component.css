@@ -7,12 +7,9 @@
 .contenu{
     background-color: gainsboro;
     height:auto;
-    white-space: nowrap;
-    
-    
+    white-space: nowrap;   
 }
-.fond {
-    background-color: white;
-    margin: 5% 15% 0 15%;
+.fond{
+background-color: white;
+margin: 5% 15% 0 15%;
 }
-
