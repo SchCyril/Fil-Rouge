@@ -10,6 +10,10 @@ import { Commande, Utilisateur, Produit } from '../model';
 export class HistoCommandesAdminComponent implements OnInit {
   msg: string = "";
   list_commande: Commande[] = []
+  nom: string = ""
+  prenom: string = ""
+  prix: number = 0
+
 
   constructor(private _srv: CommandeService) { }
 
@@ -27,6 +31,13 @@ export class HistoCommandesAdminComponent implements OnInit {
   }
   setId(id: number) {
     this._srv.setIdModification(id);
+  }
+
+  recherche() {
+    console.log(this.nom + " " + this.prenom)
+    this._srv.rechercheBy(this.nom, this.prenom, this.prix).subscribe(
+      value => this.list_commande = value
+    )
   }
 
 }

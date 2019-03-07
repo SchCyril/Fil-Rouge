@@ -19,7 +19,7 @@ export class SignUpComponent implements OnInit {
     datenaissance: null,
     password: '',
     num_client: '',
-    role: 'REGISTER',
+    role: 'ADMIN',
     liste_commandes: null
   }
   pswdConfirmed: string

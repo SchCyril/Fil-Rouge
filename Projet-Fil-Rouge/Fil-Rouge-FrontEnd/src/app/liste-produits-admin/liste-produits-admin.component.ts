@@ -11,6 +11,8 @@ export class ListeProduitsAdminComponent implements OnInit {
 
   listeProduits: Produit[] = []
   p: number = 1
+  nom: string = ""
+  type: string = ""
 
   constructor(private _produitService: ProduitService) { }
 
@@ -20,6 +22,13 @@ export class ListeProduitsAdminComponent implements OnInit {
         this.listeProduits = value
         console.log(value)
       })
+  }
+
+  recherche() {
+    console.log(this.nom + " " + this.type)
+    this._produitService.rechercheBy(this.nom, this.type).subscribe(
+      value => this.listeProduits = value
+    )
   }
 
 }

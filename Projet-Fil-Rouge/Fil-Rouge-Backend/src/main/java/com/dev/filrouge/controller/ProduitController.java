@@ -1,5 +1,7 @@
 package com.dev.filrouge.controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.prepost.PreAuthorize;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.dev.filrouge.model.Commande;
 import com.dev.filrouge.model.Produit;
 import com.dev.filrouge.model.ProduitPage;
 import com.dev.filrouge.repo.ProduitRepoImpl;
@@ -76,8 +80,8 @@ public class ProduitController {
     @GetMapping(value ="/{id}")
     public Produit getById(@PathVariable Long id) {
     	return produitService.produitRepo.findById(id).get();
-
     }
+
     
     
 	

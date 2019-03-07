@@ -60,4 +60,12 @@ export class ProduitService {
     return this._http.post<ProduitsFromServeur>("http://localhost:8080/Produit/usualSearch", { "page": pageActuelle, "nom": nom, "categorie": categorie, "sousCategorie": sousCategorie, "maxResult": maxResult }, httpOptions);
   }
 
+  rechercheBy(nom: string, type: string): Observable<Produit[]> {
+    if (nom === "")
+      nom = "default"
+    if (type === "")
+      type = "default"
+    return this._http.get<Produit[]>("http://localhost:8080/ListeProduitsAdmin/" + nom + "/" + type)
+  }
+
 }

@@ -38,6 +38,7 @@ import { ModificationProduitAdminComponent } from './modification-produit-admin/
 import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/page-modif-commande-admin.component';
 import { CommandeUtilisateurComponent } from './commande-utilisateur/commande-utilisateur.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
