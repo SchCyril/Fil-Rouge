@@ -28,6 +28,9 @@ export class LoginService {
   constructor(private _http: HttpClient, private _router: Router) { }
 
   createUser(utilisateur: Utilisateur): Observable<Utilisateur> {
+    // this.getUserbyEmail(utilisateur.email).subscribe(
+    //   value => console.log(value)
+    // )
     return this._http.post<Utilisateur>('http://localhost:8080/login', utilisateur, httpOptions);
   }
 
@@ -35,6 +38,7 @@ export class LoginService {
     return this._http.post<Utilisateur>('http://localhost:8080/login/update', utilisateur, httpOptions).subscribe(
       value => {
         console.log(value)
+        this._router.navigate(["/Accueil"])
       }, err => console.log(err)
     );
   }
@@ -51,8 +55,14 @@ export class LoginService {
 
   connect(utilisateur: Utilisateur) {
     let authHeader: string = btoa(utilisateur.email + ":" + utilisateur.password);
-    httpOptions.headers = httpOptions.headers.set("Authorization", "Basic " + authHeader);
-    return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions).subscribe(
+    let httpOptionsWithCredentials = {
+      headers: new HttpHeaders({
+        "Content-Type": "application/json",
+        "Authorization": "Basic " + authHeader
+      }),
+      withCredentials: true
+    };
+    return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptionsWithCredentials).subscribe(
       result => {
         this.changeConnectionStatus(true)
         if (result.role == "ADMIN") {
@@ -69,24 +79,7 @@ export class LoginService {
     return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions);
   }
 
-  // deconnect() {
-  //   return this._http.get('http://localhost:8080/login/logMeOut', httpOptions).subscribe(
-  //     result => {
-  //       this.changeConnectionStatus(false);
-  //       return of(result);
-  //     }
-  //   );
-  // }
-
-  // connect(utilisateur: Utilisateur): Observable<Utilisateur> {
-  //   let authHeader: string = btoa(utilisateur.email + ":" + utilisateur.password);
-  //   httpOptions.headers = httpOptions.headers.set("Authorization", "Basic " + authHeader);
-  //   return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions).toPromise()
-  //     .then(
-  //       result => {  
-  //         this.changeConnectionStatus(false)
-  //         return of (result);
-  //       }
-  //     );
-  // }
+  getUserbyEmail(email: string): Observable<Utilisateur> {
+    return this._http.post<Utilisateur>('http://localhost:8080/login/email', email, httpOptions);
+  }
 }

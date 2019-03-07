@@ -23,11 +23,11 @@ export class CommandeService {
 
 
   afficher(): Observable<Commande[]> {
-    return this._http.get<Commande[]>("http://localhost:8080/Historique")
+    return this._http.get<Commande[]>("http://localhost:8080/api/Historique")
   }
 
   getCommande(id: number): Observable<Commande> {
-    return this._http.get<Commande>("http://localhost:8080/Historique/" + id);
+    return this._http.get<Commande>("http://localhost:8080/api/Historique/" + id);
   }
 
   setIdModification(id: number) {

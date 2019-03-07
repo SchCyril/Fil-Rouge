@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { tap } from 'rxjs/operators';
 import { Produit } from '../model';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../environments/environment';
 import { HttpHeaders } from "@angular/common/http";
 
 interface ProduitsFromServeur {

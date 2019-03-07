@@ -25,8 +25,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED).and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/disconnect")).invalidateHttpSession(true).deleteCookies("JSESSIONID").and().httpBasic().and().csrf()
-				.disable();
+		http.sessionManagement().sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED)
+			.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/disconnect")).invalidateHttpSession(true).deleteCookies("JSESSIONID")
+			//.and().authorizeRequests().antMatchers("/**").permitAll()
+			//.and().authorizeRequests().antMatchers("/api").authenticated()
+			.and().httpBasic()
+			.and().csrf().disable();
 	}
 
 	@Bean

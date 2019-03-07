@@ -9,7 +9,7 @@ import { LoginService } from '../service/login.service';
 })
 export class ProfilComponent implements OnInit {
 
-  utilisateur= {
+  utilisateur = {
     id: null,
     name: '',
     prenom: '',
@@ -23,28 +23,36 @@ export class ProfilComponent implements OnInit {
     liste_commandes: null
   }
 
-  newPassword:string
-  newPasswordConfirmed:string
+  newPassword: string = ''
+  newPasswordConfirmed: string = ''
 
 
-  constructor(private _loginService:LoginService) { }
+  constructor(private _loginService: LoginService) { }
 
   ngOnInit() {
     this._loginService.loggedInUser().subscribe(
       value => {
         this.utilisateur = value;
-        console.log(this.utilisateur)
       }
     )
   }
 
 
-  update(){
-    // this.newPassword = this.newPassword.trim();
-    // this.newPasswordConfirmed = this.newPasswordConfirmed.trim();
+  update() {
+    this.newPassword = this.newPassword.trim();
+    this.newPasswordConfirmed = this.newPasswordConfirmed.trim();
 
-    if(this.newPassword===this.newPasswordConfirmed){
-      this._loginService.updateUser(this.utilisateur)
+    if (this.newPassword === this.newPasswordConfirmed) {
+
+      if (this.newPassword === '') {
+        console.log("UPDATE SANS CHANGER PSWD")
+        this.utilisateur.password = null
+        this._loginService.updateUser(this.utilisateur)
+      } else {
+        console.log("UPDATE AVEC CHANGEMT PSWD")
+        this.utilisateur.password = this.newPassword
+        this._loginService.updateUser(this.utilisateur)
+      }
     }
   }
 }

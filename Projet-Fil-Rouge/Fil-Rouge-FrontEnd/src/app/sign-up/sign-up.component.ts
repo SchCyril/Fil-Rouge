@@ -30,10 +30,26 @@ export class SignUpComponent implements OnInit {
   }
 
   createUser() {
-    console.log(this.utilisateur);
     if (this.utilisateur.password == this.pswdConfirmed) {
-      this._loginService.createUser(this.utilisateur).subscribe(
-        value => this._loginService.connect(this.utilisateur)
+      // this._loginService.createUser(this.utilisateur).subscribe(
+      //   value => this._loginService.connect(this.utilisateur),
+      //   err => console.log("ECHEC CONNEXION")
+      // )
+      this._loginService.getUserbyEmail(this.utilisateur.email).subscribe(
+        value => {
+          if (value === null) {
+            this._loginService.createUser(this.utilisateur).subscribe(
+              value => this._loginService.connect(this.utilisateur),
+              err => console.log("ECHEC CONNEXION")
+            )
+          } else {
+            console.log(value)
+            console.log("DEJA INSCRIT")
+          }
+        },
+        err => {
+          console.log("ERR "+err)
+        }
       )
     }
   }
