@@ -1,10 +1,18 @@
 #image {
     width: 100%;
     height: 40vh;
+    margin-top: -2%;
 }
 
 .contenu{
     background-color: gainsboro;
     height:auto;
     white-space: nowrap;
+    
+    
 }
+.fond {
+    background-color: white;
+    margin: 5% 15% 0 15%;
+}
+

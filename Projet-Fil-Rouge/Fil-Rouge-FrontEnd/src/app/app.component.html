@@ -1,23 +1,18 @@
 <header>
+  <nav>
+    <div *ngIf="role === 'ADMIN'; else guest">
+      <app-menu-admin></app-menu-admin>
+    </div>
+    <ng-template #guest>
+      <app-menu></app-menu>
+    </ng-template>
+  </nav>
 </header>
-<main>
 
-  <!--   <app-search></app-search> -->
-  <!--<app-creer-produit-admin></app-creer-produit-admin> -->
-  <!-- <app-menu-admin></app-menu-admin> -->
-  <!--<app-accueil-admin></app-accueil-admin>-->
-  <!--<app-creer-produit-admin></app-creer-produit-admin>-->
-  <!-- <app-accueil-admin></app-accueil-admin>
-  <app-login-page></app-login-page> -->
-  <!-- <app-menu></app-menu>  -->
-  <div *ngIf="role === 'ADMIN'; else guest">
-    <app-menu-admin></app-menu-admin>
+<main style="margin-top: 6%">
+  <div class="fondcontenu">
   </div>
-  <ng-template #guest>
-    <app-menu></app-menu>
-  </ng-template>
   <router-outlet></router-outlet>
-
 </main>
 <footer>
   <app-footer></app-footer>

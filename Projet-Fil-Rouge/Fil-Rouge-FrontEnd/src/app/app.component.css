@@ -1,3 +1,8 @@
 :host #role{
     background-color: aqua;
 }
+
+.fondcontenu {
+background-color: white;
+    margin: 5% 20%;
+}
