@@ -10,14 +10,14 @@
     <!--<app-creer-produit-admin></app-creer-produit-admin>-->
     <!-- <app-accueil-admin></app-accueil-admin>
   <app-login-page></app-login-page> -->
-    <!-- <app-menu></app-menu>  -->
+    <!-- <app-menu></app-menu> -->
 
-    <div *ngIf="role === 'ADMIN'; else guest">
-        <app-menu-admin></app-menu-admin>
-    </div>
+    <!-- <div *ngIf="role === 'ADMIN'; else guest"> -->
+    <app-menu-admin></app-menu-admin>
+    <!-- </div>
     <ng-template #guest>
         <app-menu></app-menu>
-    </ng-template>
+    </ng-template> -->
     <router-outlet></router-outlet>
 
 </main>

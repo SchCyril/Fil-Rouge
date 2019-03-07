@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.dev.filrouge.dto.CommandeDto;
 import com.dev.filrouge.model.Commande;
-import com.dev.filrouge.model.ProduitCommande;
 import com.dev.filrouge.service.CommandeService;
 
 @RestController
@@ -49,7 +48,8 @@ public class CommandeController {
 	}
 
 	@GetMapping("/dto")
-	public List<CommandeDto> getCommandeDto() {
+	public
+	List<CommandeDto> getCommandeDto() {
 		return commandeService.findAll().stream().map(c -> CommandeDto.toDto(c)).collect(Collectors.toList());
 	}
 	
@@ -69,4 +69,18 @@ public class CommandeController {
     	 commandeService.commandeRepository.saveAndFlush(commandeUpdate);
     	 return commandeUpdate;
     } 
+	
+	@GetMapping(value="/{nom}/{prenom}/{prix}")
+	public List<Commande> getCommandeBy(@PathVariable String nom,@PathVariable String prenom,@PathVariable String prix){
+		List<Commande> commandes = getCommande();
+		List<Commande> res = new ArrayList<>();
+		for(Commande c : commandes) {
+			System.out.println("agrougrougrou"+c.getUtilisateur());
+			if(c.getUtilisateur().getName().equals(nom.trim()) || c.getUtilisateur().getPrenom().equals(prenom.trim()) || c.getPrixTotal()==Float.valueOf(prix)){
+				res.add(c);
+			}
+		}
+		return res;
+	}
+	
 }

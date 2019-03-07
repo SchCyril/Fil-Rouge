@@ -36,6 +36,7 @@ export const ROUTES: Routes = [
     { path: 'ModificationCommande', component: PageModifCommandeAdminComponent },
     { path: 'ModificationCommande/:id', component: PageModifCommandeAdminComponent },
     { path: 'ListeProduitsAdmin', component: ListeProduitsAdminComponent },
-    { path: 'ListeProduitsAdmin/:id', component: ListeProduitsAdminComponent }
+    { path: 'ListeProduitsAdmin/:id', component: ListeProduitsAdminComponent },
+    { path: 'Historique/:nom/:prenom/:prix', component: HistoCommandesAdminComponent }
 
 ];

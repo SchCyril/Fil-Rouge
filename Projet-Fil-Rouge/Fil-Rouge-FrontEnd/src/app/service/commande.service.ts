@@ -58,6 +58,11 @@ export class CommandeService {
   modifCommande(commande: Commande): Observable<Object> {
     console.log("Est ce que ca marche ?")
     return this._http.put("http://localhost:8080/Historique", commande, httpOptions)
+  }
 
+  rechercheBy(nom: string, prenom: string, prix: number): Observable<Commande[]> {
+    return this._http.get<Commande[]>("http://localhost:8080/Historique/" + nom + "/" + prenom + "/" + prix)
   }
 }
+
+

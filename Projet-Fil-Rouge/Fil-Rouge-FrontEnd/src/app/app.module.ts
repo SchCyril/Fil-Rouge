@@ -37,6 +37,7 @@ import { ListeProduitCommandeAdminComponent } from './liste-produit-commande-adm
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/page-modif-commande-admin.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -68,7 +69,7 @@ import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/pag
     FooterComponent,
     ProfilComponent,
     ListeProduitCommandeAdminComponent,
-    PageModifCommandeAdminComponent
+    PageModifCommandeAdminComponent,
   ],
   imports: [
     BrowserModule,

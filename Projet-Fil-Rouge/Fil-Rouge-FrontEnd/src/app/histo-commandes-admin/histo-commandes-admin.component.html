@@ -1,3 +1,24 @@
+<form class="FormProduit">
+  <div class="form-row">
+    <div class="form-group col-md-3">
+      <label for="nom">Nom : </label>
+      <input type="text" class="form-control" name="nom" #champNom="ngModel" [(ngModel)]="nom" />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prenom">Prénom : </label>
+      <input type="text" class="form-control" name="prenom" #champPrenom="ngModel" [(ngModel)]="prenom" />
+    </div>
+    <div class="form-group col-md-3">
+      <label for="prix">Prix : </label>
+      <input type="number" class="form-control" name="prix" #champPrix="ngModel" [(ngModel)]="prix" />
+    </div>
+    <div class="form-group col-md-3" id="css">
+      <button type="submit" (click)="recherche()" class="btn btn-primary">Rechercher</button>
+    </div>
+  </div>
+</form>
+
+
 <div class="accordion" id="accordionExample" *ngFor="let obj of list_commande">
   <div class="card">
     <div class="card-header" id="headingOne">
