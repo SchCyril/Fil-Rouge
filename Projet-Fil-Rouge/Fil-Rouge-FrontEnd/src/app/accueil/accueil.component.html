@@ -1,28 +1,32 @@
 <!-- <app-menu></app-menu> -->
 <div class="contenu">
+
     <img class=""
         src="http://www.angelio.net/blogangelio/wp-content/uploads/2018/11/2018-salondulivre-HautesPyrenees.jpg"
         id="image">
-        <br>
-        <br>
+    <br>
+    <br>
 
 
-    <div>
-        <h1 style="display:flex; justify-content:center">NOS MEILLEURS JEUX</h1>
+    <section class="fond">
+
         <div>
-            <app-liste-produit [categorie]="'jeux'"></app-liste-produit>
+            <h1 style="display:flex; justify-content:center">NOS MEILLEURS JEUX</h1>
+            <div>
+                <app-liste-produit [categorie]="'jeux'"></app-liste-produit>
+            </div>
         </div>
-    </div>
-    <div>
-        <h1 style="display: flex; justify-content: center">NOS MEILLEURS DVD</h1>
         <div>
-            <app-liste-produit [categorie]="'film'"></app-liste-produit>
+            <h1 style="display: flex; justify-content: center">NOS MEILLEURS DVD</h1>
+            <div>
+                <app-liste-produit [categorie]="'film'"></app-liste-produit>
+            </div>
         </div>
-    </div>
-    <div>
-        <h1 style="display: flex; justify-content: center">NOS MEILLEURS LIVRES</h1>
         <div>
-            <app-liste-produit [categorie]="'livre'"></app-liste-produit>
+            <h1 style="display: flex; justify-content: center">NOS MEILLEURS LIVRES</h1>
+            <div>
+                <app-liste-produit [categorie]="'livre'"></app-liste-produit>
+            </div>
         </div>
-    </div>
+    </section>
 </div>
