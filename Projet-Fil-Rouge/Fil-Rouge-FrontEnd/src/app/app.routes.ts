@@ -18,10 +18,11 @@ import { FicheProduitComponent } from './fiche-produit/fiche-produit.component';
 import { SignUpComponent } from './sign-up/sign-up.component';
 import { ProfilComponent } from './profil/profil.component';
 import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/page-modif-commande-admin.component';
+import { CommandeUtilisateurComponent } from './commande-utilisateur/commande-utilisateur.component';
 
 export const ROUTES: Routes = [
     { path: 'Admin', component: AccueilAdminComponent },
-    { path: '', component: MenuComponent },
+    { path: '', component: AccueilComponent },
     { path: 'Produit/:id', component: ModificationProduitAdminComponent },
     { path: 'Accueil', component: AccueilComponent },
     { path: 'Categorie/:cat', component: ListeProduitComponent },
@@ -32,6 +33,7 @@ export const ROUTES: Routes = [
     { path: 'ModificationProduit', component: ModificationProduitAdminComponent },
     { path: 'CreerProduit', component: CreerProduitAdminComponent },
     { path: 'Historique', component: HistoCommandesAdminComponent },
+    { path: 'Historique/user/:id', component: CommandeUtilisateurComponent },
     { path: 'Panier', component: PanierComponent },
     { path: 'ModificationCommande', component: PageModifCommandeAdminComponent },
     { path: 'ModificationCommande/:id', component: PageModifCommandeAdminComponent },

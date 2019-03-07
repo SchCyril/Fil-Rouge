@@ -36,6 +36,7 @@ import { ProfilComponent } from './profil/profil.component';
 import { ListeProduitCommandeAdminComponent } from './liste-produit-commande-admin/liste-produit-commande-admin.component';
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/page-modif-commande-admin.component';
+import { CommandeUtilisateurComponent } from './commande-utilisateur/commande-utilisateur.component';
 
 @NgModule({
   declarations: [
@@ -68,7 +69,8 @@ import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/pag
     FooterComponent,
     ProfilComponent,
     ListeProduitCommandeAdminComponent,
-    PageModifCommandeAdminComponent
+    PageModifCommandeAdminComponent,
+    CommandeUtilisateurComponent
   ],
   imports: [
     BrowserModule,

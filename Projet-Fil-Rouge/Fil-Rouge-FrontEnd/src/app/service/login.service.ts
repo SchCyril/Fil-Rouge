@@ -16,7 +16,6 @@ let httpOptions = {
 })
 export class LoginService {
 
-  utilisateur: Utilisateur;
 
   private isConnectedSub = new Subject<boolean>();
   isConnected: Observable<boolean> = this.isConnectedSub.asObservable();
@@ -44,6 +43,8 @@ export class LoginService {
       result => {
         this.changeConnectionStatus(false)
         this._router.navigate(['/Accueil'])
+        sessionStorage.setItem('ROLE', 'GUEST')
+        location.reload()
         return of(result);
       }
     );
@@ -56,10 +57,14 @@ export class LoginService {
       result => {
         this.changeConnectionStatus(true)
         if (result.role == "ADMIN") {
+          sessionStorage.setItem('ROLE', 'ADMIN');
           this._router.navigate(["/Admin"])
         } else {
+          sessionStorage.setItem('ROLE', 'GUEST');
           this._router.navigate(["/Accueil"])
+
         }
+        location.reload()
         return of(result);
       }
     );
@@ -68,25 +73,4 @@ export class LoginService {
   loggedInUser(): Observable<Utilisateur> {
     return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions);
   }
-
-  // deconnect() {
-  //   return this._http.get('http://localhost:8080/login/logMeOut', httpOptions).subscribe(
-  //     result => {
-  //       this.changeConnectionStatus(false);
-  //       return of(result);
-  //     }
-  //   );
-  // }
-
-  // connect(utilisateur: Utilisateur): Observable<Utilisateur> {
-  //   let authHeader: string = btoa(utilisateur.email + ":" + utilisateur.password);
-  //   httpOptions.headers = httpOptions.headers.set("Authorization", "Basic " + authHeader);
-  //   return this._http.get<Utilisateur>('http://localhost:8080/login/user', httpOptions).toPromise()
-  //     .then(
-  //       result => {  
-  //         this.changeConnectionStatus(false)
-  //         return of (result);
-  //       }
-  //     );
-  // }
 }

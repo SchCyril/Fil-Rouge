@@ -16,12 +16,16 @@ export class MenuComponent implements OnInit {
   nom: string = ""
   isConnected: boolean
 
+
+
+
   constructor(config: NgbDropdownConfig, private _produitService: ProduitService, private _loginService: LoginService, private router: Router) {
     config.placement = "bottom-right";
     config.autoClose = true;
   }
 
   ngOnInit() {
+
 
     this._loginService.isConnected.subscribe(isConnected => this.isConnected = isConnected);
 
@@ -45,16 +49,20 @@ export class MenuComponent implements OnInit {
     this.router.navigate(['/Login'])
   }
 
-  goToProfil(){
+  goToProfil() {
     this.router.navigate(['/Profil'])
   }
 
+  goToCommande() {
+    this._loginService.loggedInUser().subscribe(value => {
+      console.log("test")
+      this.router.navigate(['/Historique/user/' + value])
+    })
+  }
+
   deconnect() {
-    //this.isConnected = false;
-    // this._loginService.deconnect().subscribe(
-    //   value => this.router.navigate(['/Accueil'])
-    // );
     this._loginService.deconnect()
+
   }
 
 }

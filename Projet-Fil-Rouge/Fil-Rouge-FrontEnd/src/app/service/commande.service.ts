@@ -26,6 +26,10 @@ export class CommandeService {
     return this._http.get<Commande[]>("http://localhost:8080/Historique")
   }
 
+  getListeCommandeUser(id: number): Observable<Commande[]> {
+    return this._http.get<Commande[]>("http://localhost:8080/Historique/user/" + id)
+  }
+
   getCommande(id: number): Observable<Commande> {
     return this._http.get<Commande>("http://localhost:8080/Historique/" + id);
   }

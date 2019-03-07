@@ -30,7 +30,7 @@ export class SignUpComponent implements OnInit {
   }
 
   createUser() {
-    console.log(this.utilisateur);
+
     if (this.utilisateur.password == this.pswdConfirmed) {
       this._loginService.createUser(this.utilisateur).subscribe(
         value => this._loginService.connect(this.utilisateur)

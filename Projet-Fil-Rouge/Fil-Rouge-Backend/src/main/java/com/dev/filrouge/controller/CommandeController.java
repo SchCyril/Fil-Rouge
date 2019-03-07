@@ -39,7 +39,7 @@ public class CommandeController {
 		System.out.println(commandeDto.getEtat());
 	//	System.out.println(commandeDto.getProduits());
 		
-		Commande commandeNew = commandeDto.toCommande(commandeDto);
+		Commande commandeNew = CommandeDto.toCommande(commandeDto);
 		commandeService.save(commandeNew);
 	}
 
@@ -56,6 +56,18 @@ public class CommandeController {
 	@GetMapping("/{id}")
 	public Commande getCommandeUnique(@PathVariable Long id) {
 		return commandeService.findById(id);
+	}
+	
+	@GetMapping("/user/{id}")
+	public List<Commande> getCommandeUserId(@PathVariable Long id) {
+		List<Commande> listeCommande = getCommande();
+		List<Commande> res = new ArrayList<>();
+		for(Commande c: listeCommande) {
+			if(c.getUtilisateur().getId().equals(id)) {
+				res.add(c);
+			}
+		}
+		return res;
 	}
 	
 	@DeleteMapping(value="/{id}")

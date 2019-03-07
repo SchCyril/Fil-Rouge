@@ -1,9 +1,9 @@
 <form class="FormCommandeProduit">
   <div class="form-row">
     <div class="form-group col-md-6">
-      <label for="inputState">{{obj.reference}}</label>
-      <input type="text" id="inputState" name="reference" placeholder="blabla" class="form-control"
-        #champStock="ngModel" [(ngModel)]="commande.utilisateur">
+      <label for="inputState">Etat</label>
+      <input type="text" id="inputState" name="etat" class="form-control" #champStock="ngModel"
+        [(ngModel)]="commande.etat">
     </div>
     <div class="form-group col-md-6">
       <label for="inputState">Référence</label>
@@ -34,9 +34,5 @@
       <input type="number" placeholder="blabla" class="form-control" name="prix" #champPrix="ngModel"
         [(ngModel)]="produitCommande.id.produit.prix" />
     </div>
-  </div>
-  <div class="justity-content-center">
-    <button type="submit" (click)="modifCommande()" class="btn btn-primary">Enregistrer</button>
-    {{msg}}
   </div>
 </form>

@@ -3,6 +3,7 @@ import { Utilisateur } from '../model';
 import { LoginService } from '../service/login.service';
 import { Router } from '@angular/router';
 import { routerNgProbeToken } from '@angular/router/src/router_module';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'app-login-page',
