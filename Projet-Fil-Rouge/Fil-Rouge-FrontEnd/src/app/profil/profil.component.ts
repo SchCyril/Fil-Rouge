@@ -45,11 +45,9 @@ export class ProfilComponent implements OnInit {
     if (this.newPassword === this.newPasswordConfirmed) {
 
       if (this.newPassword === '') {
-        console.log("UPDATE SANS CHANGER PSWD")
         this.utilisateur.password = null
         this._loginService.updateUser(this.utilisateur)
       } else {
-        console.log("UPDATE AVEC CHANGEMT PSWD")
         this.utilisateur.password = this.newPassword
         this._loginService.updateUser(this.utilisateur)
       }

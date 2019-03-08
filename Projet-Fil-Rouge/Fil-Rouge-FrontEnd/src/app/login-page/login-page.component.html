@@ -1,34 +1,37 @@
-<div class="container">
-  <div class="d-flex justify-content-center h-100">
-    <div class="card">
-      <div class="card-header">
-        <h3>Se connecter</h3>
-      </div>
-      <div class="card-body">
-        <form (ngSubmit)="connexion()" #monForm="ngForm" ngNativeValidate>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+<div id="level1">
+  <div class="container">
+    <div class="d-flex justify-content-center h-100">
+      <div class="card">
+        <div class="card-header">
+          <h3>Se connecter</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="connexion()" #monForm="ngForm" ngNativeValidate>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fab fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="e-mail" [(ngModel)]="utilisateur.email" name="champ1"
+                #champ1="ngModel" required minlength="2" />
             </div>
-            <input type="text" class="form-control" placeholder="e-mail" [(ngModel)]="utilisateur.email" name="champ1"
-              #champ1="ngModel" required minlength="2" />
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" placeholder="mot de passe" name="champ2" #champ2="ngModel"
+                required minlength="2" [(ngModel)]="utilisateur.password">
+              <!-- LONGUEUR DU REQUIRE MDP A MODIFIER : 8 + REGEX -->
             </div>
-            <input type="password" class="form-control" placeholder="mot de passe" name="champ2" #champ2="ngModel"
-              required minlength="2" [(ngModel)]="utilisateur.password">
-            <!-- LONGUEUR DU REQUIRE MDP A MODIFIER : 8 + REGEX -->
+            <div class="form-group">
+              <input type="submit" value="Login" class="btn float-right login_btn">
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            <div>Pas de compte ?</div>
+            <button class="btn float-right login_btn" style="width:150px; margin-left:5%;" (click)="goToSignUpPage()">Créer un compte</button>
           </div>
-          <div class="form-group">
-            <input type="submit" value="Login" class="btn float-right login_btn">
-          </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <div class="d-flex justify-content-center links">
-          Pas de compte ?<button (click)="goToSignUpPage()">Créer un compte</button>
         </div>
       </div>
     </div>
