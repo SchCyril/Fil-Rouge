@@ -11,6 +11,11 @@
 
     
 }
+#logo{
+    width: 5rem;
+    height: 5rem;
+    opacity: 1;
+}
 
 .recherche {
     width: 50rem;
