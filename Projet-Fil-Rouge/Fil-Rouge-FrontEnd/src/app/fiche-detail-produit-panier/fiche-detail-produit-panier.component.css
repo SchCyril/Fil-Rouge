@@ -1,0 +1,17 @@
+#cadre {
+    border: thick double black;
+    background: beige;
+}
+.test {
+    display: flex
+}
+#nomDispo{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+#all {
+    display: flex;
+    
+    justify-content: space-around;
+}

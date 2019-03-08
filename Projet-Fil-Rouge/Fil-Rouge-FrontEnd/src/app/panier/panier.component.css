@@ -2,3 +2,25 @@
     height: 120px;
     width: 100px;
 }
+#btn {
+    display: flex;
+    justify-content: center
+}
+.test {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.col-3{
+    display: flex;
+    justify-content: center;
+}
+.panier {
+    display: flex;
+    align-items: center
+
+}
+.accordion {
+    border-style: solid;
+    border-width: 1px;
+}
