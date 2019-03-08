@@ -1,81 +1,83 @@
-<div class="container">
-  <div class="d-flex justify-content-center h-100">
-    <div class="card">
-      <div class="card-header">
-        <h3>Créer un compte</h3>
-      </div>
-      <div class="card-body">
-        <form (ngSubmit)="createUser()" #monForm="ngForm" ngNativeValidate>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+<div id="level1">
+  <div class="container">
+    <div class="d-flex justify-content-center">
+      <div class="card">
+        <div class="card-header">
+          <h3>Créer un compte</h3>
+        </div>
+        <div class="card-body">
+          <form (ngSubmit)="createUser()" #monForm="ngForm" ngNativeValidate>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="utilisateur.name" name="champ1"
+                #champ1="ngModel" required minlength="2" />
             </div>
-            <input type="text" class="form-control" placeholder="Nom" [(ngModel)]="utilisateur.name" name="champ1"
-              #champ1="ngModel" required minlength="2" />
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Prénom" name="champ2" #champ2="ngModel" required
+                minlength="2" [(ngModel)]="utilisateur.prenom" />
             </div>
-            <input type="text" class="form-control" placeholder="Prénom" name="champ2" #champ2="ngModel" required
-              minlength="2" [(ngModel)]="utilisateur.prenom" />
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="text" class="form-control" placeholder="Adresse" name="champ3" #champ3="ngModel" required
+                [(ngModel)]="utilisateur.adresse" />
             </div>
-            <input type="text" class="form-control" placeholder="Adresse" name="champ3" #champ3="ngModel" required
-              [(ngModel)]="utilisateur.adresse" />
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="tel"
+                pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
+                class="form-control" placeholder="Téléphone" name="champ4" #champ4="ngModel" required
+                [(ngModel)]="utilisateur.telephone" />
             </div>
-            <input type="tel"
-              pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$"
-              class="form-control" placeholder="Téléphone" name="champ4" #champ4="ngModel" required
-              [(ngModel)]="utilisateur.telephone" />
-          </div>
-          <!-- FAIRE REGEX TEL-->
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <!-- FAIRE REGEX TEL-->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="email" class="form-control" placeholder="e-mail" [(ngModel)]="utilisateur.email"
+                name="champ5" #champ5="ngModel" required />
             </div>
-            <input type="email" class="form-control" placeholder="e-mail" [(ngModel)]="utilisateur.email" name="champ5"
-              #champ5="ngModel" required />
-          </div>
-          <!-- FAIRE REGEX MAIL-->
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-user"></i></span>
+            <!-- FAIRE REGEX MAIL-->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+              </div>
+              <input type="date" value="01/01/2019" class="form-control" placeholder="Date de Naissance" name="champ6"
+                #champ6="ngModel" required [(ngModel)]="utilisateur.datenaissance" />
             </div>
-            <input type="date" value="01/01/2019" class="form-control" placeholder="Date de Naissance" name="champ6"
-              #champ6="ngModel" required [(ngModel)]="utilisateur.datenaissance" />
-          </div>
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" placeholder="Tapez votre mot de passe"
+                [(ngModel)]="utilisateur.password" name="champ7" #champ7="ngModel" required minlength="8">
             </div>
-            <input type="password" class="form-control" placeholder="Tapez votre mot de passe"
-              [(ngModel)]="utilisateur.password" name="champ7" #champ7="ngModel" required minlength="8">
-          </div>
-          <!-- FAIRE REGEX MDP-->
-          <div class="input-group form-group">
-            <div class="input-group-prepend">
-              <span class="input-group-text"><i class="fas fa-key"></i></span>
+            <!-- FAIRE REGEX MDP-->
+            <div class="input-group form-group">
+              <div class="input-group-prepend">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+              </div>
+              <input type="password" class="form-control" placeholder="Confirmez votre mot de passe" name="champ8"
+                #champ8="ngModel" required minlength="8" [(ngModel)]="pswdConfirmed">
             </div>
-            <input type="password" class="form-control" placeholder="Confirmez votre mot de passe" name="champ8"
-              #champ8="ngModel" required minlength="8" [(ngModel)]="pswdConfirmed">
+            <div class="form-group">
+              <input type="submit" value="Confirmez" class="btn float-right login_btn">
+            </div>
+          </form>
+        </div>
+        <div class="card-footer">
+          <div class="d-flex justify-content-center links">
+            <span id="dejaCompte">Déjà un compte ?</span><button class="btn float-right login_btn"
+              (click)="goToLoginPage()" style="width:150px; margin-left:5%;">Connectez-vous !</button>
           </div>
-          <div class="form-group">
-            <input type="submit" value="Confirmez" class="btn float-right login_btn">
-          </div>
-        </form>
-      </div>
-      <div class="card-footer">
-        <div class="d-flex justify-content-center links">
-          <span id="dejaCompte">Déjà un compte ?</span><button class="btn float-right login_btn"
-            (click)="goToLoginPage()" style="width:150px">Connectez-vous !</button>
         </div>
       </div>
     </div>

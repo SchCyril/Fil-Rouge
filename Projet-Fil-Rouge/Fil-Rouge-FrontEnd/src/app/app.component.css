@@ -1,8 +1,9 @@
-:host #role{
+:host #role {
     background-color: aqua;
 }
 
-.fondcontenu {
-background-color: white;
-    margin: 5% 20%;
+footer {
+    width: 100%;
+    height: 15vh;
+    background-color: black;
 }

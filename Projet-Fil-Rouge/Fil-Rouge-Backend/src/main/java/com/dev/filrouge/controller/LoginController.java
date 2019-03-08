@@ -70,12 +70,9 @@ public class LoginController {
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public Utilisateur getConnectedUser(Principal principal) {
-        System.out.println("*****DANS LA FONCTION********");
         if (principal != null) {
-            System.out.println("*****PRINCIPAL NON NUL********");
             return utilisateurService.findByEmail(principal.getName());
         }
-        System.out.println("*****NULL********");
         return null;
     }
 
