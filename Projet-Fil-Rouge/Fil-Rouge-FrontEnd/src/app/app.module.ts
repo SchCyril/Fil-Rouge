@@ -11,7 +11,7 @@ import { RouterModule } from '@angular/router';
 import { CreerProduitAdminComponent } from './creer-produit-admin/creer-produit-admin.component';
 import { FormsModule } from '@angular/forms';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ListeProduitComponent } from './liste-produit/liste-produit.component';
 import { ProduitComponent } from './produit/produit.component';
 import { AccueilComponent } from './accueil/accueil.component';
@@ -37,6 +37,7 @@ import { ListeProduitCommandeAdminComponent } from './liste-produit-commande-adm
 import { ModificationProduitAdminComponent } from './modification-produit-admin/modification-produit-admin.component';
 import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/page-modif-commande-admin.component';
 import { CommandeUtilisateurComponent } from './commande-utilisateur/commande-utilisateur.component';
+import { UnauthorizedInterceptor } from './interceptor/unauthorizedInterceptor';
 
 
 @NgModule({
@@ -82,7 +83,13 @@ import { CommandeUtilisateurComponent } from './commande-utilisateur/commande-ut
     RouterModule.forRoot(ROUTES),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: UnauthorizedInterceptor,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

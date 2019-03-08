@@ -10,7 +10,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,6 +34,7 @@ public class LoginController {
 
     @PostMapping
     public Utilisateur createUser(@RequestBody Utilisateur utilisateur) {
+        System.out.println("*****CREATION UTILISATEUR********");
         Utilisateur newUtilisateur = new Utilisateur(passwordEncoder.encode(utilisateur.getPassword()),
                 utilisateur.getRole(), utilisateur.getName(), utilisateur.getPrenom(), utilisateur.getAdresse(),
                 utilisateur.getTelephone(), utilisateur.getEmail(), utilisateur.getDatenaissance());
@@ -52,23 +52,41 @@ public class LoginController {
         return newUtilisateur;
     }
 
-    @PostMapping(value="update")
+    @PostMapping(value = "update")
     public Utilisateur updateUser(@RequestBody Utilisateur utilisateur) {
-        utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
-        utilisateurService.save(utilisateur);
+        System.out.println("*****" + utilisateur.getPassword() + "********");
+        if (utilisateur.getPassword() != null) {
+            System.out.println("*****UPDATE AVEC CHANGMT MDP********");
+            utilisateur.setPassword(passwordEncoder.encode(utilisateur.getPassword()));
+            utilisateurService.save(utilisateur);
+        } else {
+            System.out.println("*****UPDATE SANS CHANGMT MDP********");
+            utilisateur.setPassword(utilisateurService.findByEmail(utilisateur.getEmail()).getPassword());
+            utilisateurService.save(utilisateur);
+        }
+
         return utilisateur;
     }
 
     @RequestMapping(value = "user", method = RequestMethod.GET)
     public Utilisateur getConnectedUser(Principal principal) {
+        System.out.println("*****DANS LA FONCTION********");
         if (principal != null) {
+            System.out.println("*****PRINCIPAL NON NUL********");
             return utilisateurService.findByEmail(principal.getName());
         }
+        System.out.println("*****NULL********");
         return null;
     }
-   
 
-    //@PreAuthorize("hasAuthority('ADMIN')")
+    @PostMapping(value = "email")
+    public Utilisateur getUserByEmail(@RequestBody String email) {
+        System.out.println("*****GET USER BY EMAIL********");
+        System.out.println(utilisateurService.findByEmail(email));
+        return utilisateurService.findByEmail(email);
+    }
+
+    // @PreAuthorize("hasAuthority('ADMIN')")
     @GetMapping
     public ResponseEntity<?> getMethodName() {
         System.out.println("AUTORITY");

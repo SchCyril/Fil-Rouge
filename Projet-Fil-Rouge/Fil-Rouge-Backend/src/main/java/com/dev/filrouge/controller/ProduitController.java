@@ -46,7 +46,7 @@ public class ProduitController {
 		return produitCreate;
 	}
 
-    @PostMapping(value = "usualSearch")
+    @PostMapping(value = "/usualSearch")
     public ProduitPage searchProduitActif(@RequestBody Map<String, String> action) {
         return produitRepoImpl.searchNotAdmin(
             Integer.parseInt(action.get("page")),
@@ -57,7 +57,7 @@ public class ProduitController {
     }
 
     @PreAuthorize("hasAuthority('ADMIN')")
-    @PostMapping(value = "adminSearch")
+    @PostMapping(value = "/adminSearch")
     public ProduitPage searchAllProduit(@RequestBody Map<String, String> action) {
         return produitRepoImpl.searchAdmin(
             Integer.parseInt(action.get("page")),
