@@ -4,6 +4,7 @@ import { PanierService } from '../service/panier.service';
 import { map } from 'rxjs/operators';
 import { CommandeService } from '../service/commande.service';
 import { LoginService } from '../service/login.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-panier',
@@ -16,7 +17,7 @@ export class PanierComponent implements OnInit {
   listePanier: PanierItems[] = []
 
 
-  constructor(private _panierService: PanierService, private _commandeService: CommandeService, private _loginService: LoginService) {
+  constructor(private _panierService: PanierService, private _commandeService: CommandeService, private _loginService: LoginService, private router: Router) {
 
     let it: Date = new Date();
     console.log(it)
@@ -75,37 +76,46 @@ export class PanierComponent implements OnInit {
       value => {
         user = value;
 
-        let commandeProduitDtos: CommandeProduitDto[] = [];
-        for (let i = 0; i < this.listePanier.length; i++) {
-          let commandeProduitDto: CommandeProduitDto = {
-            produitId: this.listePanier[i].produit.id,
-            quantite: this.listePanier[i].quantite
-          }
-          commandeProduitDtos.push(commandeProduitDto);
-        }
+        if (user === null) {
+          this.router.navigate(['/Login'])
+        } else {
 
-        let it: Date = new Date();
-        console.log(it.toDateString())
-        let date: string = this.calculDate(it, 0)
-        let datePlus: string = this.calculDate(it, 1)
-        console.log("premire date : " + date + " seconde date : " + datePlus)
-        console.log("2019-02-03" === date)
-        let commande: CommandeDto = {
-          id: null,
-          utilisateurId: user.id,
-          numeroClient: user.id,
-          reference: "COM",
-          dateCommande: date,
-          dateLivraison: datePlus,
-          prixTotal: this.prixTotal,
-          etat: "en cours",
-          commandeProduits: commandeProduitDtos
+
+          let commandeProduitDtos: CommandeProduitDto[] = [];
+          for (let i = 0; i < this.listePanier.length; i++) {
+            let commandeProduitDto: CommandeProduitDto = {
+              produitId: this.listePanier[i].produit.id,
+              quantite: this.listePanier[i].quantite
+            }
+            commandeProduitDtos.push(commandeProduitDto);
+          }
+
+          let it: Date = new Date();
+          console.log(it.toDateString())
+          let date: string = this.calculDate(it, 0)
+          let datePlus: string = this.calculDate(it, 1)
+          console.log("premire date : " + date + " seconde date : " + datePlus)
+          console.log("2019-02-03" === date)
+          let commande: CommandeDto = {
+            id: null,
+            utilisateurId: user.id,
+            numeroClient: user.id,
+            reference: "COM",
+            dateCommande: date,
+            dateLivraison: datePlus,
+            prixTotal: this.prixTotal,
+            etat: "en cours",
+            commandeProduits: commandeProduitDtos
+          }
+          this._commandeService.ajouterCommandeDto(commande);
+          this.produits = []
+          localStorage.setItem('listePanier', JSON.stringify(this.produits))
+          this.remplissageMap()
+          this.prixTotal = 0;
         }
-        this._commandeService.ajouterCommandeDto(commande);
-        this.produits = []
-        localStorage.setItem('listePanier', JSON.stringify(this.produits))
-        this.remplissageMap()
-        this.prixTotal = 0;
+      },
+      error => {
+        console.log("pas co")
       }
     )
   }

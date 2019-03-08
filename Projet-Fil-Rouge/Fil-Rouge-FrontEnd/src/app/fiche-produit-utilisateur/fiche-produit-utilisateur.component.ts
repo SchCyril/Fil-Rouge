@@ -21,10 +21,10 @@ export class FicheProduitUtilisateurComponent implements OnInit {
   ajouterPanier() {
     // console.log(this.produit)
     this._panierService.ajoutproduitPanier(this.produit)
-    console.log(this._panierService.produits)
   }
 
   setId(id: number) {
+    console.log(this.produit)
     this._produitService.setIdModification(id);
   }
 

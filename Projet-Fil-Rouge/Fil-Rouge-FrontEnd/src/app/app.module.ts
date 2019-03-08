@@ -25,7 +25,6 @@ import { HistoCommandesAdminComponent } from './histo-commandes-admin/histo-comm
 import { ListeProduitsAdminComponent } from './liste-produits-admin/liste-produits-admin.component';
 import { FicheDetailProduitComponent } from './fiche-detail-produit/fiche-detail-produit.component';
 import { PanierComponent } from './panier/panier.component';
-import { SafePipe } from './safe.pipe';
 import { FicheDetailProduitPanierComponent } from './fiche-detail-produit-panier/fiche-detail-produit-panier.component';
 import { ListeProduitsUtilisateurComponent } from './liste-produits-utilisateur/liste-produits-utilisateur.component';
 import { FicheProduitUtilisateurComponent } from './fiche-produit-utilisateur/fiche-produit-utilisateur.component';
@@ -38,6 +37,7 @@ import { ModificationProduitAdminComponent } from './modification-produit-admin/
 import { PageModifCommandeAdminComponent } from './page-modif-commande-admin/page-modif-commande-admin.component';
 import { CommandeUtilisateurComponent } from './commande-utilisateur/commande-utilisateur.component';
 import { UnauthorizedInterceptor } from './interceptor/unauthorizedInterceptor';
+import { SafePipe } from './safe.pipe';
 
 
 @NgModule({
@@ -72,7 +72,8 @@ import { UnauthorizedInterceptor } from './interceptor/unauthorizedInterceptor';
     ProfilComponent,
     ListeProduitCommandeAdminComponent,
     PageModifCommandeAdminComponent,
-    CommandeUtilisateurComponent
+    CommandeUtilisateurComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

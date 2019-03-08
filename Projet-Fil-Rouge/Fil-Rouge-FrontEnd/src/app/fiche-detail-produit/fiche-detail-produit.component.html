@@ -10,13 +10,13 @@
 
 <div class="row">
   <div class="col-sm-6">
-    <img src={{produit.image}} />
+    <img [src]="produit.image | safe:'url'" />
   </div>
   <div class="col-sm-6">
     <div>
       Descritpion : <br>{{produit.description}}
     </div>
-    <div class="row">
+    <div class=" row">
       <div class="col-sm-6">Prix : {{produit.prix}}€</div>
       <div class="col-sm-6">Quantite : {{produit.stock}}</div>
     </div>

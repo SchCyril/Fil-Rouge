@@ -55,12 +55,9 @@ public class CommandeController {
 
 	@GetMapping("/user/{id}")
 	public List<Commande> getCommandeUserId(Principal principal, @PathVariable Long id) {
-		System.out.println("test");
-		System.out.println("aefafzazdfazazfafzé"+principal.toString()+" eeee");
 		List<Commande> listeCommande = getCommande();
 		List<Commande> res = new ArrayList<>();
 		for (Commande c : listeCommande) {
-			System.out.println("aefafzazdfazazfafzé"+utilisateurService.findByEmail(principal.getName()).getId());
 			if (utilisateurService.findByEmail(principal.getName()).getId().equals(id)) {
 				res.add(c);
 			}

@@ -40,6 +40,7 @@ export const ROUTES: Routes = [
     { path: 'ListeProduitsAdmin', component: ListeProduitsAdminComponent },
     { path: 'ListeProduitsAdmin/:id', component: ListeProduitsAdminComponent },
     { path: 'Historique/:nom/:prenom/:prix', component: HistoCommandesAdminComponent },
-    { path: 'ListeProduitsAdmin/:nom/:type', component: ListeProduitsAdminComponent }
+    { path: 'ListeProduitsAdmin/:nom/:type', component: ListeProduitsAdminComponent },
+    { path: 'FicheProduit/:id', component: FicheProduitComponent }
 
 ];
